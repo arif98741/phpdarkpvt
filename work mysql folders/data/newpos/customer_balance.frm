@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `newpos`.`customer_statement`.`customer_id` AS `customer_id`,sum((`newpos`.`customer_statement`.`payable` - `newpos`.`customer_statement`.`paid`)) AS `balance` from `newpos`.`customer_statement` group by `newpos`.`customer_statement`.`customer_id`
+md5=811958efae2254714214aa0ae8883ae9
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-07-21 20:43:41
+create-version=2
+source=select `customer_statement`.`customer_id` AS `customer_id`,sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `balance` from `customer_statement` group by `customer_statement`.`customer_id`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `newpos`.`customer_statement`.`customer_id` AS `customer_id`,sum((`newpos`.`customer_statement`.`payable` - `newpos`.`customer_statement`.`paid`)) AS `balance` from `newpos`.`customer_statement` group by `newpos`.`customer_statement`.`customer_id`
+mariadb-version=100131

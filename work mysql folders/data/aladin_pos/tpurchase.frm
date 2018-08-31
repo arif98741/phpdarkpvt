@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `aladin_pos`.`tbl_invoice_products`.`product_id` AS `product_id`,sum(`aladin_pos`.`tbl_invoice_products`.`quantity`) AS `pquantity` from `aladin_pos`.`tbl_invoice_products` group by `aladin_pos`.`tbl_invoice_products`.`product_id`
+md5=cd3127558aaad4729f7566a09ba3432f
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-05-23 10:18:46
+create-version=2
+source=select `tbl_invoice_products`.`product_id` AS `product_id`,sum(`tbl_invoice_products`.`quantity`) AS `pquantity` from `tbl_invoice_products` group by `tbl_invoice_products`.`product_id`
+client_cs_name=utf8
+connection_cl_name=utf8_general_ci
+view_body_utf8=select `aladin_pos`.`tbl_invoice_products`.`product_id` AS `product_id`,sum(`aladin_pos`.`tbl_invoice_products`.`quantity`) AS `pquantity` from `aladin_pos`.`tbl_invoice_products` group by `aladin_pos`.`tbl_invoice_products`.`product_id`
+mariadb-version=100131

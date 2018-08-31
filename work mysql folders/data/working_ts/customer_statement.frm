@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `working_ts`.`tbl_sell`.`sell_id` AS `sell_id`,`working_ts`.`tbl_sell`.`date` AS `date`,`working_ts`.`tbl_sell`.`customer_id` AS `customer_id`,\'Products Sales\' AS `Products Sales`,`working_ts`.`tbl_sell`.`payable` AS `payable`,`working_ts`.`tbl_sell`.`paid` AS `paid` from `working_ts`.`tbl_sell` union select `working_ts`.`payment`.`serial` AS `serial`,`working_ts`.`payment`.`date` AS `date`,`working_ts`.`payment`.`customer_id` AS `customer_id`,\'Payment\' AS `Payment`,\'0\' AS `0`,`working_ts`.`payment`.`amount` AS `amount` from `working_ts`.`payment`
+md5=49a47d194d60f24d4c503cfbda97939c
+updatable=0
+algorithm=0
+definer_user=dteservicebd
+definer_host=localhost
+suid=1
+with_check_option=0
+timestamp=2018-07-04 21:40:03
+create-version=2
+source=select `tbl_sell`.`sell_id` AS `sell_id`,`tbl_sell`.`date` AS `date`,`tbl_sell`.`customer_id` AS `customer_id`,\'Products Sales\' AS `Products Sales`,`tbl_sell`.`payable` AS `payable`,`tbl_sell`.`paid` AS `paid` from `tbl_sell` union select `payment`.`serial` AS `serial`,`payment`.`date` AS `date`,`payment`.`customer_id` AS `customer_id`,\'Payment\' AS `Payment`,\'0\' AS `0`,`payment`.`amount` AS `amount` from `payment`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `working_ts`.`tbl_sell`.`sell_id` AS `sell_id`,`working_ts`.`tbl_sell`.`date` AS `date`,`working_ts`.`tbl_sell`.`customer_id` AS `customer_id`,\'Products Sales\' AS `Products Sales`,`working_ts`.`tbl_sell`.`payable` AS `payable`,`working_ts`.`tbl_sell`.`paid` AS `paid` from `working_ts`.`tbl_sell` union select `working_ts`.`payment`.`serial` AS `serial`,`working_ts`.`payment`.`date` AS `date`,`working_ts`.`payment`.`customer_id` AS `customer_id`,\'Payment\' AS `Payment`,\'0\' AS `0`,`working_ts`.`payment`.`amount` AS `amount` from `working_ts`.`payment`
+mariadb-version=100131

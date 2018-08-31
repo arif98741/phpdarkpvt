@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `espos`.`tbl_sell`.`sell_id` AS `sell_id`,`espos`.`tbl_sell`.`customer_id` AS `customer_id`,`espos`.`tbl_sell`.`date` AS `date`,`espos`.`tbl_sell`.`payable` AS `payable`,`espos`.`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `espos`.`tbl_sell` union select `espos`.`tbl_customer`.`serial` AS `serial`,`espos`.`tbl_customer`.`customer_id` AS `customer_id`,`espos`.`tbl_customer`.`date` AS `date`,`espos`.`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `espos`.`tbl_customer` union select `espos`.`payment`.`serial` AS `serial`,`espos`.`payment`.`customer_id` AS `customer_id`,`espos`.`payment`.`date` AS `date`,0 AS `0`,`espos`.`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `espos`.`payment`
+md5=fec912826e4224769025754a056c978c
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-08-09 18:24:00
+create-version=2
+source=select `tbl_sell`.`sell_id` AS `sell_id`,`tbl_sell`.`customer_id` AS `customer_id`,`tbl_sell`.`date` AS `date`,`tbl_sell`.`payable` AS `payable`,`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `tbl_sell` union select `tbl_customer`.`serial` AS `serial`,`tbl_customer`.`customer_id` AS `customer_id`,`tbl_customer`.`date` AS `date`,`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `tbl_customer` union select `payment`.`serial` AS `serial`,`payment`.`customer_id` AS `customer_id`,`payment`.`date` AS `date`,0 AS `0`,`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `payment`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `espos`.`tbl_sell`.`sell_id` AS `sell_id`,`espos`.`tbl_sell`.`customer_id` AS `customer_id`,`espos`.`tbl_sell`.`date` AS `date`,`espos`.`tbl_sell`.`payable` AS `payable`,`espos`.`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `espos`.`tbl_sell` union select `espos`.`tbl_customer`.`serial` AS `serial`,`espos`.`tbl_customer`.`customer_id` AS `customer_id`,`espos`.`tbl_customer`.`date` AS `date`,`espos`.`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `espos`.`tbl_customer` union select `espos`.`payment`.`serial` AS `serial`,`espos`.`payment`.`customer_id` AS `customer_id`,`espos`.`payment`.`date` AS `date`,0 AS `0`,`espos`.`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `espos`.`payment`
+mariadb-version=100131

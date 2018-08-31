@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `working_ts`.`customer_statement`.`customer_id` AS `customer_id`,sum((`working_ts`.`customer_statement`.`payable` - `working_ts`.`customer_statement`.`paid`)) AS `balance` from `working_ts`.`customer_statement` group by `working_ts`.`customer_statement`.`customer_id`
+md5=e23089b0cecd52f4a5e845342922d549
+updatable=0
+algorithm=0
+definer_user=dteservicebd
+definer_host=localhost
+suid=1
+with_check_option=0
+timestamp=2018-07-04 21:40:02
+create-version=2
+source=select `customer_statement`.`customer_id` AS `customer_id`,sum((`customer_statement`.`payable` - `customer_statement`.`paid`)) AS `balance` from `customer_statement` group by `customer_statement`.`customer_id`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `working_ts`.`customer_statement`.`customer_id` AS `customer_id`,sum((`working_ts`.`customer_statement`.`payable` - `working_ts`.`customer_statement`.`paid`)) AS `balance` from `working_ts`.`customer_statement` group by `working_ts`.`customer_statement`.`customer_id`
+mariadb-version=100131

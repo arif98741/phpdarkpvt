@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `update_ts`.`tbl_sell_products`.`product_id` AS `product_id`,sum(`update_ts`.`tbl_sell_products`.`quantity`) AS `squantity` from `update_ts`.`tbl_sell_products` group by `update_ts`.`tbl_sell_products`.`product_id`
+md5=7d878b34c1abd0bae058de0138c56426
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-06-05 19:01:27
+create-version=2
+source=select `tbl_sell_products`.`product_id` AS `product_id`,sum(`tbl_sell_products`.`quantity`) AS `squantity` from `tbl_sell_products` group by `tbl_sell_products`.`product_id`
+client_cs_name=utf8
+connection_cl_name=utf8_general_ci
+view_body_utf8=select `update_ts`.`tbl_sell_products`.`product_id` AS `product_id`,sum(`update_ts`.`tbl_sell_products`.`quantity`) AS `squantity` from `update_ts`.`tbl_sell_products` group by `update_ts`.`tbl_sell_products`.`product_id`
+mariadb-version=100131

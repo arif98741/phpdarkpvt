@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `update_ts`.`tbl_invoice_products`.`product_id` AS `product_id`,sum(`update_ts`.`tbl_invoice_products`.`quantity`) AS `pquantity` from `update_ts`.`tbl_invoice_products` group by `update_ts`.`tbl_invoice_products`.`product_id`
+md5=a6b6da307104ed55de4509c53cd28165
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-06-05 19:01:27
+create-version=2
+source=select `tbl_invoice_products`.`product_id` AS `product_id`,sum(`tbl_invoice_products`.`quantity`) AS `pquantity` from `tbl_invoice_products` group by `tbl_invoice_products`.`product_id`
+client_cs_name=utf8
+connection_cl_name=utf8_general_ci
+view_body_utf8=select `update_ts`.`tbl_invoice_products`.`product_id` AS `product_id`,sum(`update_ts`.`tbl_invoice_products`.`quantity`) AS `pquantity` from `update_ts`.`tbl_invoice_products` group by `update_ts`.`tbl_invoice_products`.`product_id`
+mariadb-version=100131

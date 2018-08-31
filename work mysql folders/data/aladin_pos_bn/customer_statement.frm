@@ -1,0 +1,16 @@
+TYPE=VIEW
+query=select `aladin_pos_bn`.`tbl_sell`.`sell_id` AS `sell_id`,`aladin_pos_bn`.`tbl_sell`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`tbl_sell`.`date` AS `date`,`aladin_pos_bn`.`tbl_sell`.`payable` AS `payable`,`aladin_pos_bn`.`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `aladin_pos_bn`.`tbl_sell` union select `aladin_pos_bn`.`tbl_customer`.`serial` AS `serial`,`aladin_pos_bn`.`tbl_customer`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`tbl_customer`.`date` AS `date`,`aladin_pos_bn`.`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `aladin_pos_bn`.`tbl_customer` union select `aladin_pos_bn`.`payment`.`serial` AS `serial`,`aladin_pos_bn`.`payment`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`payment`.`date` AS `date`,0 AS `0`,`aladin_pos_bn`.`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `aladin_pos_bn`.`payment`
+md5=f11eb56624754dfea95970010752df05
+updatable=0
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+timestamp=2018-07-28 20:08:31
+create-version=2
+source=select `tbl_sell`.`sell_id` AS `sell_id`,`tbl_sell`.`customer_id` AS `customer_id`,`tbl_sell`.`date` AS `date`,`tbl_sell`.`payable` AS `payable`,`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `tbl_sell` union select `tbl_customer`.`serial` AS `serial`,`tbl_customer`.`customer_id` AS `customer_id`,`tbl_customer`.`date` AS `date`,`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `tbl_customer` union select `payment`.`serial` AS `serial`,`payment`.`customer_id` AS `customer_id`,`payment`.`date` AS `date`,0 AS `0`,`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `payment`
+client_cs_name=utf8mb4
+connection_cl_name=utf8mb4_general_ci
+view_body_utf8=select `aladin_pos_bn`.`tbl_sell`.`sell_id` AS `sell_id`,`aladin_pos_bn`.`tbl_sell`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`tbl_sell`.`date` AS `date`,`aladin_pos_bn`.`tbl_sell`.`payable` AS `payable`,`aladin_pos_bn`.`tbl_sell`.`paid` AS `paid`,\'Sales Invoice\' AS `Drescription` from `aladin_pos_bn`.`tbl_sell` union select `aladin_pos_bn`.`tbl_customer`.`serial` AS `serial`,`aladin_pos_bn`.`tbl_customer`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`tbl_customer`.`date` AS `date`,`aladin_pos_bn`.`tbl_customer`.`opening_balance` AS `opening_balance`,0 AS `0`,\'Opening\' AS `Opening` from `aladin_pos_bn`.`tbl_customer` union select `aladin_pos_bn`.`payment`.`serial` AS `serial`,`aladin_pos_bn`.`payment`.`customer_id` AS `customer_id`,`aladin_pos_bn`.`payment`.`date` AS `date`,0 AS `0`,`aladin_pos_bn`.`payment`.`amount` AS `amount`,\'Payment\' AS `Payment` from `aladin_pos_bn`.`payment`
+mariadb-version=100131
