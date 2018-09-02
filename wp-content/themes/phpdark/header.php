@@ -43,17 +43,17 @@
 		<div class="container-fluid">
 			<div id="branding">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" />
-				<h1><a href="<?php bloginfo('home'); ?>" class="logo_title">PHPDark.Com</a></h1><br/>
+				<h1><a href="<?php echo get_home_url(); ?> " class="logo_title">PHPDark.Com</a></h1><br/>
 				<!-- <span>Your Ultimate PHP Guide</span> -->
 			</div>
 			<nav>
 				<ul>
-					<li><a href="<?php echo home_url(); ?>/wordpress/search-page/">PHP BASIC</a></li>
-					<li><a href="#">PHP ADVANCED</a></li>
-					<li><a href="#">PROJECT</a></li>
-					<li><a href="#">AJAX</a></li>
-					<li><a href="#">BlOG</a></li>
-					<li><a href="<?php bloginfo('home') ?>/about-us">ABOUT US</a></li>
+					<li><a href="<?php echo get_home_url() ;?>/php/2017/08/08/introduction-to-php-programming/">PHP BASIC</a></li>
+					<li><a href="<?php echo get_home_url(); ?>/php/2017/09/27/php-array-declaration-and-defination/">PHP ADVANCED</a></li>
+					<li><a href="<?php echo get_home_url(); ?>/project">PROJECT</a></li>
+					<li><a href="<?php echo get_home_url(); ?>/2018/09/02/ajax-introduction/">AJAX</a></li>
+					<li><a href="<?php echo get_home_url(); ?>/blog">BlOG</a></li>
+					<li><a href="<?php echo get_home_url(); ?>/about-us">ABOUT US</a></li>
 				</ul>
 			</nav>
 			<div class="main_search">

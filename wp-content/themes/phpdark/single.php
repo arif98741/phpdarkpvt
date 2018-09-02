@@ -1,9 +1,32 @@
 <?php get_header(); ?>
 <?php
-    
+
     $x = get_the_category(get_the_ID());
+    if (count($x) == 1) {
+
+       $category_name = '';
+        if($x[0]->slug == 'html5'){
+            $category_name = $x[0]->slug;
+        }else if($x[0]->slug == 'ajax'){
+            $category_name = $x[0]->slug;
+        }else if($x[0]->slug == 'blog'){
+            $category_name = $x[0]->slug;
+
+
+        }
+    }else{
+
+        $category_name = $x[1]->slug;
+    }
+    
+    // echo "<pre>";
+    // print_r($x);
+    // echo "</pre>";
 
  ?>
+    <?php if($category_name == 'blog'): ?>
+         <?php get_template_part('page/blog_single'); ?>       
+    <?php endif; ?>    
 	
 	<section id="singlepage">
 		<div class="container">
@@ -12,11 +35,26 @@
 
 				<div class="sidebar">
                     <br/>
-					<h2><?php echo $x[1]->name;?></h2>
+					<h2>
+                        <?php
+                        if (count($x) == 1) {
+                            echo $x[0]->name;
+                        }elseif(count($x) == 2){
+                            echo $x[1]->name;
+                        }elseif(count($x) == 3){
+                            echo $x[2]->name;
+                        }elseif(count($x) == 4){
+                            echo $x[3]->name;
+                        }
+                         
+                        ?>
+                            
+                        </h2>
 					<ul>
                         <?php
                         $args = array(
-                            'category_name' => $x[1]->slug,
+                            //'category_name' => $x[1]->slug,
+                            'category_name' => $category_name,
                             'order' => 'ASC',
                             'orderby' => 'date'
                         );
@@ -32,8 +70,7 @@
                         } else {
                             ?>
                             <p>No Post Found </p>
-                        <?php } wp_reset_query();
-                        ?>
+                        <?php } wp_reset_query(); ?>
 
 					</ul>
 				</div>
@@ -44,27 +81,10 @@
 		                while (have_posts()): the_post();
 		                    ?>
                             <h1 style="text-center"><?php the_title(); ?></h1></>
-                            <!--<p>
-                                <strong>Category: </strong>
-                                <a href="#" class="categories">PHP</a> |
-                                <a href="#"  class="categories">Ajax</a> |
-                                <a href="#"  class="categories">Object Oriented</a>
-                            </p>-->
-
+                            
                             <?php  the_content(); ?>
-
-
-
                          <?php endwhile; ?>
 				</div>
-				<!--<div class="tags">
-					
-					<a href="#"><i class="fa fa-tags"></i>&nbsp;PHP</a>
-					<a href="#"><i class="fa fa-tags"></i>&nbsp;MYSqli</a>
-					<a href="#"><i class="fa fa-tags"></i>&nbsp;PDO</a>
-					<a href="#"><i class="fa fa-tags"></i>&nbsp;Connection</a>	
-					<a href="#"><i class="fa fa-tags"></i>&nbsp;ERROR</a>	
-				</div>	-->
 				
 				<div class="page_content">
 				    <h3>Share This on Social Media</h3>

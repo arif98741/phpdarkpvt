@@ -1,14 +1,12 @@
 <?php 
 
 	class Helper{
-			private $data;
+		private $data;
 
-			public function __construct()
-			{
-				# code...
-			}
-
-			
+		public function __construct()
+		{
+			# code...
+		}
 
 	}
 ?>

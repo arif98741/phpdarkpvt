@@ -22,12 +22,12 @@
 				<div class="important_pages">
 					<h2>Important Pages</h2>
 					<ul>
-					    <li><a href="http://phpdark.com/contact/">Contact Us</a></li>
-						<li><a href="http://phpdark.com/privacy-policy/">Privacy Policy</a></li>
-						<li><a href="http://phpdark.com/faq/">FAQ</a></li>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Read Blog</a></li>
-						<li><a href="#">Sitemap</a></li>
+					    <li><a href="<?php echo get_home_url(); ?>/contact/">Contact Us</a></li>
+						<li><a href="<?php echo get_home_url(); ?>/privacy-policy/">Privacy Policy</a></li>
+						<li><a href="<?php echo get_home_url(); ?>/faq/">FAQ</a></li>
+						<li><a href="<?php echo get_home_url(); ?>/about-us">About Us</a></li>
+						<li><a href="<?php echo get_home_url(); ?>/blog">Read Blog</a></li>
+						<li><a href="<?php echo get_home_url(); ?>">Sitemap</a></li>
 					</ul>
 				</div>
 			</div>

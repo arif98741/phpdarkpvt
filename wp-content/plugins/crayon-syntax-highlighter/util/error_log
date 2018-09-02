@@ -1,0 +1,2 @@
+[17-Apr-2018 19:34:06 UTC] PHP Warning:  require_once(CRAYON_ROOT_PATHcrayon_settings.class.php): failed to open stream: No such file or directory in /home/phpdarkc/public_html/wp-content/plugins/crayon-syntax-highlighter/util/crayon_log.class.php on line 2
+[17-Apr-2018 19:34:06 UTC] PHP Fatal error:  require_once(): Failed opening required 'CRAYON_ROOT_PATHcrayon_settings.class.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/phpdarkc/public_html/wp-content/plugins/crayon-syntax-highlighter/util/crayon_log.class.php on line 2
