@@ -331,27 +331,42 @@
     	font-size: 18px;
 	}
 
-
+	
 
 	footer{
 		margin: 0px;
 		padding: 0px;
-
-		background: linear-gradient(to bottom, #d4c5cd24 0%, #d2e0e4 100%);
-		min-height: 300px;
-		margin-top: 30px;
+		min-height: 100px;
+		/*margin-top: 30px;*/
+		background-color: #c5adad;
+		text-align: center;
 	}
 	footer h2,footer h3{
 		margin: 0px;
-		padding: 0px 10px;
+		/*padding: 0px 10px;*/
+
+	}
+
+	footer h3{
+		padding: 10px 10px;
 	}
 	footer p{
 		margin: 0px;
 		padding: 0px 10px;
 	}
 
+	footer a{
+		    text-decoration: none;
+    font-size: 16px;
+    padding: 0px 17px;
+    color: #fff;
+	}
 
-	
+	footer ul{
+		padding: 0px 10px;
+	}
+
+
 	@media (min-width: 1200px){
 		.form-inline .input-group {
 			width: 300px;

@@ -4,23 +4,27 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Navbar Dropdown Login and Signup Form with Social Buttons</title>
+<title>PHPDark- Your Ultimate PHP Guide</title>
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-<link rel="stylesheet" href="assets/css/owl.theme.default.css">
+
+<link rel="stylesheet" href="assets/css/syntaxhighliter/shCore.min.css" />
+<link rel="stylesheet" href="assets/css/syntaxhighliter/shThemeDefault.min.css" />
+<script src="assets/css/syntaxhighliter/shCore.min.js"></script>
+<script src="assets/css/syntaxhighliter/shBrushPhp.min.js"></script>
+<script src="assets/css/syntaxhighliter/shBrushJScript.min.js"></script>
 <link rel="stylesheet" href="assets/css/style.css">
-
-
 <script type="text/javascript">
 	// Prevent dropdown menu from closing when click inside the form
 	$(document).on("click", ".navbar-right .dropdown-menu", function(e){
 		e.stopPropagation();
+
 		
 	});
+
 </script>
 </head> 
 <body>
@@ -37,9 +41,17 @@
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-			<li class="nav-item"><a href="#" class="nav-link">JQUERY</a></li>			
-			<li class="nav-item"><a href="#" class="nav-link">PHP BASIC</a></li>			
+			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-home">&nbsp;</i>Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">HTML5</a></li>			
+					
+			<li class="nav-item dropdown">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">PHP <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a href="#" class="dropdown-item">PHP BASIC</a></li>
+					<li><a href="#" class="dropdown-item">PHP OOP</a></li>
+					<li><a href="#" class="dropdown-item">PHP CRUD</a></li>
+				</ul>
+			</li>
 			<li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Framework <b class="caret"></b></a>
 				<ul class="dropdown-menu">					

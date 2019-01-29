@@ -33,7 +33,7 @@
 
 	</div><!-- box end -->
 	<hr>
-	<marquee behavior="" direction="" style="font-size: 18px; margin: 0px; padding: 0px;">
+	<marquee behavior="" direction="alernate" style="font-size: 18px; margin: 0px; padding: 0px;">
 		<i class="fa fa-coffee" style="color: #d2e0e4; font-size: 19px;">&nbsp;</i>This website is under construction. Please Wait for looking awesome updates
 	</marquee>
 	<hr>
@@ -122,10 +122,8 @@
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit culpa enim voluptates saepe fuga ipsa nam, expedita placeat architecto dolorem praesentium quidem dicta totam excepturi sed! Quisquam nostrum ullam iste nemo architecto, quo <a href="blog_details.php" class="btn btn-sm btn-info">Click ...</a> 
 				</article>
 			</div>
-
 			
 		</div>
-		
 	</section>
 	<!-- blog end -->
 
