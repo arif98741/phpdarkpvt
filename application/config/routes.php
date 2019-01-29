@@ -5,7 +5,7 @@ $route['default_controller'] 	 = 'front';
 
 /*
 !---------------------------------------------------
-! 	Controller For User
+! 	Controller For Admin Profile
 !---------------------------------------------------
 */
 $route['admin'] 		  = 'admin/index';
@@ -18,10 +18,24 @@ $route['admin/logout'] 		  = 'admin/logout';
 
 /*
 !---------------------------------------------------
-! 	Admin
+! 	Admin Category
 !---------------------------------------------------
 */
-$route['admin'] 	= 'admin/index';
+$route['admin/post_categories'] 	= 'post_categories/index';
+$route['admin/post_categories/delete/(:num)'] 	= 'post_categories/delete/$1';
+
+
+/*
+!---------------------------------------------------
+! 	Admin Post
+!---------------------------------------------------
+*/
+$route['admin/post_list'] 	= 'post/index';
+$route['admin/add_post'] 	= 'post/add_post';
+$route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
+
+
+
 
 
 /*

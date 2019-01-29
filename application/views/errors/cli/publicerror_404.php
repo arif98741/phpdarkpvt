@@ -1,4 +1,6 @@
+page not found 404
 
+<?php die; ?>
 
 <!-- main container -->
 <div class="container-fluid">

@@ -1,5 +1,16 @@
 
                 <div class="main-content">
+                    <?php if($this->session->success): ?>
+                            <div class="alert bg-primary alert-primary text-white" id="message" role="alert">
+                                          <?php echo $this->session->success ;?>
+                            </div>
+                            <?php endif; ?>
+                     <?php if($this->session->error): ?>
+                            <div class="alert bg-warning alert-warning text-white" id="message" role="alert">
+                                          <?php echo $this->session->error ;?>
+                            </div>
+                            <?php endif; ?>   
+                                 
                     <div class="container-fluid">
                         <div class="row clearfix">
                             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -184,14 +195,7 @@
                                                 </div>
                                                 <div class="chat-time">10:59 am</div>
                                             </li>
-                                            <li class="chat-item">
-                                                <div class="chat-img"><img src="<?php echo base_url();?>assets/admin/img/users/3.jpg" alt="user"></div>
-                                                <div class="chat-content">
-                                                    <h6 class="font-medium">Angelina Rhodes</h6>
-                                                    <div class="box bg-light-info">Well we have good budget for the project</div>
-                                                </div>
-                                                <div class="chat-time">11:00 am</div>
-                                            </li>
+                                           
                                         </ul>
                                     </div>
                                     <div class="card-footer chat-footer">
@@ -294,123 +298,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="card">
-                            <div class="card-header row">
-                                <div class="col col-sm-3">
-                                    <div class="dropdown d-inline-block">
-                                        <a class="btn-icon checkbox-dropdown dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-                                        <div class="dropdown-menu" aria-labelledby="moreDropdown">
-                                            <a class="dropdown-item" id="checkbox_select_all" href="javascript:void(0);">Select All</a>
-                                            <a class="dropdown-item" id="checkbox_deselect_all" href="javascript:void(0);">Deselect All</a>
-                                        </div>
-                                    </div>
-                                    <div class="card-options d-inline-block">
-                                        <a href="#"><i class="ik ik-inbox"></i></a>
-                                        <a href="#"><i class="ik ik-plus"></i></a>
-                                        <a href="#"><i class="ik ik-rotate-cw"></i></a>
-                                        <div class="dropdown d-inline-block">
-                                            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-more-horizontal"></i></a>
-                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="moreDropdown">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">More Action</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col col-sm-6">
-                                    <div class="card-search with-adv-search dropdown">
-                                        <form action="">
-                                            <input type="text" class="form-control" placeholder="Search.." required>
-                                            <button type="submit" class="btn btn-icon"><i class="ik ik-search"></i></button>
-                                            <button type="button" id="adv_wrap_toggler" class="adv-btn ik ik-chevron-down dropdown-toggle" data-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                            <div class="adv-search-wrap dropdown-menu dropdown-menu-right" aria-labelledby="adv_wrap_toggler">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" placeholder="Full Name">
-                                                </div>
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" placeholder="Email">
-                                                </div>
-                                                <button class="btn btn-theme">Search</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="col col-sm-3">
-                                    <div class="card-options text-right">
-                                        <span class="mr-5">1 - 50 of 2,500</span>
-                                        <a href="#"><i class="ik ik-chevron-left"></i></a>
-                                        <a href="#"><i class="ik ik-chevron-right"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="list-item-wrap">
-                                    <div class="list-item">
-                                        <div class="item-inner">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option1">
-                                                <span class="custom-control-label">&nbsp;</span>
-                                            </label>
-                                            <div class="list-title"><a href="javascript:void(0)">Lorem Ipsum is simply dumm dummy text of the printing and typesetting industry.</a></div>
-                                            <div class="list-actions">
-                                                <a href="#"><i class="ik ik-eye"></i></a>
-                                                <a href="#"><i class="ik ik-inbox"></i></a>
-                                                <a href="#"><i class="ik ik-edit-2"></i></a>
-                                                <a href="#"><i class="ik ik-trash-2"></i></a>
-                                            </div>
-                                        </div>
-
-                                        <div class="qickview-wrap">
-                                            <div class="desc">
-                                                <p>Fusce suscipit turpis a dolor posuere ornare at a ante. Quisque nec libero facilisis, egestas tortor eget, mattis dui. Curabitur viverra laoreet ligula at hendrerit. Nullam sollicitudin maximus leo, vel pulvinar orci semper id. Donec vehicula tempus enim a facilisis. Proin dignissim porttitor sem, sed pulvinar tortor gravida vitae.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-item">
-                                        <div class="item-inner">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option2">
-                                                <span class="custom-control-label">&nbsp;</span>
-                                            </label>
-                                            <div class="list-title"><a href="javascript:void(0)">Aenean eu pharetra arcu, vitae elementum sem. Sed non ligula molestie, finibus lacus at, suscipit mi. Nunc luctus lacus vel felis blandit, eu finibus augue tincidunt.</a></div>
-                                            <div class="list-actions">
-                                                <a href="#"><i class="ik ik-eye"></i></a>
-                                                <a href="#"><i class="ik ik-inbox"></i></a>
-                                                <a href="#"><i class="ik ik-edit-2"></i></a>
-                                                <a href="#"><i class="ik ik-trash-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="qickview-wrap">
-                                            <div class="desc">
-                                                <p>Fusce suscipit turpis a dolor posuere ornare at a ante. Quisque nec libero facilisis, egestas tortor eget, mattis dui. Curabitur viverra laoreet ligula at hendrerit. Nullam sollicitudin maximus leo, vel pulvinar orci semper id. Donec vehicula tempus enim a facilisis. Proin dignissim porttitor sem, sed pulvinar tortor gravida vitae.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-item">
-                                        <div class="item-inner">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="item_checkbox" name="item_checkbox" value="option3">
-                                                <span class="custom-control-label">&nbsp;</span>
-                                            </label>
-                                            <div class="list-title"><a href="javascript:void(0)">Donec lectus augue, suscipit in sodales sit amet, semper sit amet enim. Duis pretium, nisi id pretium ornare, tortor nibh sodales tellus.</a></div>
-                                            <div class="list-actions">
-                                                <a href="#"><i class="ik ik-eye"></i></a>
-                                                <a href="#"><i class="ik ik-inbox"></i></a>
-                                                <a href="#"><i class="ik ik-edit-2"></i></a>
-                                                <a href="#"><i class="ik ik-trash-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="qickview-wrap">
-                                            <div class="desc">
-                                                <p>Fusce suscipit turpis a dolor posuere ornare at a ante. Quisque nec libero facilisis, egestas tortor eget, mattis dui. Curabitur viverra laoreet ligula at hendrerit. Nullam sollicitudin maximus leo, vel pulvinar orci semper id. Donec vehicula tempus enim a facilisis. Proin dignissim porttitor sem, sed pulvinar tortor gravida vitae.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="card">
                             <div class="card-header row">
                                 <div class="col col-sm-3">
@@ -480,7 +367,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <table id="advanced_table" class="table">
+                                <table id="data_table" class="table">
                                     <thead>
                                         <tr>
                                             <th class="nosort" width="10">
@@ -638,264 +525,8 @@
                                 </table>
                             </div>
                         </div>
+
+                       
+                       
                     </div>
                 </div>
-
-                <aside class="right-sidebar">
-                    <div class="sidebar-chat" data-plugin="chat-sidebar">
-                        <div class="sidebar-chat-info">
-                            <h6>Chat List</h6>
-                            <form class="mr-t-10">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search for friends ..."> 
-                                    <i class="ik ik-search"></i>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="chat-list">
-                            <div class="list-group row">
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Gene Newman">
-                                    <figure class="user--online">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Gene Newman</span>  <span class="username">@gene_newman</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Billy Black">
-                                    <figure class="user--online">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/2.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Billy Black</span>  <span class="username">@billyblack</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Herbert Diaz">
-                                    <figure class="user--online">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/3.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Herbert Diaz</span>  <span class="username">@herbert</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Sylvia Harvey">
-                                    <figure class="user--busy">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/4.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Sylvia Harvey</span>  <span class="username">@sylvia</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item active" data-chat-user="Marsha Hoffman">
-                                    <figure class="user--busy">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/5.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Marsha Hoffman</span>  <span class="username">@m_hoffman</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Mason Grant">
-                                    <figure class="user--offline">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Mason Grant</span>  <span class="username">@masongrant</span> </span>
-                                </a>
-                                <a href="javascript:void(0)" class="list-group-item" data-chat-user="Shelly Sullivan">
-                                    <figure class="user--offline">
-                                        <img src="<?php echo base_url();?>assets/admin/img/users/2.jpg" class="rounded-circle" alt="">
-                                    </figure><span><span class="name">Shelly Sullivan</span>  <span class="username">@shelly</span></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
-
-                <div class="chat-panel" hidden>
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <a href="javascript:void(0);"><i class="ik ik-message-square text-success"></i></a>  
-                            <span class="user-name">John Doe</span> 
-                            <button type="button" class="close" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        </div>
-                        <div class="card-body">
-                            <div class="widget-chat-activity flex-1">
-                                <div class="messages">
-                                    <div class="message media reply">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/3.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Epic Cheeseburgers come in all kind of styles.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Cheeseburgers make your knees weak.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media reply">
-                                        <figure class="user--offline">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/5.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>Cheeseburgers will never let you down.</p>
-                                            <p>They'll also never run around or desert you.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>A great cheeseburger is a gastronomical event.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media reply">
-                                        <figure class="user--busy">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/5.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>There's a cheesy incarnation waiting for you no matter what you palete preferences are.</p>
-                                        </div>
-                                    </div>
-                                    <div class="message media">
-                                        <figure class="user--online">
-                                            <a href="#">
-                                                <img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" class="rounded-circle" alt="">
-                                            </a>
-                                        </figure>
-                                        <div class="message-body media-body">
-                                            <p>If you are a vegan, we are sorry for you loss.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <form action="javascript:void(0)" class="card-footer" method="post">
-                            <div class="d-flex justify-content-end">
-                                <textarea class="border-0 flex-1" rows="1" placeholder="Type your message here"></textarea>
-                                <button class="btn btn-icon" type="submit"><i class="ik ik-arrow-right text-success"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <footer class="footer">
-                    <div class="w-100 clearfix">
-                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
-                    </div>
-                </footer>
-                
-            </div>
-        </div>
-        
-        
-        
-
-        <div class="modal fade apps-modal" id="appsModal" tabindex="-1" role="dialog" aria-labelledby="appsModalLabel" aria-hidden="true" data-backdrop="false">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="ik ik-x-circle"></i></button>
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="quick-search">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-4 ml-auto mr-auto">
-                                    <div class="input-wrap">
-                                        <input type="text" id="quick-search" class="form-control" placeholder="Search..." />
-                                        <i class="ik ik-search"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-body d-flex align-items-center">
-                        <div class="container">
-                            <div class="apps-wrap">
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
-                                </div>
-                                <div class="app-item dropdown">
-                                    <a href="#" class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="ik ik-command"></i><span>Ui</span></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-mail"></i><span>Message</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-users"></i><span>Accounts</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-shopping-cart"></i><span>Sales</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-briefcase"></i><span>Purchase</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-server"></i><span>Menus</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-clipboard"></i><span>Pages</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-message-square"></i><span>Chats</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-map-pin"></i><span>Contacts</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-box"></i><span>Blocks</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-calendar"></i><span>Events</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-bell"></i><span>Notifications</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-pie-chart"></i><span>Reports</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-layers"></i><span>Tasks</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-edit"></i><span>Blogs</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
-                                </div>
-                                <div class="app-item">
-                                    <a href="#"><i class="ik ik-more-horizontal"></i><span>More</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/popper.js/dist/umd/popper.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/screenfull/dist/screenfull.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/jvectormap/jquery-jvectormap.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/moment/moment.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/d3/dist/d3.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/node_modules/c3/c3.min.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/js/tables.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/js/widgets.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/js/charts.js"></script>
-        <script src="<?php echo base_url();?>assets/admin/dist/js/theme.min.js"></script>
-       
-       
-    </body>
-</html>

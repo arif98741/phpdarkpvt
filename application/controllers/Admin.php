@@ -70,7 +70,8 @@ class Admin extends CI_Controller
         ));  
         $data['total_receive'] = $this->db->get('tbl_apply')->result_object();
         //echo "<pre>";
-        //print_r($data['total_receive']); die;*/
+        //print_r($data['total_receive']); die;
+        */
 
         $this->load->view('admin/lib/header');
         $this->load->view('admin/lib/sidebar');
@@ -103,17 +104,19 @@ class Admin extends CI_Controller
            $session  = array(
                     'login'       => true,
                     'admin'       => 'admin',
-                    'admin_role'  => $data[0]->role,
-                    'admin_name'  => $data[0]->admin_name,
-                    'admin_role'  => $data[0]->role,
-                    'admin_image' => $data[0]->admin_image
+                    'admin_email'  => $data[0]->email,
+                    'organization_name'  => $data[0]->organization_name,
+                    'admin_address'  => $data[0]->address,
+                    'admin_role' => $data[0]->role,
+                    'admin_logo' => $data[0]->logo,
+                    'admin_status' => $data[0]->status,
             );
            $this->session->set_userdata($session);
            $this->session->set_flashdata('success', 'Successfully Loggedin');
-           //redirect('admin/dashboard');
+           redirect('admin/dashboard');
        }else{
             $this->session->set_flashdata('error', 'Login Failed');
-            ///redirect("admin");
+            redirect("admin");
        }
 
     }

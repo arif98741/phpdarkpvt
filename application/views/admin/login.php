@@ -26,18 +26,26 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+
+        <?php if($this->session->success): ?>
+             <p class="" id ="message" style="font-size: 16px"><?php echo $this->session->success;?></p>
+        <?php endif; ?>
+      
+
         <div class="auth-wrapper">
             <div class="container " style="max-width: 400px; margin: 0 auto;">
-                <?php //echo "<pre>";
-                   // print_r($_SESSION); die;
-                 ?>
+               
                   
                     <div class=" ">
                         <div class="authentication-form mx-auto">
                             <div class="">
                                 <h1><i class="icon ion-logo-tux"></i>&nbsp;Admin Panel</h1>
                             </div>
-                            <p>Happy to see you again!</p>
+                            <?php if($this->session->error): ?>
+                            <div class="alert bg-danger alert-danger text-white" id="message" role="alert">
+                                          Username/Password Not Matched!
+                                        </div>
+                            <?php endif; ?>
                            <?php echo form_open('admin/login',array('class'=>'login-form'));?>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="username" placeholder="Username" required=">
@@ -65,7 +73,13 @@
         <script src="<?php echo base_url();?>assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/screenfull/dist/screenfull.js"></script>
         <script src="<?php echo base_url();?>assets/admin/dist/js/theme.js"></script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            $(document).ready(function() {
+                setTimeout(function () {
+                    $('#message').slideUp(700);
+                },3000);
+            });
+        </script>
         
     </body>
 </html>
