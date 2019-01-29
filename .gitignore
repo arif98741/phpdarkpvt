@@ -1,4 +1,9 @@
-wp-admin/*
 .phpintel
 .idea
-idea
+.editorconfig
+application/logs/*
+works/*
+uploads/*
+*.zip
+system/cache/*
+assets/admin/node_modules 

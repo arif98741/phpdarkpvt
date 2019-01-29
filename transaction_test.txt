@@ -1,0 +1,16 @@
+Tk10.00 paid to
+Ataturk Govt Model High School
+Id 2707 Bill No 123
+TxnId:1129262348
+Date:05-DEC-18 01:05:17 am.
+
+
+
+
+
+
+
+---------user details--------------------
+userid : 100000002061
+pass   : Ab1234
+billerid: 2707
