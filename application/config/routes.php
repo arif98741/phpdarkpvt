@@ -8,11 +8,10 @@ $route['default_controller'] 	 = 'front';
 ! 	Controller For User
 !---------------------------------------------------
 */
-$route['admin/login'] 		  = 'admin/index';
-//$route['registration'] 	  = 'admin/registration';
+$route['admin'] 		  = 'admin/index';
 $route['admin/dashboard'] 	  = 'admin/dashboard';
-$route['admin/settings'] 		  = 'admin/settings';
-$route['admin/profile'] 		  = 'admin/profile';
+$route['admin/settings'] 	  = 'admin/settings';
+$route['admin/profile'] 	  = 'admin/profile';
 $route['admin/profile_update']  = 'admin/profile_update';
 
 $route['admin/logout'] 		  = 'admin/logout';

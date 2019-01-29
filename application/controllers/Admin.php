@@ -42,7 +42,7 @@ class Admin extends CI_Controller
             redirect('admin');
         }
 
-
+        /*
         $this->db->join('tbl_payment','tbl_apply.apply_id = tbl_payment.apply_id');
         $this->db->join('tbl_user','tbl_user.user_id = tbl_payment.user_id');
         $this->db->where(array(
@@ -70,9 +70,9 @@ class Admin extends CI_Controller
         ));  
         $data['total_receive'] = $this->db->get('tbl_apply')->result_object();
         //echo "<pre>";
-        //print_r($data['total_receive']); die;
+        //print_r($data['total_receive']); die;*/
 
-        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/header');
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/dashboard');
         $this->load->view('admin/lib/footer');
@@ -90,12 +90,11 @@ class Admin extends CI_Controller
         {
             redirect('admin/dashboard');
         } 
-       
-
         $username = $this->input->post("username");
         $password = md5($this->input->post("password"));
 
         $this->load->model('loginmodel');
+
 
         $status   = $this->loginmodel->login($username,$password);
         if ($status->result_id->num_rows > 0) {
@@ -105,17 +104,16 @@ class Admin extends CI_Controller
                     'login'       => true,
                     'admin'       => 'admin',
                     'admin_role'  => $data[0]->role,
-                    'admin_id'    => $data[0]->serial,
                     'admin_name'  => $data[0]->admin_name,
                     'admin_role'  => $data[0]->role,
                     'admin_image' => $data[0]->admin_image
             );
            $this->session->set_userdata($session);
-           $this->session->set_flashdata('success', 'সফলভাবে লগিন হয়েছে');
-           redirect('admin/dashboard');
+           $this->session->set_flashdata('success', 'Successfully Loggedin');
+           //redirect('admin/dashboard');
        }else{
-            $this->session->set_flashdata('error', 'ইউজার নেইম অথবা পাসওয়াড সঠিক নয়');
-            redirect("admin");
+            $this->session->set_flashdata('error', 'Login Failed');
+            ///redirect("admin");
        }
 
     }

@@ -23,15 +23,15 @@
         */ 
         public function login($username="", $password="")
         {
+          echo "yes";
             $where['username'] = $username;
             $where['password'] = $password;
 
             $this->db->where(array(
               'username' => $username,
-              'password' => $password,
-              'role' => 'admin',
+              'password' => $password
            ));
-            $result = $this->db->get('tbl_admin');
+            $result = $this->db->get('tbl_user');
            if($result)
            {
               return $result;
