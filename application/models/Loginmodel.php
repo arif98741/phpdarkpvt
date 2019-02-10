@@ -23,7 +23,6 @@
         */ 
         public function login($username="", $password="")
         {
-          echo "yes";
             $where['username'] = $username;
             $where['password'] = $password;
 

@@ -102,14 +102,15 @@ class Admin extends CI_Controller
 
            $data     = $status->result_object();
            $session  = array(
-                    'login'       => true,
-                    'admin'       => 'admin',
-                    'admin_email'  => $data[0]->email,
-                    'organization_name'  => $data[0]->organization_name,
-                    'admin_address'  => $data[0]->address,
-                    'admin_role' => $data[0]->role,
-                    'admin_logo' => $data[0]->logo,
-                    'admin_status' => $data[0]->status,
+                    'login'             => true,
+                    'admin'             => 'admin',
+                    'admin_email'       => $data[0]->email,
+                    'organization_name' => $data[0]->organization_name,
+                    'admin_address'     => $data[0]->address,
+                    'admin_role'        => $data[0]->role,
+                    'admin_logo'        => $data[0]->logo,
+                    'admin_status'      => $data[0]->status,
+                    'admin_id'          => $data[0]->user_id,
             );
            $this->session->set_userdata($session);
            $this->session->set_flashdata('success', 'Successfully Loggedin');

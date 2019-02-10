@@ -89,13 +89,16 @@ class Login extends CI_Controller{
 
 	       $data 	 = $status->result_object();
 	       $session  = array(
-			        'login'  => true,
-			        'designation'     => $data[0]->designation,
-			        'id' => $data[0]->id
+			        'login' 		=> true,
+			        'designation'   => $data[0]->designation,
+			        'id' 			=> $data[0]->id,
+			        'role' 			=> $data[0]->role
 			);
 
 	       $this->session->set_userdata($session);
 	       $this->session->set_flashdata('success', 'Login Successful');
+	       //echo '<pre>';
+	       //print_r($_SESSION); die;
 	       redirect('home');
        }else{
        		$this->session->set_flashdata('error', 'Username or Password Not Matched');

@@ -18,8 +18,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-list bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Add Post</h5>
-                                            <span>Post will be saved in database</span>
+                                            <h5>Edit Post (<?php echo $post[0]->post_id; ?>)</h5>
+                                            <span>Post will be updated in database</span>
                                         </div>
                                     </div>
                                 </div>
@@ -44,10 +44,10 @@
                                     <div class="card-header"><h3>Add Post</h3></div>
                                     <div class="card-body">
                                        <!--  <form class="forms-sample"> -->
-                                            <?php echo form_open_multipart('post/save_post', array('class'=>'forms-sample')); ?>
+                                            <?php echo form_open_multipart('post/update_post/'.$post[0]->post_id, array('class'=>'forms-sample')); ?>
                                             <div class="form-group">
                                                 <label for="exampleInputName1">Post Title</label>
-                                                <input type="text" name="post_title" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">
+                                                <input type="text" name="post_title" value="<?php echo $post[0]->post_title; ?>" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">
                                             </div>
                                             <div class="row">
                                                    <div class="col-md-6">
@@ -56,7 +56,7 @@
                                                         <select name="catid" class="form-control" id="post-category-dropdown">
                                                             <option selected="">Select Category</option>
                                                             <?php foreach ($categories as $category) { ?>
-                                                                <option value="<?php echo $category->catid; ?>"><?php echo  $category->category_title; ?></option>
+                                                                <option value="<?php echo $category->catid; ?>" <?php if($category->catid == $post[0]->catid):?> selected="" <?php endif;?>><?php echo  $category->category_title; ?></option>
                                                             <?php       } ?>
                                                             
                                                             
@@ -73,18 +73,23 @@
                                                 <div class="col-md-12">
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Post Slug</label>
-                                                        <input type="text" name="post_slug" placeholder="Example: php-learning-awesome" class="form-control">
+                                                        <input type="text" name="post_slug" value="<?php echo str_replace('-', ' ',$post[0]->post_slug); ?>" placeholder="Example: php-learning-awesome" class="form-control">
                                                     </div>
                                                 </div>
+
+                                                <?php
+                                                   // echo '<pre>';
+                                                   // print_r(array_column($tags, 'tagid')); die;
+                                                 ?>
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Post Tag</label>
-                                                        <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
+                                                         <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
                                                             <option>Select Tags</option>
                                                             <option>Select Tags</option>
                                                             <?php foreach ($tags as $tag) { ?>
-                                                                <option value="<?php echo $tag->tagid; ?>"><?php echo  $tag->tag_name; ?></option>
+                                                                <option value="<?php echo $tag->tagid; ?>" <?php if(in_array($tag->tagid, $tagsdata)): ?> selected <?php endif;?>><?php echo  $tag->tag_name; ?></option>
                                                             <?php       } ?>
                                                             
                                                             
@@ -96,19 +101,24 @@
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Post Status</label>
                                                         <select name="post_status" class="form-control">
-                                                            <option value="published">Published</option>
-                                                            <option value="draft">Draft</option>
-                                                            <option value="pending">Pending</option>
+                                                            <option value="published" <?php if($post[0]->post_status == 'published'): ?> selected="" <?php endif; ?>>Published</option>
+                                                            <option value="draft" <?php if($post[0]->post_status == 'draft'): ?> selected="" <?php endif; ?>>Draft</option>
+                                                            <option value="pending" <?php if($post[0]->post_status == 'pending'): ?> selected="" <?php endif; ?>>Pending</option>
                                                             
                                                         </select>
                                                     </div>
                                                 </div>
 
+
                                             </div>
+                                            
+                                        
                                          
                                             <div class="form-group">
                                                 <label for="exampleTextarea1">Post Details</label>
-                                                <textarea class="form-control" name="post_description" id="editor1" rows="4"></textarea>
+                                                <textarea class="form-control" name="post_description" id="editor1" rows="4">
+                                                    <?php echo $post[0]->post_description; ?>
+                                                </textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
                                             <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>

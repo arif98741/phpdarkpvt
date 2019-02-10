@@ -180,7 +180,7 @@
         </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/admin/src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -200,6 +200,7 @@
         <script src="<?php echo base_url();?>assets/admin/js/charts.js"></script>
         <script src="<?php echo base_url();?>assets/admin/dist/js/theme.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/js/datatables.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/js/form-advanced.js"></script>
         <script>
             $(document).ready(function() {
                 setTimeout(function(){

@@ -17,8 +17,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-list bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Posts</h5>
-                                            <span>Posts are defination and values of several topics under several cateogories</span>
+                                            <h5>Tags</h5>
+                                            <span>Tags will help to indentify sevelral posts</span>
                                         </div>
                                     </div>
                                 </div>
@@ -29,9 +29,9 @@
                                                 <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-home"></i>&nbsp; Home</a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="<?php echo base_url();?>admin/add_post" >Add New</a>
+                                                <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Post List</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Post Tags</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -44,7 +44,7 @@
                                 
                                 <div class="card">
                                     <div class="card-header d-block">
-                                        <h3>Post List</h3>
+                                        <h3>Post Tags</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="dt-responsive">
@@ -52,33 +52,53 @@
                                                    class="table table-striped table-bordered nowrap">
                                                 <thead>
                                                 <tr>
-                                                    <th>Serial</th>
-                                                    <th>Post Title</th>
-                                                    <th>Post Description</th>
-                                                    <th>Category</th>
-                                                    <th>Created At</th>
-                                                    <th>Updated At</th>
-                                                    <th>Action</th>
+                                                    <th width="30%">Serial</th>
+                                                    <th width="40%">Tag Name</th>
+                                                    <th width="30%">Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php $i = 1; foreach ($posts as $post) { ?>
+                                                    <?php $i = 1; foreach ($tags as $tag) { ?>
                                                         
                                                    
                                                 <tr>
-                                                    <td><?php echo $i;?></td>
-                                                    <td><?php echo $post->post_title;?></td>
-                                                    <td><?php echo substr($post->post_description, 0,40);?>....</td>
-                                                    <td><?php echo $post->category_title;?></td>
-                                                    <td><?php echo date('d-m-Y H:mA',strtotime($post->created));?></td>
-                                                    <td><?php echo date('d-m-Y H:mA',strtotime($post->updated));?></td>
+                                                    <td style="text-align: center;"><?php echo $i;?></td>
+                                                    <td><?php echo $tag->tag_name;?></td>
                                                     <td>
-                                                         <a href="<?php echo base_url();?>admin/edit_post/<?php echo $post->post_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
+                                                         <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
 
-                                                         
+                                                         <div class="modal fade" id="exampleModalCenter<?php echo $i+2; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                                            <?php echo form_open('tag/edit/'.$tag->tagid,array('class'=>''));?>
+                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                            
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header bg-info">
+                                                                                    <h5 class="modal-title " id="exampleModalCenterLabel">Edit Tag</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <div class="form-group">
+                                                                                            <label for="exampleInputName1">Tag Name</label>
+                                                                                            <input type="text" name="tag_name" value="<?php echo $tag->tag_name;?>" class="form-control" id="exampleInputName1" placeholder="Name">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                                                </div>
+                                                                            
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+
+
                                                         <!-- edit end-->
                                                          
-                                                         <a href="<?php echo base_url();?>post/delete/<?php echo $post->post_id;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+                                                         <a href="<?php echo base_url();?>tag/delete/<?php echo $tag->tagid;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+
+                                                         <a href="#" class="btn btn-icon btn-info" ><i class="ik ik-alert-circle"></i></a>
+
 
 
                                                     </td>
@@ -89,11 +109,7 @@
                                                 <tfoot>
                                                 <tr>
                                                     <th>Serial</th>
-                                                    <th>Post Title</th>
-                                                    <th>Post Description</th>
-                                                    <th>Category</th>
-                                                    <th>Created At</th>
-                                                    <th>Updated At</th>
+                                                    <th>Tag Name</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </tfoot>
@@ -109,18 +125,18 @@
                     </div>
                 </div>
               <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
-                <?php echo form_open('post_categories/save_categories',array('class'=>''));?>
+                <?php echo form_open('tag/save_tag',array('class'=>''));?>
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 
                                 <div class="modal-content">
                                     <div class="modal-header bg-info">
-                                        <h5 class="modal-title " id="exampleModalCenterLabel">Add Post Category</h5>
+                                        <h5 class="modal-title " id="exampleModalCenterLabel">Add Post Tag</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="form-group">
-                                                <label for="exampleInputName1">Category Name</label>
-                                                <input type="text" name="post_category" class="form-control" id="exampleInputName1" placeholder="Name">
+                                                <label for="exampleInputName1">Tag Name</label>
+                                                <input type="text" name="tag_name" class="form-control" id="exampleInputName1" placeholder="Name">
                                             </div>
                                         </div>
                                     <div class="modal-footer">
