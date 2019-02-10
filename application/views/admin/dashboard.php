@@ -19,7 +19,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Posts</h6>
-                                                <h2>1,410</h2>
+                                                <h2><?php echo $this->countermodel->total_post(); ?></h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-align-left"></i>
@@ -38,7 +38,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Categories</h6>
-                                                <h2>41,410</h2>
+                                                <h2><?php echo $this->countermodel->total_category(); ?></h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-folder-plus"></i>
@@ -57,7 +57,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Pages</h6>
-                                                <h2>410</h2>
+                                                <h2><?php echo $this->countermodel->total_page(); ?></h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-calendar"></i>
@@ -76,7 +76,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="state">
                                                 <h6>Tags</h6>
-                                                <h2>41,410</h2>
+                                                <h2><?php echo $this->countermodel->total_tag(); ?></h2>
                                             </div>
                                             <div class="icon">
                                                 <i class="ik ik-tag"></i>

@@ -20,7 +20,7 @@
                                     <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-folder-plus"></i><span>Post Category</span> <span class="badge badge-danger">5</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-folder-plus"></i><span>Post Category</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_category(); ?></span></a>
                                     <div class="submenu-content">
                                         <a href="<?php echo base_url();?>admin/post_categories" class="menu-item">Post Category List</a>
                                         <!-- <a href="pages/widget-statistic.html" class="menu-item">Statistic</a>
@@ -29,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-align-left"></i><span>Post</span> <span class="badge badge-danger">1</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-align-left"></i><span>Post</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_post(); ?></span></a>
                                     <div class="submenu-content">
                                         <a href="<?php echo base_url();?>admin/post_list" class="menu-item"><i class="fa fa-list-alt"></i>Post List</a>
                                         <a href="<?php echo base_url();?>admin/add_post" class="menu-item"><i class="fa fa-plus"></i>Add Post</a>
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Tag</span> <span class="badge badge-danger">1</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Tag</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_tag(); ?></span></a>
                                     <div class="submenu-content">
                                         <a href="<?php echo base_url();?>admin/tag_list" class="menu-item"><i class="fa fa-list-alt"></i>Tag List</a>
                                        
