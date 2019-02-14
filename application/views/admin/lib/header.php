@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/owl.carousel/dist/assets/owl.carousel.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/owl.carousel/dist/assets/owl.theme.default.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/theme.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <script src="<?php echo base_url();?>assets/admin/src/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
 
@@ -101,7 +102,7 @@
                             </div>
                             <button type="button" class="nav-link ml-10" id="apps_modal_btn" data-toggle="modal" data-target="#appsModal"><i class="ik ik-grid"></i></button>
                             <div class="dropdown">
-                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url();?>assets/admin/img/user.jpg" alt=""></a>
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url();?>assets/admin/img/logo.png" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="pages/profile.html"><i class="ik ik-user dropdown-icon"></i> Profile</a>
                                     <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>

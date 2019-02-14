@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends CI_Controller
+class Page extends CI_Controller
 {
 
     /*
@@ -22,70 +22,92 @@ class Post extends CI_Controller
 
     /*
     !--------------------------------------------------------
-    !       Post List View
+    !       Page List 
     !--------------------------------------------------------
     */
     public function index()
     {
 
-        $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
-        $this->db->order_by('tbl_post.post_id','desc');
-        $data['posts'] = $this->db->get('tbl_post')->result_object();
+        $this->db->join('tbl_page_category','tbl_page_category.tpcid = tbl_page.tpcid');
+        $this->db->order_by('tbl_page.page_id','desc');
+        $data['pages'] = $this->db->get('tbl_page')->result_object();
+
+       // echo '<pre>';
+        //print_r($data); die; 
+        //echo '<pre>';
+        //var_dump($data); die;
+
+
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/post_list');
+        $this->load->view('admin/page_list');
         $this->load->view('admin/lib/footer');
     }
 
 
     /*
     !--------------------------------------------------------
-    !      Add Post Page Admin
+    !       Page Category Llist
     !--------------------------------------------------------
     */
-    public function add_post()
+    public function page_cat_list()
+    {
+        $this->db->order_by('tbl_page_category.tpcid','asc');
+        $data['page_categories'] = $this->db->get('tbl_page_category')->result_object();
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/page_cat_list');
+        $this->load->view('admin/lib/footer');
+    }
+
+
+    /*
+    !--------------------------------------------------------
+    !      Add Page Admin
+    !--------------------------------------------------------
+    */
+    public function add_page()
     {
         
         $this->db->order_by('category_title','asc');
-        $data['categories'] = $this->db->get('tbl_post_category')->result_object(); 
+        $data['categories'] = $this->db->get('tbl_page_category')->result_object(); 
 
         $this->db->order_by('tag_name','asc');
         $data['tags'] = $this->db->get('tbl_tag')->result_object(); 
 
-
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/add_post');
+        $this->load->view('admin/add_page');
         $this->load->view('admin/lib/footer');
     }
 
 
     /*
     !--------------------------------------------------------
-    !     Save Post Categories
+    !     Save Page
     !--------------------------------------------------------
     */
-    public function save_post ()
+    public function save_page ()
     {
-        $post_slug  = str_replace(" ", '-', $this->input->post('post_slug'));
+        $page_slug  = str_replace(" ", '-', $this->input->post('page_slug'));
         $tagid  = $this->input->post('tagid');
         $data = array(
-            'post_title'       => $this->input->post('post_title'),
-            'catid'            => $this->input->post('catid'),
-            'post_slug'        => $post_slug,
-            'post_status'      => $this->input->post('post_status'),
-            'post_description' => $this->input->post('post_description'),
-            'created'          => date("Y-m-d H:i:s"),
-            'updated'          => date("Y-m-d H:i:s") 
+            'page_title'       => $this->input->post('page_title'),
+            'tpcid'            => $this->input->post('tpcid'),
+            'page_slug'        => $page_slug,
+            'page_status'      => $this->input->post('page_status'),
+            'page_description' => $this->input->post('page_description'),
+            'create'           => date("Y-m-d H:i:s"),
+            'update'           => date("Y-m-d H:i:s") 
         );
 
-        $this->db->insert('tbl_post',$data);
-        $insert_id = $this->db->insert_id();
+        $this->db->insert('tbl_page',$data);
+        $insert_id = $this->db->insert_id(); 
 
-        if (!empty($_FILES['post_attachment']['name'])) {
+        if (!empty($_FILES['page_attachment']['name'])) {
                 
-                $config['upload_path']   = './uploads/blog/';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['upload_path']   = './uploads/page/';
+                $config['allowed_types'] = 'gif|jpg|png|GIF|PNG|JPG|JPEG';
                 $config['max_size']      = 10000;
                 $config['max_width']     = 10000;
                 $config['max_height']    = 10000;
@@ -93,25 +115,48 @@ class Post extends CI_Controller
                 $config['file_name'] = $new_name;
                 $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('post_attachment')) {
+                if ($this->upload->do_upload('page_attachment')) {
                     $upload_data = array('upload_data' => $this->upload->data());
                     $file = $upload_data['upload_data']['file_name'];
-                    $this->db->set('post_attachment',$file);
-                    $this->db->where('post_id',$insert_id);
-                    $this->db->update('tbl_post');   
+                    $this->db->set('page_attachment',$file);
+                    $this->db->where('page_id',$insert_id);
+                    $this->db->update('tbl_page');   
                 } 
-        }
+        } die;
 
+        /*
         for ($i = 0; $i < count($tagid) ; $i++) {
             $this->db->insert('tbl_post_tag',array(
                 'post_id' => $insert_id,
                 'tagid'   => $tagid[$i]
             ));
-        }
+        }*/
 
-        $this->session->set_flashdata('success', 'Post Added Successfully');
-        redirect('admin/post_list');
+        $this->session->set_flashdata('success', 'Page Added Successfully');
+        redirect('admin/page_list');
     }
+
+
+    /*
+    !--------------------------------------------------------
+    !     Save Page Category
+    !--------------------------------------------------------
+    */
+    public function save_page_category()
+    {
+        $data = array(
+            'category_title' => $this->input->post('category_title'),
+            'created_at'     => date('Y-m-d H:i:s'),
+            'updated_at'     => date('Y-m-d H:i:s'),
+        );
+
+        $this->db->insert('tbl_page_category',$data);
+        $insert_id = $this->db->insert_id();
+
+        $this->session->set_flashdata('success', 'Page Category <strong>'.$this->input->post("category_title").'</strong> Added Successfully');
+       redirect('admin/page_cat_list');
+    }
+
 
 
     /*
@@ -119,30 +164,16 @@ class Post extends CI_Controller
     !     Edit Post Category
     !--------------------------------------------------------
     */
-    public function edit($post_id)
+    public function edit_page_cat($tpcid)
     {
-        $this->db->join('tbl_post_category','tbl_post.catid = tbl_post_category.catid');
-        $this->db->where(array(
-            'tbl_post.post_id' => $post_id
+        $this->db->set(array(
+            'category_title' => $this->input->post('category_title'),
+            'updated_at'     => date('Y-m-d H:i:s')
         ));
-        $data['post'] = $this->db->get('tbl_post')->result_object();
-
-
-
-        $this->db->join('tbl_post_tag','tbl_tag.tagid=tbl_post_tag.tagid');
-        $this->db->where(array(
-             'tbl_post_tag.post_id' => $post_id
-        ));
-        $data['tagsdata'] = $this->db->get('tbl_tag')->result_object();
-        $data['tagsdata'] = array_column($data['tagsdata'], 'tagid');
-
-        $this->db->order_by('category_title','asc');
-        $data['categories'] = $this->db->get('tbl_post_category')->result_object();  
-        $data['tags'] = $this->db->get('tbl_tag')->result_object(); 
-        $this->load->view('admin/lib/header',$data);
-        $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/edit_post');
-        $this->load->view('admin/lib/footer');
+        $this->db->where('tpcid',$tpcid)->update('tbl_page_category');
+        
+        $this->session->set_flashdata('success', 'Paga Category Successfully Updated to <strong>'.$this->input->post("category_title").'</strong>');
+        redirect('admin/page_cat_list');
     }
 
     /*
@@ -174,7 +205,7 @@ class Post extends CI_Controller
                 }
 
                 $config['upload_path']   = './uploads/blog/';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['allowed_types'] = 'gif|jpg|png|GIF|PNG|JPG|JPEG';
                 $config['max_size']      = 10000;
                 $config['max_width']     = 10000;
                 $config['max_height']    = 10000;
@@ -205,21 +236,35 @@ class Post extends CI_Controller
     }
 
 
-
+    /*
+    !--------------------------------------------------------
+    !      Delete Page
+    !--------------------------------------------------------
+    */
+    public function delete_page($page_id)
+    {
+        echo  "dsf"; die;
+        $this->db->where(array(
+            'page_id ' => $page_id
+        )); 
+        $this->db->delete('tbl_page');
+        $this->session->set_flashdata('success', 'Page (<strong>'.$page_id.'</strong>) Deleted Successfully');
+        redirect('admin/page_list');
+    }
   
     /*
     !--------------------------------------------------------
     !      Delete User
     !--------------------------------------------------------
     */
-    public function delete($post_id)
+    public function delete_page_cat($tpcid)
     {
         $this->db->where(array(
-            'post_id ' => $post_id
+            'tpcid ' => $tpcid
         )); 
-        $this->db->delete('tbl_post');
-        $this->session->set_flashdata('success', 'Post Deleted Successfully');
-        redirect('admin/post_list');
+        $this->db->delete('tbl_page_category');
+        $this->session->set_flashdata('success', 'Page Category(<strong>'.$tpcid.'</strong>) Deleted Successfully');
+        redirect('admin/page_cat_list');
     }
 
 }
