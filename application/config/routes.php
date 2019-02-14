@@ -42,6 +42,17 @@ $route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
 $route['admin/tag_list'] 	= 'tag/index';
 $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 
+/*
+!---------------------------------------------------
+! 	Admin Page List
+!---------------------------------------------------
+*/
+$route['admin/page_list'] 			= 'page/index';
+$route['admin/add_page'] 			= 'page/add_page';
+$route['admin/page/delete/(:num)'] 	= 'page/delete_page/$1';
+$route['admin/page_cat_list'] 		= 'page/page_cat_list';
+$route['admin/page_category/edit/(:num)'] 	= 'page/edit_page_cat/$1';
+$route['admin/page/delete/(:num)'] 	= 'page/delete_page_cat/$1';
 
 
 

@@ -66,19 +66,33 @@
                                                         
                                                    
                                                 <tr>
-                                                    <td><?php echo $i;?></td>
+                                                    <td style="text-align: center;"><?php echo $i;?></td>
                                                     <td><?php echo $post->post_title;?></td>
                                                     <td><?php echo substr($post->post_description, 0,40);?>....</td>
                                                     <td><?php echo $post->category_title;?></td>
-                                                    <td><?php echo date('d-m-Y H:mA',strtotime($post->created));?></td>
-                                                    <td><?php echo date('d-m-Y H:mA',strtotime($post->updated));?></td>
+                                                    <td><?php echo date('d-m-y H:iA',strtotime($post->created));?></td>
+                                                    <td><?php echo date('d-m-y H:iA',strtotime($post->updated));?></td>
                                                     <td>
                                                          <a href="<?php echo base_url();?>admin/edit_post/<?php echo $post->post_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
 
                                                          
                                                         <!-- edit end-->
                                                          
-                                                         <a href="<?php echo base_url();?>post/delete/<?php echo $post->post_id;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+                                                         <a href="<?php echo base_url();?>post/delete/<?php echo $post->post_id;?>" class="btn btn-icon btn-danger" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+
+                                                         <?php if($post->post_status == 'published'): ?>
+
+                                                            <a href="#" class="btn btn-icon btn-success" ><i class="ik ik-check"></i></a>
+
+                                                         <?php elseif($post->post_status == 'pending'): ?>
+
+                                                             <a href="#" class="btn btn-icon btn-info" ><i class="ik ik-loader"></i></a>
+                                                         
+                                                         <?php elseif($post->post_status == 'draft'): ?>
+
+                                                             <a href="#" class="btn btn-icon btn-warning" ><i class="ik ik-file-minus"></i></a>
+
+                                                         <?php endif; ?>   
 
 
                                                     </td>

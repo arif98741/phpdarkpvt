@@ -98,7 +98,7 @@ class Post_categories extends CI_Controller
             'catid ' => $catid
         )); 
         $this->db->delete('tbl_post_category');
-        $this->session->set_flashdata('success', 'Post Category Deleted Successfully');
+        $this->session->set_flashdata('success', 'Post Category (<strong>'.$catid.'</strong>) Deleted Successfully');
         redirect('admin/post_categories');
     }
 

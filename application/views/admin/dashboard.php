@@ -32,6 +32,25 @@
                                     </div>
                                 </div>
                             </div>
+                             <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="widget">
+                                    <div class="widget-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="state">
+                                                <h6>Tags</h6>
+                                                <h2><?php echo $this->countermodel->total_tag(); ?></h2>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="ik ik-tag"></i>
+                                            </div>
+                                        </div>
+                                        <small class="text-small mt-10 d-block">Total Tags</small>
+                                    </div>
+                                    <div class="progress progress-sm">
+                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="widget">
                                     <div class="widget-body">
@@ -51,6 +70,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-lg-3 col-md-6 col-sm-12">
                                 <div class="widget">
                                     <div class="widget-body">
@@ -70,29 +90,62 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-12">
-                                <div class="widget">
-                                    <div class="widget-body">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="state">
-                                                <h6>Tags</h6>
-                                                <h2><?php echo $this->countermodel->total_tag(); ?></h2>
-                                            </div>
-                                            <div class="icon">
-                                                <i class="ik ik-tag"></i>
-                                            </div>
-                                        </div>
-                                        <small class="text-small mt-10 d-block">Total Tags</small>
-                                    </div>
-                                    <div class="progress progress-sm">
-                                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                       
 
                         <div class="row">
+                             <div class="col-md-4">
+                                <div class="card" style="min-height: 422px;">
+                                    <div class="card-header">
+                                        <h3>Timeline</h3>
+                                        <div class="card-header-right">
+                                            <ul class="list-unstyled card-option">
+                                                <li><i class="ik ik-chevron-left action-toggle"></i></li>
+                                                <li><i class="ik ik-minus minimize-card"></i></li>
+                                                <li><i class="ik ik-x close-card"></i></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body timeline">
+                                        <div class="header bg-theme" style="background-image: url('<?php echo base_url();?>assets/admin/img/placeholder/placeimg_400_200_nature.jpg')">
+                                            <div class="color-overlay d-flex align-items-center">
+                                                <div class="day-number"><?php echo date('j'); ?></div>
+                                                <div class="date-right">
+                                                    <div class="day-name"><?php echo date('l'); ?></div>
+                                                    <div class="month"><?php echo date('F Y') ?><br><?php echo date('H:iA'); ?></div>
+                                                </div>
+                                            </div>                                
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                <div class="bullet bg-pink"></div>
+                                                <div class="time">11am</div>
+                                                <div class="desc">
+                                                    <h3>Attendance</h3>
+                                                    <h4>Computer Class</h4>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="bullet bg-green"></div>
+                                                <div class="time">12pm</div>
+                                                <div class="desc">
+                                                    <h3>Design Team</h3>
+                                                    <h4>Hangouts</h4>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="bullet bg-orange"></div>
+                                                <div class="time">2pm</div>
+                                                <div class="desc">
+                                                    <h3>Finish</h3>
+                                                    <h4>Go to Home</h4>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-4">
                                 <div class="card">
                                     <div class="card-header">
@@ -187,57 +240,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card" style="min-height: 422px;">
-                                    <div class="card-header">
-                                        <h3>Timeline</h3>
-                                        <div class="card-header-right">
-                                            <ul class="list-unstyled card-option">
-                                                <li><i class="ik ik-chevron-left action-toggle"></i></li>
-                                                <li><i class="ik ik-minus minimize-card"></i></li>
-                                                <li><i class="ik ik-x close-card"></i></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="card-body timeline">
-                                        <div class="header bg-theme" style="background-image: url('<?php echo base_url();?>assets/admin/img/placeholder/placeimg_400_200_nature.jpg')">
-                                            <div class="color-overlay d-flex align-items-center">
-                                                <div class="day-number"><?php echo date('j'); ?></div>
-                                                <div class="date-right">
-                                                    <div class="day-name"><?php echo date('l'); ?></div>
-                                                    <div class="month"><?php echo date('F Y') ?></div>
-                                                </div>
-                                            </div>                                
-                                        </div>
-                                        <ul>
-                                            <li>
-                                                <div class="bullet bg-pink"></div>
-                                                <div class="time">11am</div>
-                                                <div class="desc">
-                                                    <h3>Attendance</h3>
-                                                    <h4>Computer Class</h4>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="bullet bg-green"></div>
-                                                <div class="time">12pm</div>
-                                                <div class="desc">
-                                                    <h3>Design Team</h3>
-                                                    <h4>Hangouts</h4>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="bullet bg-orange"></div>
-                                                <div class="time">2pm</div>
-                                                <div class="desc">
-                                                    <h3>Finish</h3>
-                                                    <h4>Go to Home</h4>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                         <div class="card">
                             <div class="card-header row">

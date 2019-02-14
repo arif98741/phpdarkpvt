@@ -52,10 +52,17 @@
                                 <div class="nav-item has-sub">
                                     <a href="#"><i class="ik ik-package"></i><span>Pages</span></a>
                                     <div class="submenu-content">
-                                        <a href="pages/ui/session-timeout.html" class="menu-item">Pages List</a>
+                                        <a href="<?php echo base_url();?>admin/page_list" class="menu-item">Pages List</a>
                                     </div>
+
+                                    <div class="submenu-content">
+                                        <a href="<?php echo base_url();?>admin/page_cat_list" class="menu-item">Pages Category List</a>
+                                    </div>
+
+
+
                                 </div>
-                              
+
                             </nav>
                         </div>
                     </div>
