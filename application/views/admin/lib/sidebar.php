@@ -5,7 +5,7 @@
                     <div class="sidebar-header">
                         <a class="header-brand" href="<?php echo base_url();?>admin/dashboard">
                             <div class="logo-img">
-                               <img src="<?php echo base_url();?>/assets/admin/img/user.jpg" class="header-brand-img" width="30px" height="30px"> 
+                               <img src="<?php echo base_url();?>assets/admin/img/logo.png" class="header-brand-img" width="30px" height="30px"> 
                             </div>
                             <span class="text">PHPDark.com</span>
                         </a>
@@ -20,7 +20,7 @@
                                     <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Post Category</span> <span class="badge badge-danger">5</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-folder-plus"></i><span>Post Category</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_category(); ?></span></a>
                                     <div class="submenu-content">
                                         <a href="<?php echo base_url();?>admin/post_categories" class="menu-item">Post Category List</a>
                                         <!-- <a href="pages/widget-statistic.html" class="menu-item">Statistic</a>
@@ -29,22 +29,40 @@
                                     </div>
                                 </div>
                                 <div class="nav-item has-sub">
-                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Post</span> <span class="badge badge-danger">1</span></a>
+                                    <a href="javascript:void(0)"><i class="ik ik-align-left"></i><span>Post</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_post(); ?></span></a>
                                     <div class="submenu-content">
-                                        <a href="pages/widgets.html" class="menu-item">Post List</a>
+                                        <a href="<?php echo base_url();?>admin/post_list" class="menu-item"><i class="fa fa-list-alt"></i>Post List</a>
+                                        <a href="<?php echo base_url();?>admin/add_post" class="menu-item"><i class="fa fa-plus"></i>Add Post</a>
                                         
                                     </div>
                                 </div>
+
+                                <div class="nav-item has-sub">
+                                    <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Tag</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_tag(); ?></span></a>
+                                    <div class="submenu-content">
+                                        <a href="<?php echo base_url();?>admin/tag_list" class="menu-item"><i class="fa fa-list-alt"></i>Tag List</a>
+                                       
+                                    </div>
+                                </div>
+
+
                                 <div class="nav-lavel">Page Element</div>
                                
                                 
                                 <div class="nav-item has-sub">
                                     <a href="#"><i class="ik ik-package"></i><span>Pages</span></a>
                                     <div class="submenu-content">
-                                        <a href="pages/ui/session-timeout.html" class="menu-item">Pages List</a>
+                                        <a href="<?php echo base_url();?>admin/page_list" class="menu-item">Pages List</a>
                                     </div>
+
+                                    <div class="submenu-content">
+                                        <a href="<?php echo base_url();?>admin/page_cat_list" class="menu-item">Pages Category List</a>
+                                    </div>
+
+
+
                                 </div>
-                              
+
                             </nav>
                         </div>
                     </div>

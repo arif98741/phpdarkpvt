@@ -18,8 +18,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-list bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Add Post</h5>
-                                            <span>Post will be saved in database</span>
+                                            <h5>Add Page</h5>
+                                            <span>Page will be saved in database</span>
                                         </div>
                                     </div>
                                 </div>
@@ -30,9 +30,9 @@
                                                 <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-home"></i>&nbsp; Home</a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="<?php echo base_url();?>admin/post_list">Post List</a>
+                                                <a href="<?php echo base_url();?>admin/page_list">Page List</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Add Post</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Add Page</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -41,22 +41,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-header"><h3>Add Post</h3></div>
+                                    <div class="card-header"><h3>Add Page</h3></div>
                                     <div class="card-body">
                                        <!--  <form class="forms-sample"> -->
-                                            <?php echo form_open_multipart('post/save_post', array('class'=>'forms-sample')); ?>
+                                            <?php echo form_open_multipart('page/save_page', array('class'=>'forms-sample')); ?>
                                             <div class="form-group">
-                                                <label for="exampleInputName1">Post Title</label>
-                                                <input type="text" name="post_title" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">
+                                                <label for="exampleInputName1">Page Title</label>
+                                                <input type="text" name="page_title" class="form-control" id="exampleInputName1" placeholder="Enter Page Tile ">
                                             </div>
                                             <div class="row">
                                                    <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="exampleSelectGender">Post Category</label>
-                                                        <select name="catid" class="form-control" id="post-category-dropdown">
+                                                        <label for="exampleSelectGender">Page Category</label>
+                                                        <select name="tpcid" class="form-control" id="post-category-dropdown">
                                                             <option selected="">Select Category</option>
                                                             <?php foreach ($categories as $category) { ?>
-                                                                <option value="<?php echo $category->catid; ?>"><?php echo  $category->category_title; ?></option>
+                                                                <option value="<?php echo $category->tpcid; ?>"><?php echo  $category->category_title; ?></option>
                                                             <?php       } ?>
                                                             
                                                             
@@ -65,21 +65,21 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail3">Post Image</label>
-                                                        <input type="file" name="post_attachment" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                                                        <label for="exampleInputEmail3">Page Image</label>
+                                                        <input type="file" name="page_attachment" class="form-control" id="exampleInputEmail3" placeholder="Email">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Post Slug</label>
-                                                        <input type="text" name="post_slug" placeholder="Example: php-learning-awesome" class="form-control">
+                                                        <label for="exampleInputName1">Page Slug</label>
+                                                        <input type="text" name="page_slug" placeholder="Example: php-learning-awesome" class="form-control">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Post Tag</label>
+                                                        <label for="exampleInputName1">Page Tag</label>
                                                         <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
                                                             <option>Select Tags</option>
                                                             <option>Select Tags</option>
@@ -94,8 +94,8 @@
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Post Status</label>
-                                                        <select name="post_status" class="form-control">
+                                                        <label for="exampleInputName1">Page Status</label>
+                                                        <select name="page_status" class="form-control">
                                                             <option value="published">Published</option>
                                                             <option value="draft">Draft</option>
                                                             <option value="pending">Pending</option>
@@ -107,8 +107,8 @@
                                             </div>
                                          
                                             <div class="form-group">
-                                                <label for="exampleTextarea1">Post Details</label>
-                                                <textarea class="form-control" name="post_description" id="editor1" rows="4"></textarea>
+                                                <label for="exampleTextarea1">Page Details</label>
+                                                <textarea class="form-control" name="page_description" id="editor1" rows="4"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
                                             <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>

@@ -1,4 +1,5 @@
   <div class="chat-panel" hidden>
+  <div class="chat-panel" hidden>
                     <div class="card">
                         <div class="card-header d-flex justify-content-between">
                             <a href="javascript:void(0);"><i class="ik ik-message-square text-success"></i></a>  
@@ -83,8 +84,8 @@
 
                 <footer class="footer">
                     <div class="w-100 clearfix">
-                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2018 ThemeKit v2.0. All Rights Reserved.</span>
-                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">Lavalite</a></span>
+                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2017 - <?php date('Y'); ?> PHPDark.Com v2.0. All Rights Reserved.</span>
+                        <span class="float-none float-sm-right mt-1 mt-sm-0 text-center">Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://lavalite.org/" class="text-dark" target="_blank">fg</a></span>
                     </div>
                 </footer>
                 
@@ -180,7 +181,7 @@
         </div>
         
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script>window.jQuery || document.write('<script src="src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/admin/src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
@@ -200,6 +201,7 @@
         <script src="<?php echo base_url();?>assets/admin/js/charts.js"></script>
         <script src="<?php echo base_url();?>assets/admin/dist/js/theme.min.js"></script>
         <script src="<?php echo base_url();?>assets/admin/js/datatables.js"></script>
+        <script src="<?php echo base_url();?>assets/admin/js/form-advanced.js"></script>
         <script>
             $(document).ready(function() {
                 setTimeout(function(){

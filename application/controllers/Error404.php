@@ -26,9 +26,9 @@ class Error404 extends CI_Controller
        
         $data['users'] = $this->db->get('tbl_user')->result_object();
 
-        $this->load->view('front/lib/header.php');
+        //$this->load->view('front/lib/header.php');
         $this->load->view('errors/cli/publicerror_404');
-        $this->load->view('front/lib/footer.php');
+        //$this->load->view('front/lib/footer.php');
         
     }
 
