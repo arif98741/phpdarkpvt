@@ -44,19 +44,23 @@
                                     <div class="card-header"><h3>Add Page</h3></div>
                                     <div class="card-body">
                                        <!--  <form class="forms-sample"> -->
-                                            <?php echo form_open_multipart('page/save_page', array('class'=>'forms-sample')); ?>
+                                            <?php echo form_open_multipart('page/update_page/'.$page[0]->page_id, array('class'=>'forms-sample')); ?>
                                             <div class="form-group">
                                                 <label for="exampleInputName1">Page Title</label>
-                                                <input type="text" name="page_title" class="form-control" id="exampleInputName1" placeholder="Enter Page Tile ">
+                                                <input type="text" name="page_title" value="<?php echo $page[0]->page_title; ?>" class="form-control" id="exampleInputName1" placeholder="Enter Page Tile ">
                                             </div>
                                             <div class="row">
                                                    <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleSelectGender">Page Category</label>
+                                                        <?php 
+                                                           // echo "<pre>";
+                                                           // print_r($categories); die;
+                                                        ?>
                                                         <select name="tpcid" class="form-control" id="post-category-dropdown">
                                                             <option selected="">Select Category</option>
                                                             <?php foreach ($categories as $category) { ?>
-                                                                <option value="<?php echo $category->tpcid; ?>"><?php echo  $category->category_title; ?></option>
+                                                                <option value="<?php echo $category->tpcid; ?>" <?php if($page[0]->tpcid == $category->tpcid): ?> selected="" <?php endif; ?>><?php echo  $category->category_title; ?></option>
                                                             <?php       } ?>
                                                             
                                                             
@@ -73,13 +77,13 @@
                                                 <div class="col-md-12">
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Page Slug</label>
-                                                        <input type="text" name="page_slug" placeholder="Example: php-learning-awesome" class="form-control">
+                                                        <input type="text" name="page_slug"  value="<?php echo $page[0]->page_slug; ?>"  placeholder="Example: php-learning-awesome" class="form-control">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Page Tag</label>
+                                                        <label for="exampleInputName1">Post Tag</label>
                                                         <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
                                                             <option>Select Tags</option>
                                                             <?php foreach ($tags as $tag) { ?>
@@ -93,11 +97,11 @@
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Page Status</label>
+                                                        <label for="exampleInputName1">Post Status</label>
                                                         <select name="page_status" class="form-control">
-                                                            <option value="published">Published</option>
-                                                            <option value="draft">Draft</option>
-                                                            <option value="pending">Pending</option>
+                                                            <option value="published" <?php if($page[0]->page_status == 'published'): ?> selected="" <?php  endif; ?>>Published</option>
+                                                            <option value="draft" <?php if($page[0]->page_status == 'draft'): ?> selected="" <?php  endif; ?>>Draft</option>
+                                                            <option value="pending" <?php if($page[0]->page_status == 'pending'): ?> selected="" <?php  endif; ?>>Pending</option>
                                                             
                                                         </select>
                                                     </div>
@@ -106,8 +110,10 @@
                                             </div>
                                          
                                             <div class="form-group">
-                                                <label for="exampleTextarea1">Page Details</label>
-                                                <textarea class="form-control" name="page_description" id="editor1" rows="4"></textarea>
+                                                <label for="exampleTextarea1">Post Details</label>
+                                                <textarea class="form-control" name="page_description" id="editor1" rows="4">
+                                                    <?php echo $page[0]->page_description ; ?>
+                                                </textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
                                             <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>

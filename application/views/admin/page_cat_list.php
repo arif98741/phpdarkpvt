@@ -99,7 +99,7 @@
 
                                                         <!-- edit end-->
                                                          
-                                                         <a href="<?php echo base_url();?>admin/page/delete/<?php echo $page_category->tpcid;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+                                                         <a href="<?php echo base_url();?>admin/page/delete_cat/<?php echo $page_category->tpcid;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
 
                                                          <a href="#" class="btn btn-icon btn-info" ><i class="ik ik-alert-circle"></i></a>
 

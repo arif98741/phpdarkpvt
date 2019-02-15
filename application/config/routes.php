@@ -49,10 +49,11 @@ $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 */
 $route['admin/page_list'] 			= 'page/index';
 $route['admin/add_page'] 			= 'page/add_page';
+$route['admin/edit_page/(:num)'] 	= 'page/edit_page/$1';
 $route['admin/page/delete/(:num)'] 	= 'page/delete_page/$1';
 $route['admin/page_cat_list'] 		= 'page/page_cat_list';
 $route['admin/page_category/edit/(:num)'] 	= 'page/edit_page_cat/$1';
-$route['admin/page/delete/(:num)'] 	= 'page/delete_page_cat/$1';
+$route['admin/page/delete_cat/(:num)'] 	= 'page/delete_page_cat/$1';
 
 
 

@@ -73,7 +73,7 @@
                                                     <td><?php echo date('d-m-y H:iA',strtotime($page->create));?></td>
                                                     <td><?php echo date('d-m-y H:iA',strtotime($page->update));?></td>
                                                     <td>
-                                                         <a href="<?php echo base_url();?>admin/edit_post/<?php echo $page->page_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
+                                                         <a href="<?php echo base_url();?>admin/edit_page/<?php echo $page->page_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
 
                                                          
                                                         <!-- edit end-->
