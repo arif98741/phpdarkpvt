@@ -1,5 +1,4 @@
-wp-admin/*
+wp-admin
 .phpintel
 .idea
-idea
 node_modules
