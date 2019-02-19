@@ -114,6 +114,11 @@ form .search-form{
 	padding: 10px;
 }
 
+#wrapper .right .page-breadcumb{
+	color: #666;
+	padding: 5px 4px;
+}
+
 /*social link*/
 #social-link{
 	background: #1EBBA3;
