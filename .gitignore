@@ -6,4 +6,5 @@ works/*
 uploads/*
 *.zip
 system/cache/*
+node_modules
 assets/admin/node_modules 
