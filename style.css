@@ -1,0 +1,175 @@
+nav{
+	background: linear-gradient(to right, #3b8254ba, #3b8254ba);
+}
+.navbar-brand{
+	color: #fff;
+	font-size: 20px;
+	font-weight: 700;
+}
+.navbar-brand:hover{
+	color: #666;
+}
+.navbar-brand img{
+	margin: 0px;
+	padding: 0px;
+	width: 18%;
+	height: 18%;
+}
+nav a{
+	color: #fff;
+}
+
+nav a:hover{
+	text-decoration: underline;
+	color: #666;
+
+}
+.navbar-toggler{
+	color: #fff;
+	background: #fff;
+}
+form .search-form{
+	border: none;
+	outline: none;
+	border-radius: 0px;
+}
+.search-btn{
+	color: #fff;
+}
+/*below nav*/
+#below-nav{
+
+}
+#below-nav .navigation-item{
+	padding: 3px 0px;
+	background: #5c4b75;
+}
+
+#below-nav .navigation-item a{
+	padding: 4px 12px;
+	color: #fff;
+}
+
+/*wrapper*/
+#wrapper{
+	/*padding: 4px 0px;*/
+}
+
+#wrapper .left{
+	/*padding: 0px 5px;*/
+
+}
+#wrapper .left h3{
+	padding-top: 
+}
+
+#wrapper .left .quick-start-head{
+	font-size: 20px;
+	font-weight: 200;
+	margin: 0px;
+	background: linear-gradient(to right, #a28f8f,#42b375);
+	padding: 2px 4px;
+	color: #fff;
+}
+#wrapper .left a{
+	color: #666;
+	padding: 0px;
+	margin: 0px;
+}
+
+#wrapper .right{
+	width: 100%;
+
+}
+
+#wrapper .right .login-form{
+	max-width: 80%;
+    margin: 0 auto;
+}
+
+#wrapper .right .block{
+	display: inline-block;
+	width: 32%;
+	float: left;
+	font-size: 50px;
+	padding: 10px 0px;
+	color: #70A482;
+	text-align: center;
+}
+
+#wrapper .right .block p{
+	font-size: 17px;
+}
+#wrapper .right .previous-btn, #wrapper .right .next-btn{
+	color: #666;
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+#wrapper .right article{
+	padding: 10px;
+}
+
+#wrapper .right img{
+	padding: 10px;
+}
+
+/*social link*/
+#social-link{
+	background: #1EBBA3;
+	padding: 10px 0px;
+}
+#social-link p{
+	padding: 6px 10px;
+	margin: 0px;
+}
+/*footer*/
+#footer{
+	background: #281d38de;
+	color: #fff;
+}
+#footer p{
+	margin: 0px;
+	padding: 0px;
+}
+#footer .footer-first .footer-section-headline{
+	margin: 0px;
+	padding: 0px 20px;
+	font-size: 24px;
+	text-decoration: underline;
+	display: block
+	font-weight: 700;
+
+}
+
+#footer .footer-first a{
+	margin: 0px;
+	padding: 4px 14px;
+	display: block;
+	color: #fff;
+}
+#footer .footer-last img{
+	margin: 0px;
+	width: 80px;
+	height: 80px;
+	padding: 10px 0px;
+}
+
+/*copyright*/
+#copyright{
+	min-height: 30px;
+	background: #0B1D2D;
+	color: #B29C88;
+}
+#copyright .left-copyright p{
+	padding: 8px 4px;
+	margin: 0px;
+}
+
+#copyright .right-copyright a{
+	color: #666;
+	padding: 14px 20px;
+	text-align: right;
+	display: inline-block;
+
+}
