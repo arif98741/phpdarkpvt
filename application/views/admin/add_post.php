@@ -53,7 +53,7 @@
                                                    <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="exampleSelectGender">Post Category</label>
-                                                        <select name="catid" class="form-control" id="post-category-dropdown">
+                                                        <select name="catid" class="form-control" required="" id="post-category-dropdown">
                                                             <option selected="">Select Category</option>
                                                             <?php foreach ($categories as $category) { ?>
                                                                 <option value="<?php echo $category->catid; ?>"><?php echo  $category->category_title; ?></option>
@@ -73,7 +73,7 @@
                                                 <div class="col-md-12">
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Post Slug</label>
-                                                        <input type="text" name="post_slug" placeholder="Example: php-learning-awesome" class="form-control">
+                                                        <input type="text" name="post_slug" placeholder="Example: php-learning-awesome" class="form-control" required="">
                                                     </div>
                                                 </div>
 

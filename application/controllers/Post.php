@@ -84,8 +84,8 @@ class Post extends CI_Controller
 
         if (!empty($_FILES['post_attachment']['name'])) {
                 
-                $config['upload_path']   = './uploads/blog/';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['upload_path']   = './uploads/post/';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg';
                 $config['max_size']      = 10000;
                 $config['max_width']     = 10000;
                 $config['max_height']    = 10000;
@@ -168,13 +168,13 @@ class Post extends CI_Controller
         if (!empty($_FILES['post_attachment']['name'])) {
 
                 $query_result = $this->db->where('post_id',$post_id)->get('tbl_post')->result_object();
-                if(file_exists('uploads/blog/'.$query_result[0]->post_attachment))
+                if(file_exists('uploads/post/'.$query_result[0]->post_attachment))
                 {
-                   unlink('uploads/blog/'.$query_result[0]->post_attachment);
+                   unlink('uploads/post/'.$query_result[0]->post_attachment);
                 }
 
-                $config['upload_path']   = './uploads/blog/';
-                $config['allowed_types'] = 'gif|jpg|png';
+                $config['upload_path']   = './uploads/post/';
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|GIF|PNG|JPG|JPEG';
                 $config['max_size']      = 10000;
                 $config['max_width']     = 10000;
                 $config['max_height']    = 10000;

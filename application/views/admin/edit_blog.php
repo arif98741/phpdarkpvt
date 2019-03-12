@@ -18,8 +18,8 @@
                                     <div class="page-header-title">
                                         <i class="ik ik-list bg-blue"></i>
                                         <div class="d-inline">
-                                            <h5>Edit Page</h5>
-                                            <span>Page will be saved in database</span>
+                                            <h5>Edit Blog</h5>
+                                            <span>Blog will be saved in database</span>
                                         </div>
                                     </div>
                                 </div>
@@ -30,9 +30,9 @@
                                                 <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-home"></i>&nbsp; Home</a>
                                             </li>
                                             <li class="breadcrumb-item">
-                                                <a href="<?php echo base_url();?>admin/page_list">Page List</a>
+                                                <a href="<?php echo base_url();?>admin/blog_list">Blog List</a>
                                             </li>
-                                            <li class="breadcrumb-item active" aria-current="page">Edit Page</li>
+                                            <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -41,26 +41,26 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
-                                    <div class="card-header"><h3>Edit Page</h3></div>
+                                    <div class="card-header"><h3>Edit Blog</h3></div>
                                     <div class="card-body">
                                        <!--  <form class="forms-sample"> -->
-                                            <?php echo form_open_multipart('page/update_page/'.$page[0]->page_id, array('class'=>'forms-sample')); ?>
+                                            <?php echo form_open_multipart('blog/update_blog/'.$blog[0]->blog_id, array('class'=>'forms-sample')); ?>
                                             <div class="form-group">
-                                                <label for="exampleInputName1">Page Title</label>
-                                                <input type="text" name="page_title" value="<?php echo $page[0]->page_title; ?>" class="form-control" id="exampleInputName1" placeholder="Enter Page Tile ">
+                                                <label for="exampleInputName1">Blog Title</label>
+                                                <input type="text" name="blog_title" value="<?php echo $blog[0]->blog_title; ?>" class="form-control" id="exampleInputName1" placeholder="Enter Page Tile ">
                                             </div>
                                             <div class="row">
                                                    <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="exampleSelectGender">Page Category</label>
+                                                        <label for="exampleSelectGender">Blog Category</label>
                                                         <?php 
                                                            // echo "<pre>";
                                                            // print_r($categories); die;
                                                         ?>
-                                                        <select name="tpcid" class="form-control" id="post-category-dropdown">
+                                                        <select name="tbcid" class="form-control" id="post-category-dropdown">
                                                             <option selected="">Select Category</option>
                                                             <?php foreach ($categories as $category) { ?>
-                                                                <option value="<?php echo $category->tpcid; ?>" <?php if($page[0]->tpcid == $category->tpcid): ?> selected="" <?php endif; ?>><?php echo  $category->category_title; ?></option>
+                                                                <option value="<?php echo $category->tbcid; ?>" <?php if($blog[0]->tbcid == $category->tbcid): ?> selected="" <?php endif; ?>><?php echo  $category->category_title; ?></option>
                                                             <?php       } ?>
                                                             
                                                             
@@ -69,21 +69,21 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="exampleInputEmail3">Page Image</label>
-                                                        <input type="file" name="page_attachment" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                                                        <label for="exampleInputEmail3">Blog Image</label>
+                                                        <input type="file" name="blog_attachment" class="form-control" id="exampleInputEmail3" placeholder="Email">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Page Slug</label>
-                                                        <input type="text" name="page_slug"  value="<?php echo $page[0]->page_slug; ?>"  placeholder="Example: php-learning-awesome" class="form-control">
+                                                        <label for="exampleInputName1">Blog Slug</label>
+                                                        <input type="text" name="blog_slug"  value="<?php echo $blog[0]->blog_slug; ?>"  placeholder="Example: php-learning-awesome" class="form-control">
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-6">
                                                      <div class="form-group">
-                                                        <label for="exampleInputName1">Post Tag</label>
+                                                        <label for="exampleInputName1">Blog Tag</label>
                                                         <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
                                                             <option>Select Tags</option>
                                                             <?php foreach ($tags as $tag) { ?>
@@ -98,10 +98,10 @@
                                                 <div class="col-md-6">
                                                      <div class="form-group">
                                                         <label for="exampleInputName1">Post Status</label>
-                                                        <select name="page_status" class="form-control">
-                                                            <option value="published" <?php if($page[0]->page_status == 'published'): ?> selected="" <?php  endif; ?>>Published</option>
-                                                            <option value="draft" <?php if($page[0]->page_status == 'draft'): ?> selected="" <?php  endif; ?>>Draft</option>
-                                                            <option value="pending" <?php if($page[0]->page_status == 'pending'): ?> selected="" <?php  endif; ?>>Pending</option>
+                                                        <select name="blog_status" class="form-control">
+                                                            <option value="published" <?php if($blog[0]->blog_status == 'published'): ?> selected="" <?php  endif; ?>>Published</option>
+                                                            <option value="draft" <?php if($blog[0]->blog_status == 'draft'): ?> selected="" <?php  endif; ?>>Draft</option>
+                                                            <option value="pending" <?php if($blog[0]->blog_status == 'pending'): ?> selected="" <?php  endif; ?>>Pending</option>
                                                             
                                                         </select>
                                                     </div>
@@ -110,9 +110,9 @@
                                             </div>
                                          
                                             <div class="form-group">
-                                                <label for="exampleTextarea1">Post Details</label>
-                                                <textarea class="form-control" name="page_description" id="editor1" rows="4">
-                                                    <?php echo $page[0]->page_description ; ?>
+                                                <label for="exampleTextarea1">Blog Details</label>
+                                                <textarea class="form-control" name="blog_description" id="editor1" rows="4">
+                                                    <?php echo $blog[0]->blog_description ; ?>
                                                 </textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>

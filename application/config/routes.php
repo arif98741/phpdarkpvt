@@ -42,6 +42,21 @@ $route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
 $route['admin/tag_list'] 	= 'tag/index';
 $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 
+
+/*
+!---------------------------------------------------
+! 	Admin Blog List
+!---------------------------------------------------
+*/
+$route['admin/blog_list'] 				= 'blog/index';
+$route['admin/add_blog'] 				= 'blog/add_blog';
+$route['admin/edit_blog/(:num)'] 		= 'blog/edit_blog/$1';
+$route['admin/blog/delete/(:num)'] 		= 'blog/delete_blog/$1';
+$route['admin/blog_cat_list'] 			= 'blog/blog_cat_list';
+$route['admin/blog_category/edit/(:num)'] 	= 'blog/edit_blog_cat/$1';
+$route['admin/blog/delete_cat/(:num)'] 	= 'blog/delete_blog_cat/$1';
+
+
 /*
 !---------------------------------------------------
 ! 	Admin Page List
@@ -62,6 +77,7 @@ $route['admin/page/delete_cat/(:num)'] 	= 'page/delete_page_cat/$1';
 ! 	Front 
 !---------------------------------------------------
 */
+$route['blog/view/(:any)/(:num)'] 	= 'front/view_blog/$1/$2';
 
 
 $route['404_override'] 		   = 'error404'; //override by controller

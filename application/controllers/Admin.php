@@ -42,38 +42,11 @@ class Admin extends CI_Controller
             redirect('admin');
         }
 
-        /*
-        $this->db->join('tbl_payment','tbl_apply.apply_id = tbl_payment.apply_id');
-        $this->db->join('tbl_user','tbl_user.user_id = tbl_payment.user_id');
-        $this->db->where(array(
-            'tbl_payment.trans_id !=' => 'pending',
-            'tbl_payment.status ' => 'verified'
-        ));  
-        $data['total_withfee'] = $this->db->get('tbl_apply')->result_id->num_rows ;
-        
-        $this->db->join('tbl_payment','tbl_apply.apply_id = tbl_payment.apply_id');
-        $this->db->join('tbl_user','tbl_user.user_id = tbl_payment.user_id');
-        $this->db->where(array(
-            'tbl_payment.trans_id =' => 'pending',
-            'tbl_payment.status ='   => 'pending'
-        ));  
-        $data['total_withoutfee'] = $this->db->get('tbl_apply')->result_id->num_rows ;
+        $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
+        $this->db->order_by('tbl_post.post_id','desc');
+        $data['posts'] = $this->db->get('tbl_post')->result_object();
 
-        $data['total_apply'] = $data['total_withfee'] + $data['total_withoutfee'];
-        
-        $this->db->select('sum(tbl_payment.paid_amount) as total_receive');
-        $this->db->join('tbl_payment','tbl_apply.apply_id = tbl_payment.apply_id');
-        $this->db->join('tbl_user','tbl_user.user_id = tbl_payment.user_id');
-        $this->db->where(array(
-            'tbl_payment.trans_id !=' => 'pending',
-            'tbl_payment.status    =' => 'verified'
-        ));  
-        $data['total_receive'] = $this->db->get('tbl_apply')->result_object();
-        //echo "<pre>";
-        //print_r($data['total_receive']); die;
-        */
-
-        $this->load->view('admin/lib/header');
+        $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/dashboard');
         $this->load->view('admin/lib/footer');
