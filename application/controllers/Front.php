@@ -25,11 +25,7 @@ class Front extends CI_Controller
     */
     public function index()
     {
-
         $data[''] = $this->db->get('tbl_user')->result_object();
-        // echo "<pre>";
-        // print_r($data);die;
-
         $this->load->view('front/lib/header');
         $this->load->view('front/index');
         $this->load->view('front/lib/footer');
