@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+*{
+	margin: 0;
+	padding: 0;
+}
 nav{
 	background: linear-gradient(to right, #3b8254ba, #3b8254ba);
 }
@@ -17,6 +22,7 @@ nav{
 }
 nav a{
 	color: #fff;
+	font-size: 18px;
 }
 
 nav a:hover{
@@ -48,11 +54,13 @@ form .search-form{
 #below-nav .navigation-item a{
 	padding: 4px 12px;
 	color: #fff;
+	font-size: 17px;
 }
 
 /*wrapper*/
 #wrapper{
 	/*padding: 4px 0px;*/
+	font-family: 'Lato', sans-serif;
 }
 
 #wrapper .left{
@@ -101,9 +109,15 @@ form .search-form{
 	font-size: 17px;
 }
 #wrapper .right .previous-btn, #wrapper .right .next-btn{
-	color: #666;
-	font-size: 20px;
-	text-decoration: underline;
+	color: #fff;
+	font-size: 17px;
+	text-decoration: none;
+	background: linear-gradient(to right, #a28f8f,#42b375);
+	padding: 0px 0px;
+	margin: 0px;
+	display: block;
+	text-align: center;
+	border-radius: 2px 2px 2px 2px;
 }
 
 #wrapper .right article{
@@ -112,6 +126,50 @@ form .search-form{
 
 #wrapper .right img{
 	padding: 10px;
+}
+.latest-blog{
+
+}
+
+.latest-blog .last_article_headline{
+
+  background: linear-gradient(to right, #a28f8f,#42b375);
+  color: #fff;
+  padding: 2px 10px;
+}
+
+.latest-blog img{
+	width: 100%;
+	height: 180px;
+	margin: 0px;
+}
+.latest-blog img:hover{
+	opacity: .7;
+	transition: .6s;
+	cursor: pointer;
+}
+
+/*blog thumb*/
+ .blog-thumb{
+ 	width: 100%;
+ 	height: 200px;
+ 	padding: 10px;
+ }
+/*blog thumb*/
+ .blog-thumb:hover{
+ 	opacity: .7;
+ 	transition: .7s;
+ 	cursor: pointer;
+ }
+
+.blog-thumb p{
+	padding: 10px 5px;
+}
+
+.blog-details-image{
+	margin-top: 10px;
+	width: 100%;
+	height: 250px;
 }
 
 /*social link*/
@@ -139,7 +197,6 @@ form .search-form{
 	text-decoration: underline;
 	display: block
 	font-weight: 700;
-
 }
 
 #footer .footer-first a{
