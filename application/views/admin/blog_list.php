@@ -73,12 +73,15 @@
                                                     <td><?php echo date('d-m-y H:iA',strtotime($blog->create));?></td>
                                                     <td><?php echo date('d-m-y H:iA',strtotime($blog->update));?></td>
                                                     <td>
-                                                         <a href="<?php echo base_url();?>admin/edit_blog/<?php echo $blog->blog_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
+                                                         <a href="<?php echo base_url();?>blog/view/<?php echo $blog->blog_slug;?>/<?php echo $blog->blog_id;?>" target="1" class="btn btn-icon btn-primary"><i class="ik ik-eye"></i></a>
+
+                                                         <a href="<?php echo base_url();?>admin/edit_blog/<?php echo $blog->blog_id;?>" class="btn btn-icon btn-warning"><i class="ik ik-edit"></i></a>
 
                                                          
                                                         <!-- edit end-->
                                                          
                                                          <a href="<?php echo base_url();?>admin/blog/delete/<?php echo $blog->blog_id;?>" class="btn btn-icon btn-danger" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
+
 
                                                          <?php if($blog->blog_status == 'published'): ?>
 

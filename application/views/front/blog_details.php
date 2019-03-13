@@ -29,32 +29,33 @@
       <h2>Related Articles</h2>
       <hr>
       <div class="row">
-        <div class="col-md-3">
-          <a href=""><img src="assets/blog/1.jpeg" alt="" class="img-fluid blog-thumb"></a>
-          <small>12-12-2018; Wednesday 22:10</small>
-          <h4>Thinking is Not Enough</h4>
-          <p><strong>L</strong>orem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsum, totam officia ab molestiae<a href="#"> read more...</a></p>
-        </div>
-        <div class="col-md-3">
-          <a href=""><img src="assets/blog/1.jpeg" alt="" class="img-fluid blog-thumb"></a>
-          <small>12-12-2018; Wednesday 22:10</small>
-          <h4>Thinking is Not Enough</h4>
-          <p><strong>L</strong>orem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsum, totam officia ab molestiae<a href="#"> read more...</a></p>
-        </div>
-        <div class="col-md-3">
-          <a href=""><img src="assets/blog/1.jpeg" alt="" class="img-fluid blog-thumb"></a>
-          <small>12-12-2018; Wednesday 22:10</small>
-          <h4>Thinking is Not Enough</h4>
-          <p><strong>L</strong>orem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsum, totam officia ab molestiae<a href="#"> read more...</a></p>
-        </div>
 
-        <div class="col-md-3">
-          <a href=""><img src="assets/blog/1.jpeg" alt="" class="img-fluid blog-thumb"></a>
-          <small>12-12-2018; Wednesday 22:10</small>
-          <h4>Thinking is Not Enough</h4>
-          <p><strong>L</strong>orem ipsum dolor sit amet, consectetur adipisicing elit. Odit ipsum, totam officia ab molestiae<a href="#"> read more...</a></p>
-        </div>
+        <?php 
+         // echo '<pre>';
+         // print_r($related_blogs); die;
+        ?>
 
+        <?php foreach ($related_blogs as $value) { ?>
+          
+     
+        <div class="col-md-3">
+
+          <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
+
+
+          <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="" class="img-fluid blog-thumb"></a>
+
+          <?php else: ?>
+
+            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="" class="img-fluid blog-thumb"></a>
+
+          <?php endif; ?>
+          
+          <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php echo $value->blog_title; ?></a></h4>
+          <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
+          <p style="margin: 0px;"><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
+        </div>
+         <?php  } ?>
 
       </div>
     </div>

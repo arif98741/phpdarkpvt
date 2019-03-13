@@ -37,9 +37,10 @@
               <?php else: ?>
 
                  <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="" class="img-fluid"></a>
-                 <h4><?php echo $value->blog_title; ?></h4>
+                 <h4 style="margin: 0px;"><a class="text-muted" href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><?php echo $value->blog_title; ?></a></h4>
+                 <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
               <?php endif; ?>
-              <p><?php echo substr($value->blog_description, 0,110); ?><a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more</a></p>
+              <p style="margin: 0px;"><?php echo substr($value->blog_description, 0,110); ?><a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more</a></p>
             </div>
             
             

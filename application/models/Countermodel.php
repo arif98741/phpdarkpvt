@@ -44,7 +44,8 @@ class Countermodel extends CI_Model
         }
     }
 
-     public function total_page()
+
+    public function total_page()
     {
         $result_set = $this->db->get('tbl_page')->result_id->num_rows;
         if ($result_set > 0) {
@@ -53,6 +54,20 @@ class Countermodel extends CI_Model
             return 0;
         }
     }
+
+
+    public function total_blog()
+    {
+        $result_set = $this->db->get('tbl_blog')->result_id->num_rows;
+        if ($result_set > 0) {
+            return $result_set;
+        }else{
+            return 0;
+        }
+    }
+
+
+
 
 }
 

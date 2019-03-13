@@ -79,7 +79,7 @@
         <a href="#">Java</a>
         <a href="#">Git</a>
         <a href="#">AWS</a>
-        <a href="blog.html">Blog</a>
+        <a href="<?php echo base_url(); ?>blog">Blog</a>
       </div>
     </section>
     <!-- below nav end -->
