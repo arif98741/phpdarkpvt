@@ -32,7 +32,7 @@
             <a class="nav-link" href="#">Guideline</a>
           </li>
           <li class="nav-item">
-            <a class="nav
+            <a class="nav-link" href="#">Guideline</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="login.html">Login</a>

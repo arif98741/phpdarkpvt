@@ -2,8 +2,12 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <?php if($blog[0]->blog_attachment !== '' || $blog[0]->blog_attachment !== null): ?>
-            <img src="<?php echo base_url(); ?>uploads/blog/<?php echo $blog[0]->blog_attachment; ?>" alt="" class="img-fluid blog-details-image" >
+            <?php if($blog[0]->blog_attachment != '' || $blog[0]->blog_attachment != null): ?>
+            <img src="<?php echo base_url(); ?>uploads/blog/<?php echo $blog[0]->blog_attachment; ?>" alt="<?php echo $blog[0]->blog_title; ?>. PHPDark.com" class="img-fluid blog-details-image" >
+
+            <?php else: ?>
+               <img src="<?php echo base_url(); ?>uploads/blog/default.png" alt="<?php echo $blog[0]->blog_title; ?>. PHPDark.com" style="display: none;" class="img-fluid blog-details-image" >
+
             <?php endif; ?>
             <hr>
             <h3 class="text-muted text-center" style="text-transform: uppercase ;"><?php echo $blog[0]->blog_title; ?></h3>
@@ -43,11 +47,11 @@
           <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
 
 
-          <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="" class="img-fluid blog-thumb"></a>
+          <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="<?php echo $blog[0]->blog_title; ?>. PHPDark.com" class="img-fluid blog-thumb"></a>
 
           <?php else: ?>
 
-            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="" class="img-fluid blog-thumb"></a>
+            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="<?php echo $blog[0]->blog_title; ?>. PHPDark.com" class="img-fluid blog-thumb"></a>
 
           <?php endif; ?>
           
