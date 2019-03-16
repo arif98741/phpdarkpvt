@@ -79,6 +79,7 @@ $route['admin/page/delete_cat/(:num)'] 	= 'page/delete_page_cat/$1';
 */
 $route['blog/view/(:any)/(:num)'] 	= 'front/view_blog/$1/$2';
 $route['blog'] 						= 'front/blog';
+$route['post'] 						= 'front/post_details';
 
 $route['404_override'] 		   = 'error404'; //override by controller
 $route['translate_uri_dashes'] = FALSE;

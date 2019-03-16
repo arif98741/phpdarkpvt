@@ -31,9 +31,10 @@ class Front extends CI_Controller
         $this->db->order_by('tbl_blog.blog_id','desc');
         $this->db->limit(6);
         $data['blogs'] = $this->db->get('tbl_blog')->result_object();
-
+        $data['post_categories'] = $this->db->order_by('category_title','asc')->limit(8)->get('tbl_post_category')->result_object();
+       
         $this->load->view('front/lib/header',$data);
-        $this->load->view('front/lib/sidebar',$data);
+        $this->load->view('front/lib/sidebar');
         $this->load->view('front/index');
         $this->load->view('front/lib/footer');
     }
@@ -87,6 +88,28 @@ class Front extends CI_Controller
         $this->load->view('front/blog');
         $this->load->view('front/lib/footer');
     }
+
+
+    /*
+    !--------------------------------------------------------
+    !       Post View @id
+    !--------------------------------------------------------
+    */
+    public function post_details()
+    {
+        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
+        $this->db->order_by('tbl_blog.blog_id','desc');
+        $data['blogs'] = $this->db->get('tbl_blog')->result_object();
+        $data['post_categories'] = $this->db->order_by('category_title','asc')->limit(8)->get('tbl_post_category')->result_object();
+
+        $this->load->view('front/lib/header',$data);
+        $this->load->view('front/lib/sidebar');
+        $this->load->view('front/post/post_details');
+        $this->load->view('front/lib/footer');
+    }
+
+
+    
 
 
     
