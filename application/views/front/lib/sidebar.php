@@ -22,12 +22,10 @@
             $posts = $this->db->where('catid',$post_category->catid)->limit(7)->get('tbl_post')->result_object();
             foreach($posts as  $post)
             { ?>
-                <a href="#" class="btn-block">Lorem ipsum dolor sit amet</a>
+                <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn-block"><?php echo $post->post_title; ?></a>
 
       <?php  } ?>
-        
         <br>
-
          <?php  }   ?>   
 
       </div>

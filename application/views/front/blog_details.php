@@ -12,7 +12,7 @@
             <hr>
             <h3 class="text-muted text-center" style="text-transform: uppercase ;"><?php echo $blog[0]->blog_title; ?></h3>
             <hr>
-            <p class="text-center"><a href=""><strong><?php echo $blog[0]->category_title; ?></strong></a>; <span>5.00pm,12-12-2018</span></p>
+            <p class="text-center"><a href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $blog[0]->category_title); ?>/<?php echo $blog[0]->tbcid; ?>"><strong><?php echo $blog[0]->category_title; ?></strong></a>; <span>5.00pm,12-12-2018</span></p>
             <article><?php echo $blog[0]->blog_description; ?></article>
         
         

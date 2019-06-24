@@ -25,7 +25,7 @@ class Post extends CI_Controller
     !       Post List View
     !--------------------------------------------------------
     */
-    public function index()
+    public function post_index()
     {
 
         $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
@@ -33,7 +33,7 @@ class Post extends CI_Controller
         $data['posts'] = $this->db->get('tbl_post')->result_object();
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/post_list');
+        $this->load->view('admin/post/post_list');
         $this->load->view('admin/lib/footer');
     }
 
@@ -55,7 +55,7 @@ class Post extends CI_Controller
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/add_post');
+        $this->load->view('admin/post/add_post');
         $this->load->view('admin/lib/footer');
     }
 
@@ -141,7 +141,7 @@ class Post extends CI_Controller
         $data['tags'] = $this->db->get('tbl_tag')->result_object(); 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/edit_post');
+        $this->load->view('admin/post/edit_post');
         $this->load->view('admin/lib/footer');
     }
 
@@ -152,13 +152,15 @@ class Post extends CI_Controller
     */
     public function update_post ($post_id)
     {
-        $post_slug  = str_replace(" ", '-', $this->input->post('post_slug'));
+        $post_slug    = str_replace(" ", '-', $this->input->post('post_slug'));
+        $post_status  = str_replace(" ", '-', $this->input->post('post_status'));
         $tagid  = $this->input->post('tagid');
         $this->db->set(
             $data = array(
                 'post_title'       => $this->input->post('post_title'),
                 'catid'            => $this->input->post('catid'),
                 'post_slug'        => $post_slug,
+                'post_status'      => $post_status,
                 'post_description' => trim($this->input->post('post_description')),
                 'updated'          => date("Y-m-d H:i:s") 
             )
@@ -190,9 +192,7 @@ class Post extends CI_Controller
                 } 
         }
         
-        
         $this->db->where('post_id',$post_id)->delete('tbl_post_tag');
-    
         for ($i = 0; $i < count($tagid) ; $i++) {
             $this->db->insert('tbl_post_tag',array(
                 'post_id' => $post_id,
@@ -200,7 +200,7 @@ class Post extends CI_Controller
             ));
         }
 
-        $this->session->set_flashdata('success', 'Post Added Successfully');
+        $this->session->set_flashdata('success', 'Post Updated Successfully');
         redirect('admin/post_list');
     }
 

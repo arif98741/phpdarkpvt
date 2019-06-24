@@ -32,7 +32,7 @@ class Post_categories extends CI_Controller
         $data['categories'] = $this->db->get('tbl_post_category')->result_object();
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/post_categories');
+        $this->load->view('admin/post/post_categories');
         $this->load->view('admin/lib/footer');
     }
 
@@ -81,7 +81,6 @@ class Post_categories extends CI_Controller
         
         $this->session->set_flashdata('success', 'Post Category Updated Successfully to <strong>'.$this->input->post("category_title").'</strong>');
         redirect('admin/post_categories');
-        
         
     }
 

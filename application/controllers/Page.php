@@ -34,7 +34,7 @@ class Page extends CI_Controller
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/page_list');
+        $this->load->view('admin/page/page_list');
         $this->load->view('admin/lib/footer');
     }
 
@@ -50,7 +50,7 @@ class Page extends CI_Controller
         $data['page_categories'] = $this->db->get('tbl_page_category')->result_object();
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/page_cat_list');
+        $this->load->view('admin/page/page_cat_list');
         $this->load->view('admin/lib/footer');
     }
 
@@ -71,7 +71,7 @@ class Page extends CI_Controller
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/add_page');
+        $this->load->view('admin/page/add_page');
         $this->load->view('admin/lib/footer');
     }
 
@@ -145,7 +145,7 @@ class Page extends CI_Controller
         $data['page'] = $this->db->get('tbl_page')->result_object(); 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/edit_page');
+        $this->load->view('admin/page/edit_page');
         $this->load->view('admin/lib/footer');
     }
 
@@ -221,10 +221,9 @@ class Page extends CI_Controller
     }
 
 
-
     /*
     !--------------------------------------------------------
-    !     Edit Post Category
+    !     Edit Page Category
     !--------------------------------------------------------
     */
     public function edit_page_cat($tpcid)
@@ -240,63 +239,63 @@ class Page extends CI_Controller
     }
 
     /*
-    !--------------------------------------------------------
-    !    Update Post
-    !--------------------------------------------------------
-    */
-    public function update_post ($post_id)
-    {
-        $post_slug  = str_replace(" ", '-', $this->input->post('post_slug'));
-        $tagid  = $this->input->post('tagid');
-        $this->db->set(
-            $data = array(
-                'post_title'       => $this->input->post('post_title'),
-                'catid'            => $this->input->post('catid'),
-                'post_slug'        => $post_slug,
-                'post_description' => trim($this->input->post('post_description')),
-                'updated'          => date("Y-m-d H:i:s") 
-            )
-        );
-        $this->db->where('post_id',$post_id)->update('tbl_post');
+    // !--------------------------------------------------------
+    // !    U
+    // !--------------------------------------------------------
+    // */
+    // public function update_post ($post_id)
+    // {
+    //     $post_slug  = str_replace(" ", '-', $this->input->post('post_slug'));
+    //     $tagid  = $this->input->post('tagid');
+    //     $this->db->set(
+    //         $data = array(
+    //             'post_title'       => $this->input->post('post_title'),
+    //             'catid'            => $this->input->post('catid'),
+    //             'post_slug'        => $post_slug,
+    //             'post_description' => trim($this->input->post('post_description')),
+    //             'updated'          => date("Y-m-d H:i:s") 
+    //         )
+    //     );
+    //     $this->db->where('post_id',$post_id)->update('tbl_post');
 
-        if (!empty($_FILES['post_attachment']['name'])) {
+    //     if (!empty($_FILES['post_attachment']['name'])) {
 
-                $query_result = $this->db->where('post_id',$post_id)->get('tbl_post')->result_object();
-                if(file_exists('uploads/blog/'.$query_result[0]->post_attachment))
-                {
-                   unlink('uploads/blog/'.$query_result[0]->post_attachment);
-                }
+    //             $query_result = $this->db->where('post_id',$post_id)->get('tbl_post')->result_object();
+    //             if(file_exists('uploads/blog/'.$query_result[0]->post_attachment))
+    //             {
+    //                unlink('uploads/blog/'.$query_result[0]->post_attachment);
+    //             }
 
-                $config['upload_path']   = './uploads/blog/';
-                $config['allowed_types'] = 'gif|jpg|png|GIF|PNG|JPG|JPEG';
-                $config['max_size']      = 10000;
-                $config['max_width']     = 10000;
-                $config['max_height']    = 10000;
-                $config['file_name']     = $post_id."-".time();
-                $this->load->library('upload', $config);
+    //             $config['upload_path']   = './uploads/blog/';
+    //             $config['allowed_types'] = 'gif|jpg|png|GIF|PNG|JPG|JPEG';
+    //             $config['max_size']      = 10000;
+    //             $config['max_width']     = 10000;
+    //             $config['max_height']    = 10000;
+    //             $config['file_name']     = $post_id."-".time();
+    //             $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('post_attachment')) {
-                    $upload_data = array('upload_data' => $this->upload->data());
-                    $file = $upload_data['upload_data']['file_name'];
-                    $this->db->set('post_attachment',$file);
-                    $this->db->where('post_id',$post_id);
-                    $this->db->update('tbl_post');   
-                } 
-        }
+    //             if ($this->upload->do_upload('post_attachment')) {
+    //                 $upload_data = array('upload_data' => $this->upload->data());
+    //                 $file = $upload_data['upload_data']['file_name'];
+    //                 $this->db->set('post_attachment',$file);
+    //                 $this->db->where('post_id',$post_id);
+    //                 $this->db->update('tbl_post');   
+    //             } 
+    //     }
         
         
-        $this->db->where('post_id',$post_id)->delete('tbl_post_tag');
+    //     $this->db->where('post_id',$post_id)->delete('tbl_post_tag');
     
-        for ($i = 0; $i < count($tagid) ; $i++) {
-            $this->db->insert('tbl_post_tag',array(
-                'post_id' => $post_id,
-                'tagid'   => $tagid[$i]
-            ));
-        }
+    //     for ($i = 0; $i < count($tagid) ; $i++) {
+    //         $this->db->insert('tbl_post_tag',array(
+    //             'post_id' => $post_id,
+    //             'tagid'   => $tagid[$i]
+    //         ));
+    //     }
 
-        $this->session->set_flashdata('success', 'Post Added Successfully');
-        redirect('admin/post_list');
-    }
+    //     $this->session->set_flashdata('success', 'Post Added Successfully');
+    //     redirect('admin/post_list');
+    // }
 
 
     /*
@@ -326,7 +325,7 @@ class Page extends CI_Controller
         )); 
         $this->db->delete('tbl_page_category');
         $this->session->set_flashdata('success', 'Page Category(<strong>'.$tpcid.'</strong>) Deleted Successfully');
-        //redirect('admin/page_cat_list');
+        redirect('admin/page_cat_list');
     }
 
 }

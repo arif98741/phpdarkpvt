@@ -56,8 +56,8 @@
                                                     <th>Post Title</th>
                                                     <th>Post Description</th>
                                                     <th>Category</th>
-                                                    <th>Created At</th>
-                                                    <th>Updated At</th>
+                                                    <th>Created</th>
+                                                    <th>Updated</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </thead>
@@ -68,7 +68,7 @@
                                                 <tr>
                                                     <td style="text-align: center;"><?php echo $i;?></td>
                                                     <td><?php echo $post->post_title;?></td>
-                                                    <td><?php echo substr($post->post_description, 0,40);?>....</td>
+                                                    <td><?php echo substr($post->post_description, 0,20);?>....</td>
                                                     <td><?php echo $post->category_title;?></td>
                                                     <td><?php echo date('d-m-y H:iA',strtotime($post->created));?></td>
                                                     <td><?php echo date('d-m-y H:iA',strtotime($post->updated));?></td>
@@ -93,8 +93,7 @@
                                                              <a href="#" class="btn btn-icon btn-warning" ><i class="ik ik-file-minus"></i></a>
 
                                                          <?php endif; ?>   
-
-
+                                                         <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn btn-icon btn-primary" target="_blank"><i class="ik ik-search"></i></a>
                                                     </td>
                                                 </tr>
                                                  <?php  $i++;} ?>
@@ -106,8 +105,8 @@
                                                     <th>Post Title</th>
                                                     <th>Post Description</th>
                                                     <th>Category</th>
-                                                    <th>Created At</th>
-                                                    <th>Updated At</th>
+                                                    <th>Created</th>
+                                                    <th>Updated</th>
                                                     <th>Action</th>
                                                 </tr>
                                                 </tfoot>

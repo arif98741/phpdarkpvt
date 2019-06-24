@@ -1,34 +1,40 @@
+<style>
+ img{width: 100%;}
+</style>
+<div class="col-md-7">
+  <div class="right">
 
-        <div class="col-md-7">
-          <div class="right">
-            
-            <hr>
-            <h3 class="text-muted text-center">Lorem ipsum dolor sit amet, consectetur </h3>
-            <hr>
-            <br>
-            
-            <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; java</a>
-            <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; java</a>
-            <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; java</a>
-            <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; java</a>
-            <br>
-            <br>
-          <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo minima, laboriosam voluptas velit culpa natus iusto et recusandae ullam dicta omnis error quisquam facilis, provident, mollitia illo consectetur officiis sequi aspernatur, impedit tempora. Ipsam odit nostrum harum, quasi delectus quas rem libero magnam pariatur velit doloribus vel unde ullam. Officiis et molestiae natus aperiam, eos similique odit quisquam, asperiores! Nostrum culpa ex aliquam beatae, nulla iusto cum ut nisi voluptatum quos sed deserunt sequi. Minima earum consequatur, doloremque molestias nihil perferendis minus hic voluptatum sed labore praesentium deleniti numquam voluptates dolor itaque veritatis impedit ex assumenda maxime quae reiciendis blanditiis.</article><br>
-        <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo minima, laboriosam voluptas velit culpa natus iusto et recusandae ullam dicta omnis error quisquam facilis, provident, mollitia illo consectetur officiis sequi aspernatur, impedit tempora. Ipsam odit nostrum harum, quasi delectus quas rem libero magnam pariatur velit doloribus vel unde ullam. Officiis et molestiae natus aperiam, eos similique odit quisquam, asperiores! Nostrum culpa ex aliquam beatae, nulla iusto cum ut nisi voluptatum quos sed deserunt sequi. Minima earum consequatur, doloremque molestias nihil perferendis minus hic voluptatum sed labore praesentium deleniti numquam voluptates dolor itaque veritatis impedit ex assumenda maxime quae reiciendis blanditiis.</article><br>
-      <article>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo minima, laboriosam voluptas velit culpa natus iusto et recusandae ullam dicta omnis error quisquam facilis, provident, mollitia illo consectetur officiis sequi aspernatur, impedit tempora. Ipsam odit nostrum harum, quasi delectus quas rem libero magnam pariatur velit doloribus vel unde ullam. Officiis et molestiae natus aperiam, eos similique odit quisquam, asperiores! Nostrum culpa ex aliquam beatae, nulla iusto cum ut nisi voluptatum quos sed deserunt sequi. Minima earum consequatur, doloremque molestias nihil perferendis minus hic voluptatum sed labore praesentium deleniti numquam voluptates dolor itaque veritatis impedit ex assumenda maxime quae reiciendis blanditiis.</article>
-      <img src="/assets/image/homepage.jpeg" alt="" class="img-fluid">
-      <br>
-      <div class="row">
-        <div class="col-md-4">
-          <a href="#" class="previous-btn"> Previous</a>
-        </div>
-        <div class="col-md-4  offset-md-4">
-          <a href="#" class="next-btn">Next</a>
-        </div>
-      </div>
+    <hr>
+    <h3 class="text-muted text-center"><?php echo $post[0]->post_title; ?></h3>
+    <hr>
+    <br>
+    <?php foreach ($post as $post_tag) {?>
+      <?php if(!empty($post_tag->tag_name)): ?>
+       <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; <?php echo $post_tag->tag_name; ?></a>
+     <?php endif; ?>
+
+   <?php  } ?>
+   <?php echo str_replace("<pre>", '<pre style="font-size: 15px;"><code class="php">', str_replace('</pre>', '</code></pre>', $post[0]->post_description)); ?>
+   
+   <?php if($post[0]->post_attachment != ''): ?>
+    <br>
+    <img src="<?php echo base_url(); ?>uploads/post/<?php echo $post[0]->post_attachment; ?>" alt="<?php echo $post[0]->post_title; ?>- phpdark.com" class="img-fluid" >
+  <?php endif; ?>
+  
+  <br>
+  <div class="row">
+    <div class="col-md-4">
+      <a href="#" class="previous-btn"> Previous</a>
+    </div>
+    <div class="col-md-4  offset-md-4">
+      <a href="#" class="next-btn">Next</a>
     </div>
   </div>
 </div>
 </div>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 <!-- wrapper end -->
 <!-- social link -->

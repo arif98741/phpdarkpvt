@@ -44,6 +44,11 @@ form .search-form{
 }
 /*below nav*/
 #below-nav{
+	/*display: none;*/
+	margin-top: 56px;
+	/*
+	p/*osition: fixed;
+	width: 100%;*/
 
 }
 #below-nav .navigation-item{
@@ -59,8 +64,9 @@ form .search-form{
 
 /*wrapper*/
 #wrapper{
-	/*padding: 4px 0px;*/
+	
 	font-family: 'Lato', sans-serif;
+
 }
 
 #wrapper .left{

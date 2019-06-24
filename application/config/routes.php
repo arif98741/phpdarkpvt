@@ -20,7 +20,7 @@ $route['admin/logout'] 		  	= 'admin/logout';
 ! 	Category Admin
 !---------------------------------------------------
 */
-$route['admin/post_categories'] 	= 'post_categories/index';
+$route['admin/post_categories'] 				= 'post_categories/index';
 $route['admin/post_categories/delete/(:num)'] 	= 'post_categories/delete/$1';
 
 
@@ -29,8 +29,8 @@ $route['admin/post_categories/delete/(:num)'] 	= 'post_categories/delete/$1';
 ! 	Post Details Admin
 !---------------------------------------------------
 */
-$route['admin/post_list'] 	= 'post/index';
-$route['admin/add_post'] 	= 'post/add_post';
+$route['admin/post_list'] 			= 'post/post_index';
+$route['admin/add_post'] 			= 'post/add_post';
 $route['admin/edit_post/(:num)'] 	= 'post/edit/$1';
 $route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
 
@@ -39,7 +39,7 @@ $route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
 ! 	Tag Details Admin
 !---------------------------------------------------
 */
-$route['admin/tag_list'] 	= 'tag/index';
+$route['admin/tag_list'] 			= 'tag/index';
 $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 
 
@@ -77,11 +77,11 @@ $route['admin/page/delete_cat/(:num)'] 	= 'page/delete_page_cat/$1';
 ! 	Front 
 !---------------------------------------------------
 */
-$route['blog/view/(:any)/(:num)'] 	= 'front/view_blog/$1/$2';
-$route['blog'] 						= 'front/blog';
-$route['post'] 						= 'front/post_details';
-
-$route['404_override'] 		   = 'error404'; //override by controller
-$route['translate_uri_dashes'] = FALSE;
+$route['blog/view/(:any)/(:num)'] 		= 'front/view_blog/$1/$2';
+$route['blog/category/(:any)/(:num)']	= 'front/blog_category/$1/$2';
+$route['blog'] 							= 'front/blog';
+$route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
+$route['404_override'] 		   			= 'error404'; //override by controller
+$route['translate_uri_dashes'] 			= FALSE;
 
 

@@ -92,7 +92,7 @@
         </div>
         
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card" style="min-height: 422px;">
                     <div class="card-header">
                         <h3>Timeline</h3>
@@ -143,101 +143,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Recent Chat</h3>
-                        <div class="card-header-right">
-                            <ul class="list-unstyled card-option">
-                                <li><i class="ik ik-chevron-left action-toggle"></i></li>
-                                <li><i class="ik ik-minus minimize-card"></i></li>
-                                <li><i class="ik ik-x close-card"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-body chat-box scrollable" style="height:300px;">
-                        <ul class="chat-list">
-                            <li class="chat-item">
-                                <div class="chat-img"><img src="<?php echo base_url();?>assets/admin/img/users/1.jpg" alt="user"></div>
-                                <div class="chat-content">
-                                    <h6 class="font-medium">James Anderson</h6>
-                                    <div class="box bg-light-info">Lorem Ipsum is simply dummy text of the printing &amp; type setting industry.</div>
-                                </div>
-                                <div class="chat-time">10:56 am</div>
-                            </li>
-                            <li class="chat-item">
-                                <div class="chat-img"><img src="<?php echo base_url();?>assets/admin/img/users/2.jpg" alt="user"></div>
-                                <div class="chat-content">
-                                    <h6 class="font-medium">Bianca Doe</h6>
-                                    <div class="box bg-light-info">It’s Great opportunity to work.</div>
-                                </div>
-                                <div class="chat-time">10:57 am</div>
-                            </li>
-                            <li class="odd chat-item">
-                                <div class="chat-content">
-                                    <div class="box bg-light-inverse">I would love to join the team.</div>
-                                    <br>
-                                </div>
-                            </li>
-                            <li class="odd chat-item">
-                                <div class="chat-content">
-                                    <div class="box bg-light-inverse">Whats budget of the new project.</div>
-                                    <br>
-                                </div>
-                                <div class="chat-time">10:59 am</div>
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <div class="card-footer chat-footer">
-                        <div class="input-wrap">
-                            <input type="text" placeholder="Type and enter" class="form-control">
-                        </div>
-                        <button type="button" class="btn btn-icon btn-theme"><i class="fa fa-paper-plane"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex">
-                            <h4 class="card-title">Weather Report</h4>
-                            <select class="form-control w-25 ml-auto">
-                                <option selected="">Today</option>
-                                <option value="1">Weekly</option>
-                            </select>
-                        </div>
-                        <div class="d-flex align-items-center flex-row mt-30">
-                            <div class="p-2 f-50 text-info"><i class="wi wi-day-showers"></i> <span>23<sup>°</sup></span></div>
-                            <div class="p-2">
-                            <h3 class="mb-0">Saturday</h3><small>Banglore, India</small></div>
-                        </div>
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <td>Wind</td>
-                                    <td class="font-medium">ESE 17 mph</td>
-                                </tr>
-                                <tr>
-                                    <td>Humidity</td>
-                                    <td class="font-medium">83%</td>
-                                </tr>
-                                <tr>
-                                    <td>Pressure</td>
-                                    <td class="font-medium">28.56 in</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr>
-                        <ul class="list-unstyled row text-center city-weather-days mb-0 mt-20">
-                            <li class="col"><i class="wi wi-day-sunny mr-5"></i><span>09:30</span><h3>20<sup>°</sup></h3></li>
-                            <li class="col"><i class="wi wi-day-cloudy mr-5"></i><span>11:30</span><h3>22<sup>°</sup></h3></li>
-                            <li class="col"><i class="wi wi-day-hail mr-5"></i><span>13:30</span><h3>25<sup>°</sup></h3></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             
+           
         </div>
         <div class="card">
             <div class="card-header row">

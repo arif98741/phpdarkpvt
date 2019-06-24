@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/front/node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/front/node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/front/css/style.css">
+   <!--  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"> -->
+   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/monokai.css">
+
     <title>PHPDark.com - Your Ultimate PHP Guide</title>
   </head>
   <body>
     <!-- navigation start -->
-    <nav class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="<?php echo base_url(); ?>">PHPDark</a>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <a class="navbar-brand" href="<?php echo base_url(); ?>">PHPDark <sup><small>beta</small></sup></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">-</span>
       </button>
@@ -59,10 +62,10 @@
         </form>
         
       </div>
-    </nav>
+    </nav> 
     <!-- navigation end -->
     <!-- below nav start -->
-    <section id="below-nav" style="display: none;">
+    <section id="below-nav" style="" style="">
       <div class="navigation-item">
         <a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>&nbsp;Home</a>
         <a href="#">HTML</a>

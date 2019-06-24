@@ -34,7 +34,7 @@ class Blog extends CI_Controller
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/blog_list');
+        $this->load->view('admin/blog/blog_list');
         $this->load->view('admin/lib/footer');
     }
 
@@ -50,7 +50,7 @@ class Blog extends CI_Controller
         $data['blog_categories'] = $this->db->get('tbl_blog_category')->result_object();
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/blog_cat_list');
+        $this->load->view('admin/blog/blog_cat_list');
         $this->load->view('admin/lib/footer');
     }
 
@@ -70,7 +70,7 @@ class Blog extends CI_Controller
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/add_blog');
+        $this->load->view('admin/blog/add_blog');
         $this->load->view('admin/lib/footer');
     }
 
@@ -146,7 +146,7 @@ class Blog extends CI_Controller
         $data['blog'] = $this->db->get('tbl_blog')->result_object(); 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/edit_blog');
+        $this->load->view('admin/blog/edit_blog');
         $this->load->view('admin/lib/footer');
     }
 
@@ -323,11 +323,11 @@ class Blog extends CI_Controller
     public function delete_blog_cat($tpcid)
     {
         $this->db->where(array(
-            'tpcid ' => $tpcid
+            'tbcid ' => $tpcid
         )); 
         $this->db->delete('tbl_blog_category');
         $this->session->set_flashdata('success', 'Page Category(<strong>'.$tpcid.'</strong>) Deleted Successfully');
-        //redirect('admin/blog_cat_list');
+        redirect('admin/blog_cat_list');
     }
 
 }
