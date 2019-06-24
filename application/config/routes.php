@@ -13,7 +13,8 @@ $route['admin/dashboard'] 	  	= 'admin/dashboard';
 $route['admin/settings'] 	  	= 'admin/settings';
 $route['admin/profile'] 	  	= 'admin/profile';
 $route['admin/profile_update']  = 'admin/profile_update';
-$route['admin/logout'] 		  	= 'admin/logout';
+$route['admin/settings']  		= 'admin/settings';
+$route['admin/logout'] 		  	= 'admin/logout'; //for hightlight class list
 
 /*
 !---------------------------------------------------

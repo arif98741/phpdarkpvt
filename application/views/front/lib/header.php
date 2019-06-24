@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/front/node_modules/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/front/css/style.css">
    <!--  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"> -->
-   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/monokai.css">
+   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/ocean.css">
 
     <title>PHPDark.com - Your Ultimate PHP Guide</title>
   </head>

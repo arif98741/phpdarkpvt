@@ -19,7 +19,7 @@ class Admin extends CI_Controller
 
     /*
     !--------------------------------------------------------
-    !       Default Function Admin for Homepage
+    !       Admin Login View
     !--------------------------------------------------------
     */
     public function index()
@@ -211,6 +211,30 @@ class Admin extends CI_Controller
         $this->db->delete('tbl_user');
         $this->session->set_flashdata('success', 'User Deleted Successfully');
         redirect('admin/dashboard');
+    }
+
+
+    /*
+    !--------------------------------------------------------
+    !      Delete User
+    !--------------------------------------------------------
+    */
+    public function settings()
+    {
+        if (!$this->session->has_userdata('login')) {
+            redirect('admin');
+        }
+
+
+
+        $this->load->helper('directory');
+        $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
+        
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/settings');
+        $this->load->view('admin/lib/footer');
+        
     }
 
 }

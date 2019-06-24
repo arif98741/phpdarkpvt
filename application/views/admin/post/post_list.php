@@ -93,7 +93,7 @@
                                                              <a href="#" class="btn btn-icon btn-warning" ><i class="ik ik-file-minus"></i></a>
 
                                                          <?php endif; ?>   
-                                                         <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn btn-icon btn-primary" target="_blank"><i class="ik ik-search"></i></a>
+                                                         <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn btn-icon btn-primary" target="_1"><i class="ik ik-search"></i></a>
                                                     </td>
                                                 </tr>
                                                  <?php  $i++;} ?>
