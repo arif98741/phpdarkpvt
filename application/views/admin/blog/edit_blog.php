@@ -130,7 +130,7 @@
                     </div>
                 </div>
                  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-               <script src="https://cdn.ckeditor.com/4.11.2/standard/ckeditor.js"></script>
+               <script src="https://cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script>
                <script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 
                 <script>
