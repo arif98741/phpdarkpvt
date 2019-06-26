@@ -85,7 +85,7 @@ class Blog extends CI_Controller
         //echo '<pre>';
        // print_r($_POST); die;
 
-        $blog_slug  = str_replace(" ", '-', $this->input->post('blog_slug'));
+        $blog_slug  = str_replace(" ", '-', strtolower($this->input->post('blog_slug')));
         $tagid  = $this->input->post('tagid');
         $data = array(
             'blog_title'       => $this->input->post('blog_title'),
@@ -111,7 +111,6 @@ class Blog extends CI_Controller
 
                 $this->load->library('upload', $config);
                 $this->upload->initialize($config);
-
 
 
                 if ($this->upload->do_upload('blog_attachment')) {
