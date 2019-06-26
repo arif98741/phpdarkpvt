@@ -71,7 +71,7 @@ $config['encryption_key'] = '';
 
 
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'avc_trb763';
+$config['sess_cookie_name'] = 'phpdark_signal';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
@@ -93,7 +93,7 @@ $config['global_xss_filtering'] = TRUE;
 
 $config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'api_token';
-$config['csrf_cookie_name'] = 'xtyv_laravel';
+$config['csrf_cookie_name'] = 'phpdark_';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();
@@ -110,3 +110,6 @@ $config['proxy_ips'] = '';
 $config['sess_save_path'] = BASEPATH . 'cache/';
 //default timezone
 date_default_timezone_set('Asia/Dhaka');
+
+//define
+define('PER_PAGE', 8);

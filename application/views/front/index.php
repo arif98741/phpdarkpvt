@@ -46,10 +46,12 @@
             
             <?php  } ?>
           </div>
+          
         </div>
         
       </div>
     </div>
+    
   </div>
 </div>
 <!-- wrapper end -->

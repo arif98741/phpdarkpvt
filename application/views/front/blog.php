@@ -5,31 +5,41 @@
 
     <?php foreach ($blogs as $value) { ?>
 
-
       <div class="col-md-3">
         <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
           <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="" class="img-fluid blog-thumb"></a>
 
-        <?php else: ?>
-              <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="" class="img-fluid blog-thumb"></a>  
-        <?php endif; ?>
+          <?php else: ?>
+            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="" class="img-fluid blog-thumb"></a>  
+          <?php endif; ?>
 
+          <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php  echo $value->blog_title; ?></a></h4>
+          <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
+          <p><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
+        </div>
 
-       
-        <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php  echo $value->blog_title; ?></a></h4>
-         <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
-        <p><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
-      </div>
+      <?php  } ?>
 
-    <?php       } ?>
+    </div>
+    <p>
+      <?php if($page != 1) :?>
 
+        <a href="<?php echo base_url(); ?>blog/<?php echo $previous_page; ?>" class="btn btn-info btn-sm">Previous</a>&nbsp;
+      <?php endif; ?>
 
+      <?php
+      for($i=1; $i <= $pages; $i++) { ?> 
 
+        <a href="<?php echo base_url(); ?>blog/<?php echo $i; ?>" <?php if($i==$page): ?> style="font-size: 16px; font-weight: 900;" <?php endif; ?> class="btn btn-info btn-sm"><?php echo $i;?></a>&nbsp;
+      <?php  }?>
 
+      <?php if($page != $pages) :?>
+        <a href="<?php echo base_url(); ?>blog/<?php echo $next_page; ?>" class="btn btn-info btn-sm">Next</a>
+      <?php endif; ?>
+
+      <span class="text-muted">Showing <?php echo $page; ?> of <?php echo $pages; ?> pages </span> 
+    </p>
   </div>
-</div>
-
-
 </div>
 </div>
 <!-- wrapper end -->

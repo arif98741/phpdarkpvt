@@ -49,7 +49,7 @@ $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 ! 	Admin Blog List
 !---------------------------------------------------
 */
-$route['admin/blog_list'] 				= 'blog/index';
+$route['admin/blog_list'] 				= 'blog/blog_list';
 $route['admin/add_blog'] 				= 'blog/add_blog';
 $route['admin/edit_blog/(:num)'] 		= 'blog/edit_blog/$1';
 $route['admin/blog/delete/(:num)'] 		= 'blog/delete_blog/$1';
@@ -81,7 +81,22 @@ $route['admin/page/delete_cat/(:num)'] 	= 'page/delete_page_cat/$1';
 $route['blog/view/(:any)/(:num)'] 		= 'front/view_blog/$1/$2';
 $route['blog/category/(:any)/(:num)']	= 'front/blog_category/$1/$2';
 $route['blog'] 							= 'front/blog';
+$route['blog/(:num)'] 					= 'front/blog/$1';
 $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
+
+/*
+!---------------------------------------------------
+! 	Main Pages
+!---------------------------------------------------
+*/
+// $route['about-us'] 			= 'front/view_blog/$1/$2';
+// $route['contact-us']		= 'front/blog_category/$1/$2';
+// $route['privacy-policy'] 	= 'front/blog';
+// $route['faq'] 				= 'front/post_details/$1/$2';
+
+
+
+
 $route['404_override'] 		   			= 'error404'; //override by controller
 $route['translate_uri_dashes'] 			= FALSE;
 

@@ -39,8 +39,6 @@ class Front extends CI_Controller
         $this->load->view('front/lib/footer');
     }
 
-
-    
    /*
     !--------------------------------------------------------
     !       Blog View @id
@@ -78,15 +76,34 @@ class Front extends CI_Controller
     !       Blog View @id
     !--------------------------------------------------------
     */
-    public function blog()
+    public function blog($page_id = 1)
     {
-        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
-        $this->db->order_by('tbl_blog.blog_id','desc');
-        $data['blogs'] = $this->db->get('tbl_blog')->result_object();
+        $row  = $this->db->get('tbl_blog')->num_rows();
+        $perpage = PER_PAGE;
+        $offset = ($page_id-1) * $perpage;
+        $previous_page      = $page_id - 1;
+        $next_page          = $page_id + 1;
+        $total_no_of_pages  = ceil($row / $perpage);
+        $this->db->select("*");
+        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid=tbl_blog.tbcid');
+        $this->db->order_by('tbl_blog.create','desc');
+        $this->db->limit($perpage,$offset);
+        $query          = $this->db->get('tbl_blog');
+        if ($query->num_rows() > 0) {
 
-        $this->load->view('front/lib/header',$data);
-        $this->load->view('front/blog');
-        $this->load->view('front/lib/footer');
+            $data['blogs']  = $query->result(); 
+            $data['row']    = $row;
+            $data['page']   = $page_id;
+            $data['pages']  = (int)$total_no_of_pages;
+            $data['previous_page']  = $previous_page;
+            $data['next_page']      = $next_page;
+           
+            $this->load->view('front/lib/header',$data);
+            $this->load->view('front/blog');
+            $this->load->view('front/lib/footer');
+        }else{
+            redirect('/','refresh');
+        }
     }
 
     /*

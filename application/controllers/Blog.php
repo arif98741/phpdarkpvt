@@ -25,7 +25,7 @@ class Blog extends CI_Controller
     !       Page List 
     !--------------------------------------------------------
     */
-    public function index()
+    public function blog_list()
     {
 
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
