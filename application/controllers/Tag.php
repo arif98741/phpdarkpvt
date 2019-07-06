@@ -25,7 +25,7 @@ class Tag extends CI_Controller
     !       Default Tag List Page
     !--------------------------------------------------------
     */
-    public function index()
+    public function tag_list()
     {
 
         $this->db->order_by('tag_name','asc');

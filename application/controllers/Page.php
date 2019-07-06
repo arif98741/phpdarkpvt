@@ -25,7 +25,7 @@ class Page extends CI_Controller
     !       Page List 
     !--------------------------------------------------------
     */
-    public function index()
+    public function page_list()
     {
 
         $this->db->join('tbl_page_category','tbl_page_category.tpcid = tbl_page.tpcid');

@@ -11,7 +11,15 @@
    <!--  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"> -->
    <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/ocean.css">
 
+   <?php if($title !=''): ?>
+    <title><?php  echo $title;?> - PHPDark.com</title>
+
+    <?php else: ?>
     <title>PHPDark.com - Your Ultimate PHP Guide</title>
+   <?php endif; ?>
+
+
+
   </head>
   <body>
     <!-- navigation start -->
@@ -31,35 +39,36 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Project</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Guideline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Guideline</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="registration.html">Register</a>
-          </li>
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Guideline</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="#">Guideline</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="login.html">Login</a>-->
+<!--          </li>-->
+<!--          <li class="nav-item">-->
+<!--            <a class="nav-link" href="registration.html">Register</a>-->
+<!--          </li>-->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              PHP
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="<?php echo base_url(); ?>post/view/basic-php/41">Basic PHP</a>
+              <a class="dropdown-item" href="<?php echo base_url();  ?>post/view/php-advanced/42">PHP Advanced</a>
+              <a class="dropdown-item" href="#">PHP Arrays</a>
+              <a class="dropdown-item" href="#">PHP OOP</a>
+
             </div>
           </li>
           
         </ul>
-        <form class="form-inline search-form my-10 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success search-btn my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<!--        <form class="form-inline search-form my-10 my-lg-0">-->
+<!--          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--          <button class="btn btn-outline-success search-btn my-2 my-sm-0" type="submit">Search</button>-->
+<!--        </form>-->
         
       </div>
     </nav> 
@@ -72,16 +81,15 @@
         <a href="#">CSS</a>
         <a href="#">Javascript</a>
         <a href="#">PHP</a>
-        <a href="#">Codeigniter</a>
-        <a href="#">Laravel</a>
-        <a href="#">Yii</a>
-        <a href="#">Template</a>
-        <a href="#">Learning</a>
-        <a href="#">C</a>
-        <a href="#">C++</a>
-        <a href="#">Java</a>
-        <a href="#">Git</a>
-        <a href="#">AWS</a>
+        <a href="<?php echo base_url(); ?>post/view/codeigniter/40">Codeigniter</a>
+        <a href="<?php echo base_url(); ?>post/view/laravel/38">Laravel</a>
+<!--        <a href="#">Yii</a>-->
+<!--        <a href="#">Template</a>-->
+<!--        <a href="#">Learning</a>-->
+<!--        <a href="#">C</a>-->
+<!--        <a href="#">C++</a>-->
+        <a href="<?php echo base_url(); ?>about-us">About Us</a>
+        <a href="<?php echo base_url(); ?>contact-us">Contact Us</a>
         <a href="<?php echo base_url(); ?>blog">Blog</a>
       </div>
     </section>

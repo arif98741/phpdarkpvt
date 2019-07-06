@@ -40,7 +40,7 @@ $route['admin/post/delete/(:num)'] 	= 'post/delete/$1';
 ! 	Tag Details Admin
 !---------------------------------------------------
 */
-$route['admin/tag_list'] 			= 'tag/index';
+$route['admin/tag_list'] 			= 'tag/tag_list';
 $route['admin/tag/delete/(:num)'] 	= 'tag/delete/$1';
 
 
@@ -63,7 +63,7 @@ $route['admin/blog/delete_cat/(:num)'] 	= 'blog/delete_blog_cat/$1';
 ! 	Admin Page List
 !---------------------------------------------------
 */
-$route['admin/page_list'] 			= 'page/index';
+$route['admin/page_list'] 			= 'page/page_list';
 $route['admin/add_page'] 			= 'page/add_page';
 $route['admin/edit_page/(:num)'] 	= 'page/edit_page/$1';
 $route['admin/page/delete/(:num)'] 	= 'page/delete_page/$1';
@@ -86,13 +86,10 @@ $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
 
 /*
 !---------------------------------------------------
-! 	Main Pages
+! 	Main Pages for Front view
 !---------------------------------------------------
 */
-// $route['about-us'] 			= 'front/view_blog/$1/$2';
-// $route['contact-us']		= 'front/blog_category/$1/$2';
-// $route['privacy-policy'] 	= 'front/blog';
-// $route['faq'] 				= 'front/post_details/$1/$2';
+$route['(:any)'] 			    = 'frontpage/view_blog/$1';
 
 
 

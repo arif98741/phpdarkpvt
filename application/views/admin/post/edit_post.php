@@ -117,7 +117,7 @@
     </textarea>
 </div>
 <button type="submit" class="btn btn-primary mr-2">Update</button>
-<button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>
+<button class="btn btn-light" >Cancel</button>
 <?php echo form_close(); ?>
 </div>
 </div>

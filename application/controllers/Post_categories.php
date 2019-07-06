@@ -46,16 +46,17 @@ class Post_categories extends CI_Controller
     {
 
         $post_category = $this->input->post('post_category');
+        $category_order = $this->input->post('category_order');
         
         $this->db->where('category_title',$post_category);
         $stmt =  $this->db->get('tbl_post_category');
         if ($stmt->result_id->num_rows >0) {
             $this->session->set_flashdata('error', 'Post Category <strong>'.$post_category.'</strong> Already Exist');
-
             redirect('admin/post_categories');
         }else{
             $data = array(
-                'category_title' => $post_category
+                'category_title' => $post_category,
+                'category_order' => $category_order
             );
             $this->db->insert('tbl_post_category',$data);
             $this->session->set_flashdata('success', 'Post Category <strong>'.$post_category.'</strong> Added Successfully');
@@ -74,6 +75,7 @@ class Post_categories extends CI_Controller
     {
         $this->db->set(array(
             'category_title' =>  $this->input->post('category_title'),
+            'category_order' =>  $this->input->post('category_order'),
             'updated_at'     => date('Y-m-d H:i:s')
         ));
         $this->db->where('catid',$catid);

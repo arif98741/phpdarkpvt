@@ -25,13 +25,16 @@ class Front extends CI_Controller
     */
     public function index()
     {
+        $data['title'] = '';
 
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
         $this->db->where('blog_status','published');
         $this->db->order_by('tbl_blog.blog_id','desc');
         $this->db->limit(3);
         $data['blogs'] = $this->db->get('tbl_blog')->result_object();
-        $data['post_categories'] = $this->db->order_by('category_title','asc')->limit(8)->get('tbl_post_category')->result_object();
+        $this->db->where_not_in('category_title', 'Codeigniter');
+        $this->db->where_not_in('category_title', 'Laravel');
+        $data['post_categories'] = $this->db->order_by('category_order','asc')->limit(8)->get('tbl_post_category')->result_object();
        
         $this->load->view('front/lib/header',$data);
         $this->load->view('front/lib/sidebar');
@@ -46,11 +49,12 @@ class Front extends CI_Controller
     */
     public function view_blog($slug,$id)
     {
-        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
-        $this->db->order_by('tbl_blog.blog_id','desc');
-        $this->db->where('blog_id',$id);
-        $data['blog'] = $this->db->get('tbl_blog')->result_object();
-       
+        $data['title'] = '';
+        $data['blog'] = $this->db
+            ->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid')
+            ->order_by('tbl_blog.blog_id','desc')
+            ->where('blog_id',$id)
+            ->get('tbl_blog')->result_object();
 
         $category = '';
 
@@ -58,11 +62,9 @@ class Front extends CI_Controller
             $category = $data['blog'][0]->tbcid;
         }
 
-        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
-        $this->db->order_by('rand()');
+        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid')->order_by('rand()');
         $this->db->where(['tbl_blog.tbcid'=>$category]);
-        $this->db->where(['tbl_blog.blog_id !='=>$id]);
-        $this->db->limit(4);
+        $this->db->where(['tbl_blog.blog_id !='=>$id])->limit(4);
         $data['related_blogs'] = $this->db->get('tbl_blog')->result_object();
 
         $this->load->view('front/lib/header',$data);
@@ -71,13 +73,15 @@ class Front extends CI_Controller
     }
 
 
-     /*
+    /*
     !--------------------------------------------------------
     !       Blog View @id
     !--------------------------------------------------------
     */
     public function blog($page_id = 1)
     {
+         $data['title'] = 'Blog';
+
         $row  = $this->db->get('tbl_blog')->num_rows();
         $perpage = PER_PAGE;
         $offset = ($page_id-1) * $perpage;
@@ -134,16 +138,19 @@ class Front extends CI_Controller
     {
         $data['post_categories'] = $this->db->order_by('category_title','asc')->limit(8)->get('tbl_post_category')->result_object();
 
-        $this->db->join('tbl_post_tag','tbl_post_tag.post_id = tbl_post.post_id','left');
-        $this->db->join('tbl_tag','tbl_post_tag.tagid = tbl_tag.tagid','left');
-        $this->db->where('tbl_post.post_id',$id);
-        $this->db->where('tbl_post.post_status',"published");
+        $this->db->join('tbl_post_tag','tbl_post_tag.post_id = tbl_post.post_id','left')
+        ->join('tbl_tag','tbl_post_tag.tagid = tbl_tag.tagid','left');
+        $this->db->where(array(
+                'tbl_post.post_id'=>$id,
+                'tbl_post.post_status'=>"published"
+        ));
         $this->db->or_where('tbl_post.post_slug',$slug);
         $stmt = $this->db->get('tbl_post');
         $post_row = $stmt->result_id->num_rows;
 
         if ($post_row >0) {
             $data['post'] = $stmt->result_object();
+            $data['title'] = $data['post'][0]->post_title;
             $data['sidebar_posts'] = $this->db->where('catid',$data['post'][0]->catid)->order_by('created','asc')->get('tbl_post')->result_object();
             $data['singlecategory'] = $this->db->where('catid',$data['post'][0]->catid)->get('tbl_post_category')->result_object();
 
@@ -155,5 +162,29 @@ class Front extends CI_Controller
             redirect('/');
         }
     } 
-   
+
+    // post next page helper
+    public function post_next($post_category,$post_id)
+    {
+        $string = '';
+        $this->db->where(array(
+                'post_id'       =>$post_id,
+                'catid'         =>$post_category,
+                'post_status'    =>"published"
+        ));
+        $post = $this->db->get('tbl_post');
+        if ($post->result_id->num_rows > 0) {
+            
+            $post_data = $post->result_object();
+            echo '<pre>';
+            print_r($post_data);
+            if (5) {
+                
+            }
+
+        }else{
+            echo "#";
+        }
+
+    }
 }

@@ -275,14 +275,7 @@ class Blog extends CI_Controller
                 $config['file_name']     = $post_id."-".time();
                 $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('post_attachment')) {
-                    $upload_data = array('upload_data' => $this->upload->data());
-                    $file = $upload_data['upload_data']['file_name'];
-                    $this->db->set('post_attachment',$file);
-                    $this->db->where('post_id',$post_id);
-                    $this->db->update('tbl_post');   
-                } 
-        }
+                if ($this->upload->do_upload('post_attachment')) ``        }
         
         
         $this->db->where('post_id',$post_id)->delete('tbl_post_tag');

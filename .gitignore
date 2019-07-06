@@ -8,3 +8,4 @@ uploads/*
 system/cache/*
 node_modules
 assets/admin/node_modules 
+/vendor/

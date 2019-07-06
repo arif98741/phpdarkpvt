@@ -1,0 +1,11 @@
+{
+    "name": "arifulislam/phpdarkpvt",
+    "description": "Test",
+    "authors": [
+        {
+            "name": "Ariful",
+            "email": "arifsofg@gmail.com"
+        }
+    ],
+    "require": {}
+}

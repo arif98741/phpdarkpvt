@@ -1,7 +1,7 @@
  <div id="social-link" class="mt-3">
       <div class="row">
         <div class="col-md-12 col-sm-12">
-          <p>If you think you have query... then For  contacting with us use <i class="fa fa-facebook">&nbsp;<strong><span ><a href="#" class="text-white"></i>Facebook</a></span></strong> . You can also use <i class="fa fa-github">&nbsp;<strong><a href="#" class="text-white">Github</a></strong></i></p>
+          <p>If you think you have query... then For  contacting with us use <i class="fa fa-facebook">&nbsp;<strong><span ><a href="https://www.facebook.com/darkphlearning" target="1" class="text-white"></i>Facebook</a></span></strong> . You can also use <i class="fa fa-github">&nbsp;<strong><a target="1" href="https://www.github.com/arif98741" class="text-white">Github</a></strong></i></p>
         </div>
       </div>
     </div>
@@ -12,9 +12,10 @@
         <div class="col">
           <div class="footer-first">
             <p class="footer-section-headline">Important</p>
-            <a href="#">Contact Us</a>
-            <a href="#">Tutorial</a>
-            <a href="#">Faq</a>
+            <a href="<?php echo base_url(); ?>contact-us">Contact Us</a>
+            <a href="<?php echo base_url(); ?>privacy-policy">Privacy Policy</a>
+            <a href="<?php echo base_url(); ?>terms-and-policy">Terms & Conditions</a>
+            <a href="<?php echo base_url(); ?>faq">Faq</a>
           </div>
         </div>
         <div class="col">
