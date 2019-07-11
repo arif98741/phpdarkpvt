@@ -8,7 +8,9 @@
     <h3 class="text-muted text-center"><?php echo $post[0]->post_title; ?></h3>
     <hr>
     <br>
+ 
     <?php foreach ($post as $post_tag) {?>
+
       <?php if(!empty($post_tag->tag_name)): ?>
        <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; <?php echo $post_tag->tag_name; ?></a>
      <?php endif; ?>
@@ -21,6 +23,7 @@
     <img src="<?php echo base_url(); ?>uploads/post/<?php echo $post[0]->post_attachment; ?>" alt="<?php echo $post[0]->post_title; ?>- phpdark.com" class="img-fluid" >
   <?php endif; ?>
   
+  <br>
   <br>
   <div class="row">
     <div class="col-md-4">

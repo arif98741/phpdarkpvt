@@ -23,7 +23,7 @@
         <hr>
         
         <div class="latest-blog">
-          <h2 class="last_article_headline">Latest Article >></h2>
+          <h2 class="last_article_headline"><a href="<?php echo base_url(); ?>blog" style="color:#fff; text-decoration: none;">Latest Blogs >></a></h2>
           <div class="row">
             <?php foreach ($blogs as $value) { ?>
             
@@ -38,9 +38,10 @@
 
                  <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="<?php echo $value->blog_title; ?> PHPDark.com" class="img-fluid"></a>
                  <h4 style="margin: 0px;"><a class="text-muted" href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><?php echo $value->blog_title; ?></a></h4>
-                 <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
+                 
               <?php endif; ?>
-              <p style="margin: 0px;"><?php echo substr($value->blog_description, 0,110); ?><a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more</a></p>
+              <small><i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, h:ia',strtotime($value->create)) ?> || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?></strong></small>
+              <p style="margin: 0px;"><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more</a></p>
             </div>
             
             

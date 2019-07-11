@@ -275,7 +275,7 @@ class Blog extends CI_Controller
                 $config['file_name']     = $post_id."-".time();
                 $this->load->library('upload', $config);
 
-                if ($this->upload->do_upload('post_attachment')) ``        }
+               // if ($this->upload->do_upload('post_attachment')) ``        }
         
         
         $this->db->where('post_id',$post_id)->delete('tbl_post_tag');
@@ -289,6 +289,8 @@ class Blog extends CI_Controller
 
         $this->session->set_flashdata('success', 'Post Added Successfully');
         redirect('admin/post_list');
+        }
+
     }
 
 

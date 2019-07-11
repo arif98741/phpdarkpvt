@@ -12,8 +12,6 @@ class Error404 extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('session');
-        $this->load->helper('security');
     }
 
     /*
@@ -23,13 +21,12 @@ class Error404 extends CI_Controller
     */
     public function index()
     {
-       
-        $data['users'] = $this->db->get('tbl_user')->result_object();
-
-        //$this->load->view('front/lib/header.php');
+        $data['post_categories'] = $this->db->order_by('category_order','asc')->limit(8)->get('tbl_post_category')->result_object();
+        $data['title'] = 'Error404! Page Not Found - PHPDark.com';
+        $this->load->view('front/lib/header.php',$data);
+        $this->load->view('front/lib/sidebar.php',$data);
         $this->load->view('errors/cli/publicerror_404');
-        //$this->load->view('front/lib/footer.php');
-        
+        $this->load->view('front/lib/footer.php');
     }
 
     

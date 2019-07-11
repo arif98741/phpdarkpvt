@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Management extends CI_Controller
+class Testcontroller extends CI_Controller
 {
 
     /*
@@ -14,12 +14,15 @@ class Management extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
-        $this->load->helper('security');
-        if (!$this->session->has_userdata('user')) {
-             redirect('dashboard');
-        }
+        $this->load->helper('security'); 
     }
 
- 
+    
+    public function index($x)
+    {
+        
+        echo 'hi '.$x;
+        
+    }
 
 }

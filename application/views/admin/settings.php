@@ -45,70 +45,96 @@
             <div class="card-body">
                <!--  <form class="forms-sample"> -->
                 <?php echo form_open_multipart('admin/save_settings', array('class'=>'forms-sample')); ?>
-                <div class="form-group">
-                    <label for="exampleInputName1">Settings Title</label>
-                    <input type="text" name="post_title" class="form-control" id="exampleInputName1" placeholder="Enter Settings Tile ">
-                </div>
+
+                
                 <div class="row">
-                   <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="exampleSelectGender">Select Hightjs CSS</label>
-                        <select name="catid" class="form-control" required="" id="post-category-dropdown">
-                            <option selected="" disabled="">Select</option>
-                            <?php foreach ($highlights as $highlight) { ?>
-                                <option value="<?php echo $highlight; ?>"><?php echo  $highlight; ?></option>
-                            <?php       } ?>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Site Name</label>
+                            <input type="text" name="site_name" class="form-control" id="site_name" value="<?php echo $website[0]->site_name; ?>" placeholder="Enter site name ">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Site Title</label>
+                            <input type="text" name="title" class="form-control" id="exampleInputName1"  value="<?php echo $website[0]->title; ?>" placeholder="Enter Site Tile ">
+                        </div>
+                    </div>
 
 
-                        </select>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleSelectGender">Select Highlightjs CSS</label>
+                            <select name="catid" class="form-control" required="" id="post-category-dropdown">
+                                <option selected="" disabled="">Select</option>
+                                <?php foreach ($highlights as $highlight) { ?>
+                                    <option value="<?php echo $highlight; ?>" <?php if($highlight == $website[0]->highlighter.".css"): ?>  selected="" <?php endif; ?>><?php echo  $highlight; ?></option>
+                                <?php       } ?>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Logo</label>
+                            <input type="file" name="logo" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                     <div class="form-group">
+                        <label for="exampleInputName1">Email</label>
+                        <input type="email" name="email" value="<?php echo $website[0]->email; ?>" placeholder="Enter email of site" class="form-control" required="">
                     </div>
                 </div>
+
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="exampleInputEmail3">Settings Image</label>
-                        <input type="file" name="post_attachment" class="form-control" id="exampleInputEmail3" placeholder="Email">
-                    </div>
-                </div>
-
-                <div class="col-md-12">
                  <div class="form-group">
-                    <label for="exampleInputName1">Settings Slug</label>
-                    <input type="text" name="post_slug" placeholder="Example: php-learning-awesome" class="form-control" required="">
+                    <label for="exampleInputName1">Mobile</label>
+                    <input type="text" name="mobile"  value="<?php echo $website[0]->email; ?>"  class="form-control">
                 </div>
             </div>
 
             <div class="col-md-6">
              <div class="form-group">
-                <label for="exampleInputName1">Settings Tag</label>
-                <select name="tagid[]" class="form-control" id="tags-dropdown" multiple="multiple">
-                    <option>Select Tags</option>
-                    <option>Select Tags</option>
-                    <?php foreach ($tags as $tag) { ?>
-                        <option value="<?php echo $tag->tagid; ?>"><?php echo  $tag->tag_name; ?></option>
-                    <?php       } ?>
-
-
-                </select>
+                <label for="exampleInputName1">Address</label>
+                <input type="text" name="address"  value="<?php echo $website[0]->address; ?>"  class="form-control">
             </div>
         </div>
 
+
         <div class="col-md-6">
          <div class="form-group">
-            <label for="exampleInputName1">Settings Status</label>
-            <select name="post_status" class="form-control">
-                <option value="published">Published</option>
-                <option value="draft">Draft</option>
-                <option value="pending">Pending</option>
+            <label for="exampleInputName1">Facebook</label>
+            <input type="text" name="facebook"  value="<?php echo $website[0]->facebook; ?>"  class="form-control">
 
-            </select>
         </div>
     </div>
+
+    <div class="col-md-6">
+     <div class="form-group">
+        <label for="exampleInputName1">Youtube</label>
+        <input type="text" name="youtube"  value="<?php echo $website[0]->youtube; ?>"  class="form-control">
+
+    </div>
+</div>
+
+<div class="col-md-6">
+ <div class="form-group">
+    <label for="exampleInputName1">Github</label>
+    <input type="text" name="github"  value="<?php echo $website[0]->github; ?>"  class="form-control">
+
+</div>
+</div>
+
 
 </div>
 
 <div class="form-group">
-    <label for="exampleTextarea1">Settings Details</label>
-    <textarea class="form-control" name="post_description" id="editor1" rows="4"></textarea>
+    <label for="exampleTextarea1">Short Introduction</label>
+    <textarea class="form-control" name="short_introduction" id="editor1" rows="4">
+        <?php  echo $website[0]->short_introduction;  ?>
+    </textarea>
 </div>
 <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
 <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>
@@ -137,11 +163,7 @@
 <script>
                    // $(document).ready(function() {
                      $('#post-category-dropdown').select2();
-                     $('#tags-dropdown').select2({
-                        tags: true,
-                        tokenSeparators: [',', ' ']
-
-                    });
+                    
 
                    // });
                    

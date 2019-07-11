@@ -66,9 +66,6 @@ class Countermodel extends CI_Model
         }
     }
 
-
-
-
 }
 
 ?>

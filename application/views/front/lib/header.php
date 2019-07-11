@@ -33,12 +33,12 @@
           <!-- <li class="nav-item active">
             <a class="nav-link" href="index.html"><i class="fa fa-home">&nbsp;</i>Home <span class="sr-only">(current)</span></a>
           </li> -->
-          <li class="nav-item">
+         <!-- <li class="nav-item">
             <a class="nav-link" href="#">Tutorial </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Project</a>
-          </li>
+          </li> -->
 <!--          <li class="nav-item">-->
 <!--            <a class="nav-link" href="#">Guideline</a>-->
 <!--          </li>-->
@@ -58,8 +58,8 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="<?php echo base_url(); ?>post/view/basic-php/41">Basic PHP</a>
               <a class="dropdown-item" href="<?php echo base_url();  ?>post/view/php-advanced/42">PHP Advanced</a>
-              <a class="dropdown-item" href="#">PHP Arrays</a>
-              <a class="dropdown-item" href="#">PHP OOP</a>
+            <!--   <a class="dropdown-item" href="#">PHP Arrays</a> -->
+              <a class="dropdown-item" href="<?php echo base_url();  ?>post/view/oop-oriented-programming-introduction/47">PHP OOP</a>
 
             </div>
           </li>
@@ -77,10 +77,10 @@
     <section id="below-nav" style="" style="">
       <div class="navigation-item">
         <a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>&nbsp;Home</a>
-        <a href="#">HTML</a>
-        <a href="#">CSS</a>
-        <a href="#">Javascript</a>
-        <a href="#">PHP</a>
+        <a href="<?php echo base_url();  ?>post/view/html-first-post/39">HTML</a>
+        <a href="<?php echo base_url();  ?>post/view/css-introduction-/48">CSS</a>
+        <a href="<?php echo base_url();  ?>post/view/javascript-introduction/49">Javascript</a>
+        <a href="<?php echo base_url();  ?>post/view/basic-php/41">PHP</a>
         <a href="<?php echo base_url(); ?>post/view/codeigniter/40">Codeigniter</a>
         <a href="<?php echo base_url(); ?>post/view/laravel/38">Laravel</a>
 <!--        <a href="#">Yii</a>-->

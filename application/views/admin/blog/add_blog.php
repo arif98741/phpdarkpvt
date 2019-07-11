@@ -109,7 +109,7 @@
                                                 <label for="exampleTextarea1">Blog Details</label>
                                                 <textarea class="form-control" name="blog_description" id="editor1" rows="4"></textarea>
                                             </div>
-                                            <button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
+                                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
                                             <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>
                                        <?php echo form_close(); ?>
                                     </div>

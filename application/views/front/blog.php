@@ -14,7 +14,11 @@
           <?php endif; ?>
 
           <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php  echo $value->blog_title; ?></a></h4>
-          <small><?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?></small>
+          <small><i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?>
+
+           || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?></strong>
+
+        </small>
           <p><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
         </div>
 

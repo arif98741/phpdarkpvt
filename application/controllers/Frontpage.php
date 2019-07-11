@@ -25,14 +25,17 @@ class Frontpage extends CI_Controller
      */
     public function view_blog($slug)
     {
+        $data['title'] = ucfirst(str_replace('-', ' ', $slug));
         $this->db->where('page_slug',$slug);
-        $data['page'] = $this->db->get('tbl_page')->result_object();
-
-        $this->load->view('front/lib/header',$data);
-       // $this->load->view('front/lib/sidebar');
-        $this->load->view('front/frontpage/frontpage');
-        $this->load->view('front/lib/footer');
-
+        $statement = $this->db->get('tbl_page');
+        if ($statement->result_id->num_rows >0) {
+            $data['page'] = $statement->result_object();
+            $this->load->view('front/lib/header',$data);
+            $this->load->view('front/frontpage/frontpage');
+            $this->load->view('front/lib/footer');
+        }else{
+            redirect(base_url().'error404');
+        }
     }
 
 }

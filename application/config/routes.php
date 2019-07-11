@@ -91,10 +91,7 @@ $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
 */
 $route['(:any)'] 			    = 'frontpage/view_blog/$1';
 
-
-
-
-$route['404_override'] 		   			= 'error404'; //override by controller
-$route['translate_uri_dashes'] 			= FALSE;
+$route['404_override'] 		   	= 'error404'; //override by controller
+$route['translate_uri_dashes'] 	= FALSE;
 
 

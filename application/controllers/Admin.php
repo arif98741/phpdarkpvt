@@ -225,10 +225,11 @@ class Admin extends CI_Controller
             redirect('admin');
         }
 
-
-
         $this->load->helper('directory');
         $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
+        //echo '<pre>';
+        //print_r($data['highlights']); exit;
+        $data['website'] = $this->db->get('website')->result_object();
         
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');

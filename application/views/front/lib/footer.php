@@ -21,8 +21,8 @@
         <div class="col">
           <div class="footer-first">
             <p class="footer-section-headline">Framework</p>
-            <a href="#">Codeigniter</a>
-            <a href="#">Laravel</a>
+            <a href="<?php echo base_url(); ?>post/view/codeigniter/40">Codeigniter</a>
+            <a href="<?php echo base_url(); ?>post/view/laravel/38">Laravel</a>
             
           </div>
         </div>
@@ -49,16 +49,14 @@
       <div class="row">
         <div class="col-md-6">
           <div class="left-copyright">
-            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19</p>
+            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19 </p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="right-copyright">
-            <a href="" class="i fa fa-facebook"></a>
-            <a href="" class="i fa fa-twitter"></a>
-            <a href="" class="i fa fa-github"></a>
-            <a href="" class="i fa fa-gitlab"></a>
-            <a href="" class="i fa fa-linkedin"></a>
+            <a href="#" class="i fa fa-facebook"></a>
+            <a href="#" class="i fa fa-twitter"></a>
+            <a href="#" class="i fa fa-github"></a>
           </div>
         </div>
       </div>
