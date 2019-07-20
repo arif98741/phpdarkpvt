@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$route['default_controller'] 	 = 'front';
+$route['404_override'] 		 = 'error404'; //override by controller
+$route['default_controller'] = 'front';
+
 
 
 /*
@@ -36,7 +38,7 @@ $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
 */
 $route['(:any)'] 			    = 'web/frontpage/view_blog/$1';
 
-$route['404_override'] 		   	= 'error404'; //override by controller
+
 $route['translate_uri_dashes'] 	= FALSE;
 
 
