@@ -1,6 +1,5 @@
-<!-- wrapper start -->
-
 <div class="col-md-7">
+  <marquee behavior="alternate" direction="">Our site is still in beta mode. Please wait for full release</marquee>
   <div class="right">
     <div class="block">
       <i class="fa fa-book"></i>
