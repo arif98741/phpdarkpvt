@@ -21,7 +21,6 @@ class Error404 extends CI_Controller
     */
     public function index()
     {
-        echo 'hi'; exit;
         $data['post_categories'] = $this->db->order_by('category_order','asc')->limit(8)->get('tbl_post_category')->result_object();
         $data['title'] = 'Error404! Page Not Found - PHPDark.com';
         $this->load->view('front/lib/header.php',$data);

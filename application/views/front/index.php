@@ -1,5 +1,4 @@
 <div class="col-md-7">
-  <marquee behavior="alternate" direction="">Our site is still in beta mode. Please wait for full release</marquee>
   <div class="right">
     <div class="block">
       <i class="fa fa-book"></i>
@@ -33,11 +32,11 @@
 
               <?php if($value->blog_attachment == '' || $value->blog_attachment == null): ?>
 
-                <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/default.png" alt="<?php echo $value->blog_title; ?> PHPDark.com" class="img-fluid"></a>
+                <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/default.png" alt="<?php echo $value->blog_title; ?> - PHPDark.com" class="img-fluid"></a>
                 <h4><?php echo $value->blog_title; ?></h4>
                 <?php else: ?>
 
-                 <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/<?php echo $value->blog_attachment; ?>" alt="<?php echo $value->blog_title; ?> PHPDark.com" class="img-fluid"></a>
+                 <a href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url(); ?>uploads/blog/235X180/<?php echo $value->thumb; ?>" alt="<?php echo $value->blog_title; ?> - PHPDark.com" class="img-fluid"></a>
                  <h4 style="margin: 0px;"><a class="text-muted" href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><?php echo $value->blog_title; ?></a></h4>
                  
                <?php endif; ?>

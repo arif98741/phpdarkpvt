@@ -7,5 +7,7 @@
             "email": "arifsofg@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "intervention/image": "^2.5"
+    }
 }

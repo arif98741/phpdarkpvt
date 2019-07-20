@@ -18,15 +18,13 @@ $route['admin/profile_update']  = 'admin/admin/profile_update';
 $route['admin/settings']  		= 'admin/admin/settings';
 $route['admin/logout'] 		  	= 'admin/logout'; //for hightlight class list
 
-
-
 /*
 !---------------------------------------------------
 ! 	Front 
 !---------------------------------------------------
 */
 $route['blog/view/(:any)/(:num)'] 		= 'front/view_blog/$1/$2';
-$route['blog/category/(:any)/(:num)']	= 'front/blog_category/$1/$2';
+$route['blog/category/(:any)/(:num)/page/(:num)']	= 'front/blog_category/$1/$2/$3';
 $route['blog'] 							= 'front/blog';
 $route['blog/(:num)'] 					= 'front/blog/$1';
 $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';

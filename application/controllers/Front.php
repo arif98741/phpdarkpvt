@@ -74,7 +74,7 @@ class Front extends CI_Controller
     */
     public function blog($page_id = 1)
     {
-         $data['title'] = 'Blog';
+        $data['title'] = 'Blog';
 
         $row  = $this->db->get('tbl_blog')->num_rows();
         $perpage = PER_PAGE;
@@ -84,7 +84,7 @@ class Front extends CI_Controller
         $total_no_of_pages  = ceil($row / $perpage);
         $this->db->select("*");
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid=tbl_blog.tbcid');
-        $this->db->order_by('tbl_blog.create','desc');
+        $this->db->order_by('tbl_blog.blog_id','desc');
         $this->db->limit($perpage,$offset);
         $query          = $this->db->get('tbl_blog');
         if ($query->num_rows() > 0) {
@@ -109,16 +109,40 @@ class Front extends CI_Controller
     !       Show Blogs By Category
     !--------------------------------------------------------
     */
-    public function blog_category($category_name="",$category_id)
+    public function blog_category($category_name="",$category_id,$page_id=1)
     {
-        $data['title'] = $category_name;
-    
-        $data['blogs']      = $this->blogmodel->blog_category($category_id);
-        $data['category']   = $this->db->where(['tbcid'=>$category_id])->order_by('blog_id','desc')->get('tbl_blog')->result_object();
-       
-        $this->load->view('front/lib/header',$data);
-        $this->load->view('front/blog');
-        $this->load->view('front/lib/footer');
+        $data['title']       = $category_name;
+        $data['category_name'] = $category_name;
+        $data['category_id'] = $category_id;
+
+        $row  = $this->db->get('tbl_blog')->num_rows();
+        $perpage = PER_PAGE;
+        $offset = ($page_id-1) * $perpage;
+        $previous_page      = $page_id - 1;
+        $next_page          = $page_id + 1;
+        $total_no_of_pages  = ceil($row / $perpage);
+        $this->db->select("*");
+        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid=tbl_blog.tbcid');
+        $this->db->where('tbl_blog.tbcid',$category_id);
+        $this->db->order_by('tbl_blog.blog_id','desc');
+        $this->db->limit($perpage,$offset);
+        $query          = $this->db->get('tbl_blog');
+        if ($query->num_rows() > 0) {
+
+            $data['blogs']  = $query->result(); 
+            $data['row']    = $row;
+            $data['page']   = $page_id;
+            $data['pages']  = (int)$total_no_of_pages;
+            $data['previous_page']  = $previous_page;
+            $data['next_page']      = $next_page;
+           
+            $this->load->view('front/lib/header',$data);
+            $this->load->view('front/blog/blog_category');
+            $this->load->view('front/lib/footer');
+        }else{
+            redirect('/','refresh');
+        }
+
     }
 
     /*
