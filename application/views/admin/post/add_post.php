@@ -30,7 +30,7 @@
                         <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-home"></i>&nbsp; Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="<?php echo base_url();?>admin/post_list">Post List</a>
+                        <a href="<?php echo base_url();?>admin/post/post_list">Post List</a>
                     </li>
                     <li class="breadcrumb-item active" aria-current="page">Add Post</li>
                 </ol>
@@ -44,7 +44,7 @@
             <div class="card-header"><h3>Add Post</h3></div>
             <div class="card-body">
              <!--  <form class="forms-sample"> -->
-                <?php echo form_open_multipart('post/save_post', array('class'=>'forms-sample')); ?>
+                <?php echo form_open_multipart('admin/post/save_post', array('class'=>'forms-sample')); ?>
                 <div class="form-group">
                     <label for="exampleInputName1">Post Title</label>
                     <input type="text" name="post_title" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">

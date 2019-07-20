@@ -44,7 +44,7 @@
             <div class="card-header"><h3>Edit Post</h3></div>
             <div class="card-body">
              <!--  <form class="forms-sample"> -->
-                <?php echo form_open_multipart('post/update_post/'.$post[0]->post_id, array('class'=>'forms-sample')); ?>
+                <?php echo form_open_multipart('admin/post/update_post/'.$post[0]->post_id, array('class'=>'forms-sample')); ?>
                 <div class="form-group">
                     <label for="exampleInputName1">Post Title</label>
                     <input type="text" name="post_title" value="<?php echo $post[0]->post_title; ?>" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">

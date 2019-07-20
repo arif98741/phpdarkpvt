@@ -46,7 +46,7 @@
                                           Username/Password Not Matched!
                                         </div>
                             <?php endif; ?>
-                           <?php echo form_open('admin/login',array('class'=>'login-form'));?>
+                           <?php echo form_open('admin/admin/login',array('class'=>'login-form'));?>
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="username" placeholder="Username" required=">
                                     <i class="fa fa-user"></i>

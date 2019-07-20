@@ -9,7 +9,7 @@
 
 
           <h3 class="text-left">Welcome Learner...</h3>
-          <p class="text-justify" style="padding: 0px 4px"><span class="text-bold">PHPDark.com<span> is a platform for giving facility of learning resources of programming language mainly PHP and it's cooperative frameworks such as <strong>Laravel</strong>, <strong>Codeigniter</strong>, <strong>Yii2</strong>, <strong>Symphony</strong> etc. Others are also available in <strong>phpdark</strong> for supplying easy guidance</p>
+          <p class="text-justify" style="padding: 0px 4px"><span class="text-bold">PHPDark.com<span> is a platform for giving support of learning resources of programming language mainly PHP and it's cooperative frameworks such as <strong>Laravel</strong>, <strong>Codeigniter</strong>, <strong>Yii2</strong>, <strong>Symphony</strong> etc. Others are also available in <strong>phpdark</strong> for supplying easy guidance</p>
 
           <?php }  ?>
 
