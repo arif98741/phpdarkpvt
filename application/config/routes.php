@@ -18,7 +18,6 @@ $route['admin/logout'] 		  	= 'admin/logout'; //for hightlight class list
 
 
 
-
 /*
 !---------------------------------------------------
 ! 	Front 
