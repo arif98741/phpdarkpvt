@@ -100,7 +100,7 @@ class Front extends CI_Controller
             $this->load->view('front/blog');
             $this->load->view('front/lib/footer');
         }else{
-           // redirect('/','refresh');
+            redirect('/','refresh');
         }
     }
 

@@ -1,32 +1,84 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('Asia/Dhaka');
 ?>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif|Kalam|Rajdhani&display=swap');
 
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+	.wrapper{
+		max-width: 1050px;
+		min-height: 510px;
+		border:2px solid #000;
+		margin:0 0 10px 0;
+		margin: 20 auto;
+		font-family: Lucida Console;
+		border-radius: 5px;
+		display: none;
+	}
+	.headline{
+		text-align: center;
+		font-size: 25px;
+	}
 
-<h4>An uncaught Exception was encountered</h4>
+	.sub-headline{
+		text-align: center;
+		font-size: 18px;
+		margin: 0px;
+		padding: 0px;
+	}
 
-<p>Type: <?php echo get_class($exception); ?></p>
-<p>Message: <?php echo $message; ?></p>
-<p>Filename: <?php echo $exception->getFile(); ?></p>
-<p>Line Number: <?php echo $exception->getLine(); ?></p>
+	.universal{
+		background: #866666;
+		color: #fff;
+		padding: 20px 0px;
+		font-size: 20px;margin: 0px;
+		margin: 0px;
+	}
 
-<?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE): ?>
+	.text-color{color: #ffeb00;}
+	.footer-error{
+		background: #44da3299;
+		margin: 0px;
+	}
+</style>
 
-	<p>Backtrace:</p>
-	<?php foreach ($exception->getTrace() as $error): ?>
+<div class="wrapper">
 
-		<?php if (isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0): ?>
+	<h4 class="headline">An uncaught Exception was encountered</h4>
+	<p class="sub-headline">Generated On: <?php echo date('h:i:sA, d-m-Y');?></p>
 
-			<p style="margin-left:10px">
-			File: <?php echo $error['file']; ?><br />
-			Line: <?php echo $error['line']; ?><br />
-			Function: <?php echo $error['function']; ?>
-			</p>
-		<?php endif ?>
+	<p class="universal text-color">Type: <?php echo get_class($exception); ?></p>
+	<p class="universal text-color">Message: <?php echo $message; ?></p>
+	<p class="universal text-color">Filename: <strong><?php echo $exception->getFile(); ?></strong></p>
+	<p class="universal text-color">Line Number: <strong><span style="font-size: 25px;"><?php echo $exception->getLine(); ?></span></strong></p>
+
+	<?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE): ?>
+
+		<div class="footer-error">
+			<p>Backtrace:</p>
+			<?php foreach ($exception->getTrace() as $error): ?>
+
+				<?php if (isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0): ?>
+
+				<p style="margin-left:10px; font-weight: 700">
+					File: <?php echo $error['file']; ?><br />
+					Line: <?php echo $error['line']; ?><br />
+					Function: <?php echo $error['function']; ?>
+				</p>
+			<?php endif ?>
+		</div>
 
 	<?php endforeach ?>
 
 <?php endif ?>
 
 </div>
+<script
+src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+	$(document).ready(function() {
+		setTimeout(function(){
+			$('.wrapper').slideDown(300);
+		},200);
+	});
+</script>

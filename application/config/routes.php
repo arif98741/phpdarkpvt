@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-$route['404_override'] 		 = 'error404'; //override by controller
+//$route['404_override'] 		 = 'error404'; //override by controller
 $route['default_controller'] = 'front';
 
 
