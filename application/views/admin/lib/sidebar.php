@@ -35,7 +35,7 @@
                     </div>
                     
                     <div class="nav-item has-sub">
-                        <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Gallery</span> <span class="badge badge-danger"><?php //echo $this->countermodel->total_tag(); ?></span></a>
+                        <a href="javascript:void(0)"><i class="ik ik-camera"></i><span>Gallery</span> <span class="badge badge-danger"><?php //echo $this->countermodel->total_tag(); ?></span></a>
                         <div class="submenu-content">
                             <a href="<?php echo base_url();?>admin/gallery/album" class="menu-item"><i class="fa fa-list-alt"></i>Album</a>
                             

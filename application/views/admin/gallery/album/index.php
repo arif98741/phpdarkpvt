@@ -94,7 +94,6 @@
                                 </div>
                             </form>
 
-
                             <!-- edit end-->
 
                             <a href="<?php echo base_url();?>admin/gallery/delete_album/<?php echo $album->id;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
