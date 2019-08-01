@@ -17,10 +17,8 @@
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/@fortawesome/fontawesome-free/css/all.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/icon-kit/dist/css/iconkit.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/ionicons/dist/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/perfect-scrollbar/css/perfect-scrollbar.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css">
-        <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/node_modules/weather-icons/css/weather-icons.min.css">
         <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/theme.min.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <script src="<?php echo base_url();?>assets/admin/src/js/vendor/modernizr-2.8.3.min.js"></script>

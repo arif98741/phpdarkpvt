@@ -1,5 +1,5 @@
 {
-  "name": "phpdark",
+  "name": "themekit",
   "version": "2.0.0",
   "description": "Free Bootstrap 4 Admin Template",
   "main": "./dist/js/theme.js",

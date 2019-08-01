@@ -35,12 +35,21 @@
                     </div>
                     
                     <div class="nav-item has-sub">
-                        <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Tag</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_tag(); ?></span></a>
+                        <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Gallery</span> <span class="badge badge-danger"><?php //echo $this->countermodel->total_tag(); ?></span></a>
                         <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/tag/tag_list" class="menu-item"><i class="fa fa-list-alt"></i>Tag List</a>
+                            <a href="<?php echo base_url();?>admin/gallery/album" class="menu-item"><i class="fa fa-list-alt"></i>Album</a>
                             
                         </div>
+
+                        <div class="submenu-content">
+                            <a href="<?php echo base_url();?>admin/gallery/photos" class="menu-item"><i class="fa fa-list-alt"></i>Photos</a>
+                            
+                        </div>
+
+                        
                     </div>
+
+
                     <div class="nav-lavel">Blog</div>
                     <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-package"></i><span>Blogs</span></a>
@@ -61,6 +70,16 @@
                             <a href="<?php echo base_url();?>admin/page/page_cat_list" class="menu-item">Pages Category List</a>
                         </div>
                     </div>
+
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="ik ik-tag"></i><span>Tag</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_tag(); ?></span></a>
+                        <div class="submenu-content">
+                            <a href="<?php echo base_url();?>admin/tag/tag_list" class="menu-item"><i class="fa fa-list-alt"></i>Tag List</a>
+                            
+                        </div>
+                    </div>
+
+                    
 
                      <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
