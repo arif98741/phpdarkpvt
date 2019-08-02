@@ -4,6 +4,12 @@
 class Countermodel extends CI_Model
 {
 
+    /*
+    !========================================
+    ! Constructor Load First
+    ! @return int
+    !========================================
+    */
     public function __construct()
     {
         parent::__construct();
@@ -11,9 +17,13 @@ class Countermodel extends CI_Model
        
     }
 
-
-    public function total_category()
-    {
+    /*
+    !========================================
+    ! Total Post Category
+    ! @return int
+    !========================================
+    */
+    public function total_category(){
         $result_set = $this->db->get('tbl_post_category')->result_id->num_rows;
         if ($result_set > 0) {
             return $result_set;
@@ -22,10 +32,13 @@ class Countermodel extends CI_Model
         }
     }
 
-
-    
-    public function total_post()
-    {
+    /*
+    !========================================
+    ! Total Post
+    ! @return int
+    !========================================
+    */
+    public function total_post(){
         $result_set = $this->db->get('tbl_post')->result_id->num_rows;
         if ($result_set > 0) {
             return $result_set;
@@ -34,8 +47,13 @@ class Countermodel extends CI_Model
         }
     }
 
-    public function total_tag()
-    {
+    /*
+    !========================================
+    ! Total Tag
+    ! @return int
+    !========================================
+    */
+    public function total_tag(){
         $result_set = $this->db->get('tbl_tag')->result_id->num_rows;
         if ($result_set > 0) {
             return $result_set;
@@ -44,9 +62,13 @@ class Countermodel extends CI_Model
         }
     }
 
-
-    public function total_page()
-    {
+    /*
+    !========================================
+    ! Total Page
+    ! @return int
+    !========================================
+    */
+    public function total_page(){
         $result_set = $this->db->get('tbl_page')->result_id->num_rows;
         if ($result_set > 0) {
             return $result_set;
@@ -55,9 +77,13 @@ class Countermodel extends CI_Model
         }
     }
 
-
-    public function total_blog()
-    {
+    /*
+    !========================================
+    ! Total Blog Number
+    ! @return int
+    !========================================
+    */
+    public function total_blog(){
         $result_set = $this->db->get('tbl_blog')->result_id->num_rows;
         if ($result_set > 0) {
             return $result_set;
@@ -66,10 +92,39 @@ class Countermodel extends CI_Model
         }
     }
 
-    public function total_blogview($today="")
-    {
+    /*
+    !========================================
+    ! blog view
+    ! @return int
+    !========================================
+    */
+    public function total_blogview($today=""){
         $result_set = $this->db->select('sum(view) as total')->get('tbl_blog')->result_object();
         return $view = $result_set[0]->total;
+    }
+
+    /*
+    !========================================
+    ! Total Album
+    ! @return int
+    !========================================
+    */
+    public function total_album(){
+
+        return $result_set = $this->db->get('album')->num_rows();
+
+    }
+
+    /*
+    !========================================
+    ! Total Photo
+    ! @return int
+    !========================================
+    */
+    public function total_photo(){
+
+        return $result_set = $this->db->get('photo')->num_rows();
+
     }
 
 

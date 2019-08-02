@@ -42,13 +42,12 @@
                         </div>
 
                         <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/gallery/photos" class="menu-item"><i class="fa fa-list-alt"></i>Photos</a>
+                            <a href="<?php echo base_url();?>admin/gallery/photos" class="menu-item"><i class="fa fa-camera"></i>Photos</a>
+                            <a href="<?php echo base_url();?>admin/gallery/add_photo" class="menu-item"><i class="fa fa-plus"></i>Add Photo</a>
                             
                         </div>
 
-                        
                     </div>
-
 
                     <div class="nav-lavel">Blog</div>
                     <div class="nav-item has-sub">

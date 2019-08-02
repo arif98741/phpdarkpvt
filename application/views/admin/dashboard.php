@@ -26,9 +26,7 @@
                         </div>
                         <small class="text-small mt-10 d-block">Total Blog Post </small>
                     </div>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%;"></div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -45,9 +43,7 @@
                         </div>
                         <small class="text-small mt-10 d-block">Total Blogs</small>
                     </div>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"></div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -64,9 +60,7 @@
                         </div>
                         <small class="text-small mt-10 d-block">Total Categories</small>
                     </div>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%;"></div>
-                    </div>
+
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
@@ -83,9 +77,7 @@
                         </div>
                         <small class="text-small mt-10 d-block">Total Pages</small>
                     </div>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width: 31%;"></div>
-                    </div>
+
                 </div>
             </div>
 
@@ -103,13 +95,50 @@
                         </div>
                         <small class="text-small mt-10 d-block">Total blog views</small>
                     </div>
-                    <div class="progress progress-sm">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width: 31%;"></div>
-                    </div>
+
                 </div>
             </div>
 
-            
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="widget">
+                    <div class="widget-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="state">
+                                <h6>Total Album</h6>
+                                <h2><?php echo $this->countermodel->total_album(); ?></h2>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-camera-retro"></i>
+                            </div>
+                        </div>
+                        <small class="text-small mt-10 d-block">Total albums</small>
+                    </div>
+
+                </div>
+            </div>
+
+             <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="widget">
+                    <div class="widget-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="state">
+                                <h6>Total Photo</h6>
+                                <h2><?php echo $this->countermodel->total_photo(); ?></h2>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-camera"></i>
+                            </div>
+                        </div>
+                        <small class="text-small mt-10 d-block">Total photos</small>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
             
         </div>
         

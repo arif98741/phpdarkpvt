@@ -6,15 +6,16 @@ class Gallery extends CI_Controller
 {
 
     /*
-    !--------------------------------------------------------
-    !       Constructor Load During Creation of Object
-    !--------------------------------------------------------
-    */
+     !========================================
+     ! Constructor and initialization
+     !========================================
+     */
     public function __construct()
     {
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('security'); 
+        $this->load->model('photomodel'); 
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
         }
@@ -42,65 +43,88 @@ class Gallery extends CI_Controller
     !     Save Post Categories
     !--------------------------------------------------------
     */
-    public function save_categories()
+    public function save_album()
     {
-
-        $post_category = $this->input->post('post_category');
-        $category_order = $this->input->post('category_order');
+        $album_name = $this->input->post('album_name');
         
-        $this->db->where('category_title',$post_category);
-        $stmt =  $this->db->get('tbl_post_category');
+        $this->db->where('album_name',$post_category);
+        $stmt =  $this->db->get('album');
         if ($stmt->result_id->num_rows >0) {
-            $this->session->set_flashdata('error', 'Post Category <strong>'.$post_category.'</strong> Already Exist');
-            redirect('admin/post_categories');
+            $this->session->set_flashdata('error', 'Abbum <strong>'.$album_name.'</strong> Already Exist');
+            redirect('admin/gallery/album');
         }else{
             $data = array(
-                'category_title' => $post_category,
-                'category_order' => $category_order
+                'album_name' => $album_name
             );
-            $this->db->insert('tbl_post_category',$data);
-            $this->session->set_flashdata('success', 'Post Category <strong>'.$post_category.'</strong> Added Successfully');
-            redirect('admin/post_categories');
+            $this->db->insert('album',$data);
+            $this->session->set_flashdata('success', 'Category <strong>'.$album_name.'</strong> Added Successfully');
+            redirect('admin/gallery/album');
         }
-		
     }
 
 
     /*
     !--------------------------------------------------------
-    !     Update Post Category
+    !     Update ALbum
     !--------------------------------------------------------
     */
-    public function update($catid)
+    public function update_album($id)
     {
         $this->db->set(array(
-            'category_title' =>  $this->input->post('category_title'),
-            'category_order' =>  $this->input->post('category_order'),
-            'updated_at'     => date('Y-m-d H:i:s')
+            'album_name' =>  $this->input->post('album_name')
         ));
-        $this->db->where('catid',$catid);
-        $stmt =  $this->db->update('tbl_post_category');
+        $this->db->where('id',$id);
+        $stmt =  $this->db->update('album');
         
-        $this->session->set_flashdata('success', 'Post Category Updated Successfully to <strong>'.$this->input->post("category_title").'</strong>');
-        redirect('admin/post_categories');
+        $this->session->set_flashdata('success', 'Album Updated Successfully to <strong>'.$this->input->post("album_name").'</strong>');
+        redirect('admin/gallery/album');
         
     }
-
 
   
     /*
     !--------------------------------------------------------
-    !      Delete User
+    !      Delete Album
     !--------------------------------------------------------
     */
-    public function delete($catid)
+    public function delete_album($id)
     {
         $this->db->where(array(
-            'catid ' => $catid
+            'id ' => $id
         )); 
-        $this->db->delete('tbl_post_category');
-        $this->session->set_flashdata('success', 'Post Category (<strong>'.$catid.'</strong>) Deleted Successfully');
-        redirect('admin/post_categories');
+        $this->db->delete('album');
+        $this->session->set_flashdata('success', 'Album (<strong>'.$id.'</strong>) Deleted Successfully');
+        redirect('admin/gallery/album');
+    }
+
+    /*
+    !========================================
+    ! Photos
+    !========================================
+    */
+    public function photo()
+    {
+
+        // $this->db->order_by('album_name','asc');
+        // $data['albums'] = $this->db->get('album')->result_object();
+        // $this->load->view('admin/lib/header',$data);
+        // $this->load->view('admin/lib/sidebar');
+        // $this->load->view('admin/gallery/album/index');
+        // $this->load->view('admin/lib/footer');
+    }
+
+    /*
+    !========================================
+    ! Add Photo
+    !========================================
+    */
+    public function add_photo()
+    {
+        $data['albums'] = $this->photomodel->albums();
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/gallery/photo/add_photo');
+        $this->load->view('admin/lib/footer');
     }
 
 }
