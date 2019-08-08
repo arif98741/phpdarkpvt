@@ -50,6 +50,7 @@ class Post extends CI_Controller
 
         $this->db->order_by('tag_name','asc');
         $data['tags'] = $this->db->get('tbl_tag')->result_object(); 
+        $data['token'] = $this->security->get_csrf_hash();
 
 
         $this->load->view('admin/lib/header',$data);
@@ -228,5 +229,29 @@ class Post extends CI_Controller
         $this->session->set_flashdata('success', 'Post Deleted Successfully');
         redirect('admin/post/post_list');
     }
+
+     /*
+    !--------------------------------------------------------
+    !      Upload Image for Post
+    !--------------------------------------------------------
+    */
+    public function upload_image()
+    {
+            echo 'hi';
+
+            // $image =  $_FILES['image']['tmp_name'];
+            // $filename = 'image_' . time() . '.' . $image->getClientOriginalExtension();
+            // //$path = storage_path() . '/app/public/uploads/article-image/' . $filename;
+            // $path = 'uploads/post/' . $filename;
+            // Image::make($image)->resize(800, null, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->save($path);
+
+            // $image_url =  $filename;
+            // echo $image_url;
+       
+    }
+
+    
 
 }

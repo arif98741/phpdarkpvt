@@ -44,7 +44,7 @@
             <div class="card-header"><h3>Add Post</h3></div>
             <div class="card-body">
              <!--  <form class="forms-sample"> -->
-                <?php echo form_open_multipart('admin/post/save_post', array('class'=>'forms-sample')); ?>
+                <?php echo form_open_multipart('admin/post/save_post', array('class'=>'forms-sample','id'=>'create-post')); ?>
                 <div class="form-group">
                     <label for="exampleInputName1">Post Title</label>
                     <input type="text" name="post_title" class="form-control" id="exampleInputName1" placeholder="Enter Post Tile ">
@@ -108,7 +108,8 @@
 
 <div class="form-group">
     <label for="exampleTextarea1">Post Details</label>
-    <textarea class="form-control" name="post_description" id="editor1" rows="4"></textarea>
+    <textarea name="body" id="body" class="ck-editor"
+                                style="min-height: 100px"></textarea>
 </div>
 <button type="submit" class="btn btn-primary mr-2" >Submit</button>
 <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>
@@ -125,26 +126,38 @@
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script>
-<script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+<!-- <script src="https://cdn.ckeditor.com/4.11.2/full/ckeditor.js"></script> -->
+<!-- <script src="<?php //echo base_url();?>assets/admin/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script> -->
 
 <script>
- CKEDITOR.replace( 'editor1' );
- $('#post_tag').tagsinput();
+ //CKEDITOR.replace( 'editor1' );
+ //$('#post_tag').tagsinput();
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script>
-                   // $(document).ready(function() {
-                       $('#post-category-dropdown').select2();
-                       $('#tags-dropdown').select2({
-                        tags: true,
-                        tokenSeparators: [',', ' ']
+   // $(document).ready(function() {
+       $('#post-category-dropdown').select2();
+       $('#tags-dropdown').select2({
+        tags: true,
+        tokenSeparators: [',', ' ']
 
-                    });
+    });
 
-                   // });
-                   
-               </script>
+   // });
+   
+</script>
+<script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+<script>
+ CKEDITOR.replace( 'body', {
+    height: 300,
+    filebrowserUploadUrl: "<?php base_url() ?>/phpdarkpvt/index.php/admin/post/upload_image/"
+});
+</script>
+<style>
+    .ck-editor__editable {
+        min-height: 300px;
+    }
+</style>
 
 
