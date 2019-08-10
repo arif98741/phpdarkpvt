@@ -24,7 +24,7 @@
   <body>
     <!-- navigation start -->
     <nav class="navbar navbar-expand-lg fixed-top">
-      <a class="navbar-brand" href="<?php echo base_url(); ?>">PHPDark <sup><small>beta</small></sup></a>
+      <a class="navbar-brand" href="<?php echo base_url(); ?>">PHPDark</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">-</span>
       </button>
