@@ -9,7 +9,7 @@
   <div class="alert bg-warning alert-warning text-white" id="message" role="alert">
       <?php echo $this->session->error ;?>
   </div>
-<?php endif; ?>  
+<?php endif; ?>
 <div class="container-fluid">
     <div class="page-header">
         <div class="row align-items-end">
@@ -54,6 +54,7 @@
                             <tr>
                                 <th width="10%">Serial</th>
                                 <th width="20%">Album Name</th>
+                                <th width="20%">Total Photo</th>
                                 <th width="20%">Action</th>
                             </tr>
                         </thead>
@@ -64,6 +65,7 @@
                                 <tr>
                                     <td style="text-align: center;"><?php echo $i;?></td>
                                     <td><?php echo $album->album_name;?></td>
+                                    <td><?php echo $album->total_photo;?></td>
                                     <td>
                                      <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
 
@@ -84,7 +86,7 @@
                                                         <input type="hidden" name="id" value="<?php echo $album->id;?>">
                                                     </div>
 
-                                                    
+
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -142,7 +144,7 @@
                     <input type="text" name="album_name" class="form-control" id="exampleInputName1" placeholder="Name">
                 </div>
 
-                
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -153,5 +155,3 @@
     </div>
 </div>
 </form>
-
-

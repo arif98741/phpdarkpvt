@@ -37,8 +37,8 @@
         </div>
         <div class="col">
           <div class="footer-last">
-            <img src="/assets/image/logo.png" alt="">
-            <p>PHPDark.com</p>
+            <img src="<?php echo base_url(); ?>/assets/image/logo.png" alt="">
+            <a href="<?php echo base_url(); ?>site-map">Sitemap</a>
           </div>
         </div>
       </div>

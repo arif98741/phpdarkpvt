@@ -44,7 +44,7 @@
             <div class="card-header"><h3>Settings</h3></div>
             <div class="card-body">
                <!--  <form class="forms-sample"> -->
-                <?php echo form_open_multipart('admin/save_settings', array('class'=>'forms-sample')); ?>
+                <?php echo form_open_multipart('admin/admin/save_settings', array('class'=>'forms-sample')); ?>
 
                 
                 <div class="row">
@@ -65,7 +65,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleSelectGender">Select Highlightjs CSS</label>
-                            <select name="catid" class="form-control" required="" id="post-category-dropdown">
+                            <select name="highlight" class="form-control" required="" id="post-category-dropdown">
                                 <option selected="" disabled="">Select</option>
                                 <?php foreach ($highlights as $highlight) { ?>
                                     <option value="<?php echo $highlight; ?>" <?php if($highlight == $website[0]->highlighter.".css"): ?>  selected="" <?php endif; ?>><?php echo  $highlight; ?></option>
@@ -136,7 +136,7 @@
         <?php  echo $website[0]->short_introduction;  ?>
     </textarea>
 </div>
-<button type="submit" class="btn btn-primary mr-2" onclick="return  (confirm('are you sure to save?'))">Submit</button>
+<button type="submit" class="btn btn-primary mr-2">Submit</button>
 <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>
 <?php echo form_close(); ?>
 </div>

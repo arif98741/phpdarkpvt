@@ -30,19 +30,19 @@
                         <a href="javascript:void(0)"><i class="ik ik-folder-plus"></i><span>Post Category</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_category(); ?></span></a>
                         <div class="submenu-content">
                             <a href="<?php echo base_url();?>admin/post_categories" class="menu-item">Post Category List</a>
-                           
+                            
                         </div>
                     </div>
                     
                     <div class="nav-item has-sub">
                         <a href="javascript:void(0)"><i class="ik ik-camera"></i><span>Gallery</span> <span class="badge badge-danger"><?php //echo $this->countermodel->total_tag(); ?></span></a>
                         <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/gallery/album" class="menu-item"><i class="fa fa-list-alt"></i>Album</a>
+                            <a href="<?php echo base_url();?>admin/gallery/album" class="menu-item"><i class="fa fa-list-alt"></i>Album <span class="badge badge-danger"><?php echo $this->countermodel->total_album(); ?></span></a>
                             
                         </div>
 
                         <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/gallery/photos" class="menu-item"><i class="fa fa-camera"></i>Photos</a>
+                            <a href="<?php echo base_url();?>admin/gallery/photo" class="menu-item"><i class="fa fa-camera"></i>Photos <span class="badge badge-danger"><?php echo $this->countermodel->total_photo(); ?></span></a>
                             <a href="<?php echo base_url();?>admin/gallery/add_photo" class="menu-item"><i class="fa fa-plus"></i>Add Photo</a>
                             
                         </div>
@@ -80,14 +80,12 @@
 
                     
 
-                     <div class="nav-item has-sub">
+                    <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
                         <div class="submenu-content">
                             <a href="<?php echo base_url();?>admin/settings" class="menu-item">Profile</a>
                         </div>
-                        <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/page_cat_list" class="menu-item">Pages Category List</a>
-                        </div>
+                        
                     </div>
 
                     

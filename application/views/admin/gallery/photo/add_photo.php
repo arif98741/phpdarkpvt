@@ -51,12 +51,33 @@
                 <?php echo form_open_multipart('admin/gallery/save_photo', array('class'=>'forms-sample')); ?>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="form-group">
                             <label for="exampleInputEmail3">Select <strong>PHOTO</strong></label>
-                            <input type="file" name="photo_name" class="form-control" id="exampleInputEmail3" placeholder="Email" required="">
+                            <input type="file" name="photo_name[]" class="form-control" id="exampleInputEmail3" placeholder="Email" required="">
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Select <strong>PHOTO</strong></label>
+                            <input type="file" name="photo_name[]" class="form-control" id="exampleInputEmail3" placeholder="Email" >
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Select <strong>PHOTO</strong></label>
+                            <input type="file" name="photo_name[]" class="form-control" id="exampleInputEmail3" placeholder="Email" >
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="exampleInputEmail3">Select <strong>PHOTO</strong></label>
+                            <input type="file" name="photo_name[]" class="form-control" id="exampleInputEmail3" placeholder="Email" >
+                        </div>
+                    </div>
+
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleSelectGender">Album</label>
@@ -70,7 +91,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                      <div class="form-group">
                         <label for="exampleInputName1">Source</label>
                         <input type="text" name="source" placeholder="http://phpdark.com/about-us/?id=32&action=no&search=abc" class="form-control">
@@ -82,7 +103,7 @@
 
                     <div class="form-group">
                         <label for="exampleTextarea1">Photo Details</label>
-                        <textarea class="form-control" name="blog_description" id="editor1" rows="4" style="background: #ddd; font-size: 16px;"></textarea>
+                        <textarea class="form-control" name="photo_details" id="editor1" rows="4" style="background: #ddd; font-size: 16px;"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light" onclick="return (confirm('are you sure to remove contents?'))">Cancel</button>

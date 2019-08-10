@@ -14,7 +14,7 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->library('session');
-        $this->load->helper('security'); 
+        $this->load->helper('security');
     }
 
     /*
@@ -28,7 +28,7 @@ class Admin extends CI_Controller
             redirect('admin/dashboard');
         }
         $this->load->view('admin/login');
-        
+
     }
 
     /*
@@ -63,7 +63,7 @@ class Admin extends CI_Controller
         if ($this->session->has_userdata('login') && $this->session->role == 'admin')
         {
             redirect('admin/dashboard');
-        } 
+        }
         $username = $this->input->post("username");
         $password = md5($this->input->post("password"));
 
@@ -97,7 +97,7 @@ class Admin extends CI_Controller
 
     /*
     !--------------------------------------------------------
-    !       Login Handeller
+    !       Admin Logout
     !--------------------------------------------------------
     */
     public function logout()
@@ -118,8 +118,6 @@ class Admin extends CI_Controller
         }
 
         $data['users'] = $this->db->get('tbl_user')->result_object();
-        //echo "<pre>";
-        //print_r($data); die;
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/user_list');
@@ -142,56 +140,11 @@ class Admin extends CI_Controller
 		));
 		$this->db->where('user_id',$user_id);
 		$this->db->update('tbl_user');
-		
+
 		$this->session->set_flashdata('success', 'User Successfully Updated');
 		redirect('admin/user_list');
     }
 
-
-
-    /*
-    !--------------------------------------------------------
-    !      User API TOKEN
-    !--------------------------------------------------------
-    */
-    public function user_api($user_id="")
-    {
-        if (!$this->session->has_userdata('login')) {
-            redirect('admin');
-        }
-        $this->db->where(array(
-            'user_id ' => $user_id
-        )); 
-        $data['user'] = $this->db->get('tbl_user')->result_object();
-        //echo "<pre>";
-        //print_r($data); die;
-        $this->load->view('admin/lib/header',$data);
-        $this->load->view('admin/lib/sidebar');
-        $this->load->view('admin/user_api');
-        $this->load->view('admin/lib/footer');
-    }
-
-
-
-    /*
-    !--------------------------------------------------------
-    !      Update User API TOKEN
-    !--------------------------------------------------------
-    */
-    public function user_api_update($user_id="")
-    {
-        if (!$this->session->has_userdata('login')) {
-            redirect('admin');
-        }
-        $data['api'] = $this->input->post('api');
-        $this ->db->set($data);
-        $this->db->where(array(
-            'user_id ' => $user_id
-        )); 
-        $this->db->update('tbl_user');
-        $this->session->set_flashdata('success', 'API Updated Successfully');
-        redirect('admin/dashboard');
-    }
 
     /*
     !--------------------------------------------------------
@@ -203,11 +156,10 @@ class Admin extends CI_Controller
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
         }
-        
-      
+
         $this->db->where(array(
             'user_id ' => $user_id
-        )); 
+        ));
         $this->db->delete('tbl_user');
         $this->session->set_flashdata('success', 'User Deleted Successfully');
         redirect('admin/dashboard');
@@ -216,7 +168,7 @@ class Admin extends CI_Controller
 
     /*
     !--------------------------------------------------------
-    !      Delete User
+    !      Admin Settings
     !--------------------------------------------------------
     */
     public function settings()
@@ -227,15 +179,38 @@ class Admin extends CI_Controller
 
         $this->load->helper('directory');
         $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
-        //echo '<pre>';
-        //print_r($data['highlights']); exit;
         $data['website'] = $this->db->get('website')->result_object();
-        
+
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/settings');
         $this->load->view('admin/lib/footer');
-        
     }
+
+    /*
+    !--------------------------------------------------------
+    !      Save Settings
+    !--------------------------------------------------------
+    */
+    public function save_settings()
+    {
+        if (!$this->session->has_userdata('login')) {
+            redirect('admin');
+        }
+        echo '<pre>';
+        print_r($_POST); exit;
+        print_r($this->session->all_userdata()); exit;
+
+        $this->load->helper('directory');
+        $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
+        $data['website'] = $this->db->get('website')->result_object();
+
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/settings');
+        $this->load->view('admin/lib/footer');
+    }
+
+    
 
 }

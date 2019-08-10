@@ -24,7 +24,7 @@
   <?php endif; ?>
   
   <br>
-  <br>
+  <!-- <br>
   <div class="row">
     <div class="col-md-4">
       <a href="#" class="previous-btn"> Previous</a>
@@ -32,7 +32,7 @@
     <div class="col-md-4  offset-md-4">
       <a href="#" class="next-btn">Next</a>
     </div>
-  </div>
+  </div> -->
 </div>
 </div>
 </div>

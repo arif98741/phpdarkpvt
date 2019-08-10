@@ -115,3 +115,5 @@ define('PER_PAGE', 8);
 
 $path =  pathinfo(__DIR__);
 require $path['dirname'].'../../vendor/autoload.php';
+require $path['dirname'].'../../application/helpers/Help.php';
+

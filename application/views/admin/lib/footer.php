@@ -189,7 +189,6 @@
 <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?php echo base_url();?>assets/admin/node_modules/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo base_url();?>assets/admin/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
 <script src="<?php echo base_url();?>assets/admin/js/tables.js"></script>
 <script src="<?php echo base_url();?>assets/admin/dist/js/theme.min.js"></script>
 <script src="<?php echo base_url();?>assets/admin/js/datatables.js"></script>
