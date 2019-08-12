@@ -317,6 +317,14 @@ class Blog extends CI_Controller
     */
     public function delete_blog($blog_id)
     {
+        $attch_q = $this->db->where('blog_id',$blog_id)->get('tbl_blog')->row();
+        if (file_exists("./uploads/blog/fullwidth/".$attch_q->blog_attachment)) {
+            unlink("./uploads/blog/fullwidth/".$attch_q->blog_attachment);
+        }
+        if (file_exists("./uploads/blog/235X180/".$attch_q->thumb)) {
+            unlink("./uploads/blog/235X180/".$attch_q->thumb);
+        }
+
         $this->db->where(array(
             'blog_id ' => $blog_id
         )); 

@@ -47,23 +47,27 @@ class Front extends CI_Controller
     */
     public function view_blog($slug,$id)
     {
-        //update view
         $this->load->library('front/bloghelper');
-        $this->bloghelper->increase_view($id);
 
         $data['title'] = $category = '';
         $data['blog'] = $this->blogmodel->single_blog($id);
         if (count($data['blog']) > 0) {
             $category = $data['blog'][0]->tbcid;
             $data['title'] = ucfirst($data['blog'][0]->blog_title);
+            $this->bloghelper->increase_view($id);
+
+            $data['related_blogs'] = $this->blogmodel->related_blog($data['blog'][0]->tbcid,$id);
+            $data['popular_blogs'] = $this->blogmodel->popular_blog(12);
+
+            $this->load->view('front/lib/header',$data);
+            $this->load->view('front/blog_details');
+            $this->load->view('front/lib/footer');
+
+        }else{
+            redirect('/');
         }
 
-        $data['related_blogs'] = $this->blogmodel->related_blog($data['blog'][0]->tbcid,$id);
-        $data['popular_blogs'] = $this->blogmodel->popular_blog(12);
-
-        $this->load->view('front/lib/header',$data);
-        $this->load->view('front/blog_details');
-        $this->load->view('front/lib/footer');
+        
     }
 
 
@@ -155,17 +159,17 @@ class Front extends CI_Controller
         $data['post_id']  = $id;
         $data['post_categories'] = $this->db->order_by('category_title','asc')->limit(8)->get('tbl_post_category')->result_object();
 
-        $this->db->join('tbl_post_tag','tbl_post_tag.post_id = tbl_post.post_id','left')
-        ->join('tbl_tag','tbl_post_tag.tagid = tbl_tag.tagid','left');
+        $this->db->join('tbl_post_tag','tbl_post_tag.post_id = tbl_post.post_id','left');
+        $this->db->join('tbl_tag','tbl_post_tag.tagid = tbl_tag.tagid','left');
         $this->db->where(array(
-                'tbl_post.post_id'=>$id,
-                'tbl_post.post_status'=>"published"
+                'tbl_post.post_id'      =>  $id,
+                'tbl_post.post_status'  =>  "published"
         ));
-        $this->db->or_where('tbl_post.post_slug',$slug);
         $stmt = $this->db->get('tbl_post');
         $post_row = $stmt->result_id->num_rows;
 
         if ($post_row >0) {
+            
             $data['post']     = $stmt->result_object();
             $data['title']    = $data['post'][0]->post_title;
             
