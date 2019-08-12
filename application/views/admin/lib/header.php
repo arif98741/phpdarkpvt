@@ -98,6 +98,7 @@
                                 <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="<?php echo base_url();?>assets/admin/img/logo.png" alt=""></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="<?php echo base_url();?>admin/settings"><i class="ik ik-user dropdown-icon"></i> Profile</a>
+                                    <a class="dropdown-item" href="<?php echo base_url();?>admin/admin/change_password"><i class="ik ik-lock dropdown-icon"></i>Change Password</a>
                                     
                                     <a class="dropdown-item" href="<?php echo base_url();?>admin/admin/logout"><i class="ik ik-power dropdown-icon"></i> Logout</a>
                                 </div>

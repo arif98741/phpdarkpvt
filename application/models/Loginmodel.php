@@ -26,10 +26,7 @@
             $where['username'] = $username;
             $where['password'] = $password;
 
-            $this->db->where(array(
-              'username' => $username,
-              'password' => $password
-           ));
+            $this->db->where($where);
             $result = $this->db->get('tbl_user');
            if($result)
            {

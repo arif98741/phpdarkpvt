@@ -65,7 +65,8 @@ class Admin extends CI_Controller
             redirect('admin/dashboard');
         }
         $username = $this->input->post("username");
-        $password = md5($this->input->post("password"));
+        $password = sha1(md5($this->input->post("password")));
+
 
         $this->load->model('loginmodel');
 
@@ -123,28 +124,6 @@ class Admin extends CI_Controller
         $this->load->view('admin/user_list');
         $this->load->view('admin/lib/footer');
     }
-
-    /*
-    !--------------------------------------------------------
-    !      User List for Institutions
-    !--------------------------------------------------------
-    */
-    public function update_status($user_id,$status)
-    {
-        if (!$this->session->has_userdata('login')) {
-            redirect('admin');
-        }
-
-        $this->db->set(array(
-			'status' =>$status
-		));
-		$this->db->where('user_id',$user_id);
-		$this->db->update('tbl_user');
-
-		$this->session->set_flashdata('success', 'User Successfully Updated');
-		redirect('admin/user_list');
-    }
-
 
     /*
     !--------------------------------------------------------
@@ -212,7 +191,45 @@ class Admin extends CI_Controller
         $this->db->set($data);
         $this->db->update('website');
         $this->session->set_flashdata('success', 'Website Settings Updated Successfully');
-       redirect('admin/dashboard');
+        redirect('admin/dashboard');
+    }
+
+    /*
+    !--------------------------------------------------------
+    !      Change Password
+    !--------------------------------------------------------
+    */
+    public function change_password()
+    {
+        if (!$this->session->has_userdata('login')) {
+            redirect('admin');
+        }
+
+        $this->load->view('admin/lib/header');
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/change_password');
+        $this->load->view('admin/lib/footer');
+    }
+
+
+    /*
+    !--------------------------------------------------------
+    !      Update Password
+    !--------------------------------------------------------
+    */
+    public function update_password()
+    {
+        if (!$this->session->has_userdata('login')) {
+            redirect('admin');
+        }
+
+        $this->db->set(array(
+            'password' => sha1(md5($this->input->post('password')))
+        ));
+
+        $this->db->update('tbl_user');
+        $this->session->set_flashdata('success', 'Password Updated Successfully');
+        redirect('admin/dashboard');
     }
 
 }

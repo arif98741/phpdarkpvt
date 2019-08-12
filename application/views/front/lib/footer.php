@@ -49,7 +49,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="left-copyright">
-            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19 </p>
+            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19 | v1.0.0</p>
           </div>
         </div>
         <div class="col-md-6">
