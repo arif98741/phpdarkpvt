@@ -29,6 +29,7 @@ class Error404 extends CI_Controller
         $this->load->view('front/lib/sidebar.php',$data);
         $this->load->view('errors/cli/publicerror_404');
         $this->load->view('front/lib/footer.php');
+        //thi si sfrontend
     }
 
 
