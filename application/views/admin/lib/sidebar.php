@@ -79,16 +79,6 @@
                     </div>
 
                     
-
-                    <div class="nav-item has-sub">
-                        <a href="#"><i class="ik ik-settings"></i><span>Settings</span></a>
-                        <div class="submenu-content">
-                            <a href="<?php echo base_url();?>admin/settings" class="menu-item">Profile</a>
-                        </div>
-                        
-                    </div>
-
-                    
                 </nav>
             </div>
         </div>

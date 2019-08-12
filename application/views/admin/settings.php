@@ -65,7 +65,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleSelectGender">Select Highlightjs CSS</label>
-                            <select name="highlight" class="form-control" required="" id="post-category-dropdown">
+                            <select name="highlighter" class="form-control" required="" id="post-category-dropdown">
                                 <option selected="" disabled="">Select</option>
                                 <?php foreach ($highlights as $highlight) { ?>
                                     <option value="<?php echo $highlight; ?>" <?php if($highlight == $website[0]->highlighter.".css"): ?>  selected="" <?php endif; ?>><?php echo  $highlight; ?></option>
