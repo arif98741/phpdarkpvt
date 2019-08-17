@@ -28,9 +28,6 @@
         }
 
 
-
-
-
     </style>
     <?php if ($this->session->success): ?>
         <div class="alert bg-primary alert-primary text-white" id="message" role="alert">
@@ -45,7 +42,7 @@
 
 
     <div class="alert bg-primary alert-warning text-white" style="display: none;"  id="url_display" role="alert">
-        <span id="url_display_box"></span>
+        <span id="<url_display_box></url_display_box>"></span>
     </div>
 
     <div class="container-fluid">
@@ -55,8 +52,8 @@
                     <div class="page-header-title">
                         <i class="ik ik-list bg-blue"></i>
                         <div class="d-inline">
-                            <h5>Photos</h5>
-                            <span>All Photos will be shown here</span>
+                            <h5>Photos from (<?php echo $album_name; ?>)</h5>
+                            <span>All Photos from <strong><?php echo $album_name; ?></strong> album will be shown here</span>
                         </div>
                     </div>
                 </div>
@@ -83,8 +80,8 @@
             <?php foreach ($photos as $photo) { ?>
                 <div class="col-sm-2 gallery_image" style="margin-bottom: 20px; " >
                     <img src="<?php echo base_url() . $photo->path; ?>" value="<?php echo base_url() . $photo->path; ?>" class="img-fluid img_data">
-                    <div class="details">
-                        <p>Album: :<?php echo $photo->album_name; ?> <a href="<?php echo base_url();?>admin/gallery/delete_photo/<?php echo $photo->id; ?>" onclick="return(confirm('are you sure to delete photo?'))" class="photo_delete_trigger btn btn-warning btn-sm"><i class="fa fa-trash"></i></a></p>
+                    <div class="details"> 
+                        <p><a href="<?php echo base_url();?>admin/gallery/delete_photo/<?php echo $photo->id; ?>" onclick="return(confirm('are you sure to delete photo?'))" class="photo_delete_trigger btn btn-warning btn-sm"><i class="fa fa-trash"></i></a></p>
                         <!--  -->
                     </div>
                 </div>
@@ -94,21 +91,20 @@
 
             <!-- Language - Comma Decimal Place table end -->
         </div>
-
         <p>
           <?php if($page != 1) :?>
 
-            <a href="<?php echo base_url(); ?>admin/gallery/photo/<?php echo $previous_page; ?>" class="btn btn-info btn-sm">Previous</a>&nbsp;
+            <a href="<?php echo base_url(); ?>admin/gallery/photo_by_album/<?php echo $album_id.'/'.$album_name; ?>/<?php echo $previous_page; ?>" class="btn btn-info btn-sm">Previous</a>&nbsp;
         <?php endif; ?>
 
         <?php
         for($i=1; $i <= $pages; $i++) { ?> 
 
-            <a href="<?php echo base_url(); ?>admin/gallery/photo/<?php echo $i; ?>" <?php if($i==$page): ?> style="font-size: 16px; font-weight: 900;" <?php endif; ?> class="btn btn-info btn-sm"><?php echo $i;?></a>&nbsp;
+            <a href="<?php echo base_url(); ?>admin/gallery/photo_by_album/<?php echo $album_id.'/'.$album_name; ?>/<?php echo $i; ?>" <?php if($i==$page): ?> style="font-size: 16px; font-weight: 900;" <?php endif; ?> class="btn btn-info btn-sm"><?php echo $i;?></a>&nbsp;
         <?php  }?>
 
         <?php if($page != $pages) :?>
-            <a href="<?php echo base_url(); ?>admin/gallery/photo/<?php echo $next_page; ?>" class="btn btn-info btn-sm">Next</a>
+            <a href="<?php echo base_url(); ?>admin/gallery/photo_by_album/<?php echo $album_id.'/'.$album_name; ?>/<?php echo $next_page; ?>" class="btn btn-info btn-sm">Next</a>
         <?php endif; ?>
 
         <span class="text-muted">Showing <?php echo $page; ?> of <?php echo $pages; ?> pages </span> 

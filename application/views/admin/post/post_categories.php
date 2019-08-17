@@ -68,8 +68,8 @@
                                     <td style="text-align: center;"><?php echo $i;?></td>
                                     <td><?php echo $category->category_title;?></td>
                                     <td><?php echo $category->category_order;?></td>
-                                    <td><?php echo date('d-m-y H:iA',strtotime($category->created_at));?></td>
-                                    <td><?php echo date('d-m-y H:iA',strtotime($category->updated_at));?></td>
+                                    <td><?php echo date('d-m-y h:iA',strtotime($category->created_at));?></td>
+                                    <td><?php echo date('d-m-y h:iA',strtotime($category->updated_at));?></td>
                                     <td>
                                        <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
 

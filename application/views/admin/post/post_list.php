@@ -70,8 +70,8 @@
                                                     <td><?php echo $post->post_title;?></td>
                                                     <td><?php echo substr($post->post_description, 0,20);?>....</td>
                                                     <td><?php echo $post->category_title;?></td>
-                                                    <td><?php echo date('d-m-y H:iA',strtotime($post->created));?></td>
-                                                    <td><?php echo date('d-m-y H:iA',strtotime($post->updated));?></td>
+                                                    <td><?php echo date('d-m-y h:iA',strtotime($post->created));?></td>
+                                                    <td><?php echo date('d-m-y h:iA',strtotime($post->updated));?></td>
                                                     <td>
                                                          <a href="<?php echo base_url();?>admin/post/edit_post/<?php echo $post->post_id;?>" class="btn btn-icon btn-primary"><i class="ik ik-edit"></i></a>
 
@@ -93,7 +93,7 @@
                                                              <a href="#" class="btn btn-icon btn-warning" ><i class="ik ik-file-minus"></i></a>
 
                                                          <?php endif; ?>   
-                                                         <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn btn-icon btn-primary" target="_1"><i class="ik ik-search"></i></a>
+                                                         <a href="<?php echo base_url(); ?>post/view/<?php echo $post->post_slug; ?>/<?php echo $post->post_id; ?>" class="btn btn-icon btn-primary" target="_1"><i class="ik ik-eye"></i></a>
                                                     </td>
                                                 </tr>
                                                  <?php  $i++;} ?>

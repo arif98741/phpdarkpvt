@@ -64,7 +64,7 @@
 
                                 <tr>
                                     <td style="text-align: center;"><?php echo $i;?></td>
-                                    <td><?php echo $album->album_name;?></td>
+                                    <td><a href="<?php echo base_url();?>admin/gallery/photo_by_album/<?php echo $album->id.'/'. $album->album_name; ?>"><?php echo $album->album_name;?></a></td>
                                     <td><?php echo $album->total_photo;?></td>
                                     <td>
                                      <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
@@ -115,6 +115,7 @@
                         <tr>
                             <th>Serial</th>
                             <th>Album Name</th>
+                            <th>Total Photo</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
