@@ -82,15 +82,12 @@ class Blog extends CI_Controller
     */
     public function save_blog ()
     {
-        //echo '<pre>';
-       // print_r($_POST); die;
-
         $blog_slug  = str_replace(" ", '-', strtolower($this->input->post('blog_slug')));
         $tagid  = $this->input->post('tagid');
         $data = array(
             'blog_title'       => $this->input->post('blog_title'),
             'tbcid'            => $this->input->post('tbcid'),
-            'blog_slug'        => $blog_slug,
+            'blog_slug'        => strtolower($blog_slug),
             'blog_status'      => $this->input->post('blog_status'),
             'blog_description' => $this->input->post('blog_description'),
             'create'           => date("Y-m-d H:i:s"),
