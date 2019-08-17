@@ -234,7 +234,7 @@
 
                                 <td><?php echo $post->post_title;?></td>
                                 <td><strong><a href="<?php echo base_url(); ?>admin/post/post_by_category/<?php echo $post->catid.'/'.$post->category_title; ?>"><?php echo $post->category_title;?></a></strong></td>
-                                <td><?php echo substr($post->post_description, 0,60);?>....</td>
+                                <td><?php echo substr($post->post_description, 0,30);?>....</td>
                                 <td>2011/04/25</td>
                                 <td><?php echo$post->post_status;?> </td>
                                 <td><?php echo$post->post_status;?> </td>
