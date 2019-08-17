@@ -24,10 +24,11 @@ class Gallery extends CI_Controller
         }
     }
 
+
     /*
-    !--------------------------------------------------------
-    !       Default Function Admin for Homepage
-    !--------------------------------------------------------
+    !========================================
+    !Default Function Admin for Homepage
+    !========================================
     */
     public function album()
     {
@@ -107,12 +108,25 @@ class Gallery extends CI_Controller
     ! Photos
     !========================================
     */
-    public function photo()
+    public function photo($page_id=1)
     {
+        $row  = $this->db->get('photo')->num_rows();
+        $perpage = PER_PAGE_PHOTO_ADMIN;
+        $offset = ($page_id-1) * $perpage;
+        $previous_page      = $page_id - 1;
+        $next_page          = $page_id + 1;
+        $total_no_of_pages  = ceil($row / $perpage);
+        
         $this->db->select('photo.*,album.album_name');
         $this->db->order_by('photo.id', 'desc');
         $this->db->join('album','album.id = photo.album_id');
-        $data['photos'] = $this->db->get('photo')->result_object();
+        $this->db->limit($perpage,$offset);
+        $data['photos']         = $this->db->get('photo')->result_object();
+        $data['page']           = $page_id;
+        $data['pages']          = $total_no_of_pages;
+        $data['next_page']      = $page_id + 1;
+        $data['previous_page']  = $page_id - 1;
+
         $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/gallery/photo/index');
@@ -190,5 +204,62 @@ class Gallery extends CI_Controller
         redirect('admin/gallery/photo');
     }
 
+
+    /*
+    !========================================
+    ! Delete Photo
+    !========================================
+    */
+    public function delete_photo($id)
+    {
+        $attch_q = $this->db->where('id',$id)->get('photo')->row();
+
+        if (file_exists("./".$attch_q->path)) {
+            unlink("./".$attch_q->path);
+        }
+        $this->db->where('id',$id)->delete('photo');
+        $this->session->set_flashdata('success', 'Photo <strong>' . $attch_q->photo_name . '</strong> Deleted Successfully');
+        redirect('admin/gallery/photo');
+        
+    }
+
+    /*
+    !========================================
+    ! Photo By Album
+    !========================================
+    */
+    public function photo_by_album($album_id,$album_name,$page_id=1)
+    {
+       
+        $this->db->where('album_id',$album_id);
+        $row  = $this->db->get('photo')->num_rows();
+        $perpage = PER_PAGE_PHOTO_ADMIN;
+        $offset = ($page_id-1) * $perpage;
+        $previous_page      = $page_id - 1;
+        $next_page          = $page_id + 1;
+        $total_no_of_pages  = ceil($row / $perpage);
+        
+        $this->db->select('photo.*,album.album_name');
+        $this->db->where('album_id',$album_id);
+        $this->db->order_by('photo.id', 'desc');
+        $this->db->join('album','album.id = photo.album_id');
+        $this->db->limit($perpage,$offset);
+        $data['photos']         = $this->db->get('photo')->result_object();
+        $data['page']           = $page_id;
+        $data['pages']          = $total_no_of_pages;
+        $data['next_page']      = $page_id + 1;
+        $data['previous_page']  = $page_id - 1;
+
+
+
+        $data['album_name'] = $album_name;
+        $data['album_id']   = $album_id;
+
+        $this->load->view('admin/lib/header', $data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/gallery/photo/photo_by_album');
+        $this->load->view('admin/lib/footer');
+
+    }
 
 }

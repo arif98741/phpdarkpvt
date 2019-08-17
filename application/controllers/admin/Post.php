@@ -71,7 +71,7 @@ class Post extends CI_Controller
         $data = array(
             'post_title'       => $this->input->post('post_title'),
             'catid'            => $this->input->post('catid'),
-            'post_slug'        => $post_slug,
+            'post_slug'        => strtolower($post_slug),
             'post_status'      => $this->input->post('post_status'),
             'post_description' => $this->input->post('post_description'),
             'created'          => date("Y-m-d H:i:s"),

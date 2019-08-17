@@ -1,4 +1,5 @@
 <?php
+use config\helpers\Help;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
