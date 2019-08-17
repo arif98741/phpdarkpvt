@@ -69,7 +69,7 @@
                                     <td style="text-align: center;"><?php echo $i;?></td>
                                     <td><?php echo $page->page_title;?></td>
                                     <td><?php echo substr($page->page_description, 0,40);?>....</td>
-                                    <td><?php echo $page->category_title;?></td>
+                                    <td style="text-align: center;"><?php echo $page->category_title;?></td>
                                     <td><?php echo date('d-m-y H:iA',strtotime($page->create));?></td>
                                     <td><?php echo date('d-m-y H:iA',strtotime($page->update));?></td>
                                     <td>
@@ -93,13 +93,6 @@
                                                  <a href="#" class="btn btn-icon btn-warning" ><i class="ik ik-file-minus"></i></a>
 
                                              <?php endif; ?>   
-
-
-                                             <!-- .ik-file-minus  -->
-
-
-
-
                                          </td>
                                      </tr>
                                      <?php  $i++;} ?>

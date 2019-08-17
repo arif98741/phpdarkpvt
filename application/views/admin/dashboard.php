@@ -1,13 +1,13 @@
 <div class="main-content">
     <?php if($this->session->success): ?>
-    <div class="alert bg-primary alert-primary text-white" id="message" role="alert">
-        <?php echo $this->session->success ;?>
-    </div>
+        <div class="alert bg-primary alert-primary text-white" id="message" role="alert">
+            <?php echo $this->session->success ;?>
+        </div>
     <?php endif; ?>
     <?php if($this->session->error): ?>
-    <div class="alert bg-warning alert-warning text-white" id="message" role="alert">
-        <?php echo $this->session->error ;?>
-    </div>
+        <div class="alert bg-warning alert-warning text-white" id="message" role="alert">
+            <?php echo $this->session->error ;?>
+        </div>
     <?php endif; ?>
     
     <div class="container-fluid">
@@ -18,7 +18,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Posts</h6>
-                                <h2><?php echo $this->countermodel->total_post(); ?></h2>
+                                <h2> <a href="<?php echo base_url(); ?>admin/post/post_list"><?php echo $this->countermodel->total_post(); ?></a> </h2>
                             </div>
                             <div class="icon">
                                 <i class="ik ik-align-left"></i>
@@ -35,7 +35,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Blogs</h6>
-                                <h2><?php echo $this->countermodel->total_blog(); ?></h2>
+                                <h2><a href="<?php echo base_url(); ?>admin/blog/blog_list"><?php echo $this->countermodel->total_blog(); ?></a> </h2>
                             </div>
                             <div class="icon">
                                 <i class="ik ik-list"></i>
@@ -69,7 +69,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Pages</h6>
-                                <h2><?php echo $this->countermodel->total_page(); ?></h2>
+                                <h2><a href="<?php echo base_url();?>admin/page/page_list"><?php echo $this->countermodel->total_page(); ?></a></h2>
                             </div>
                             <div class="icon">
                                 <i class="ik ik-calendar"></i>
@@ -105,7 +105,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Total Album</h6>
-                                <h2><?php echo $this->countermodel->total_album(); ?></h2>
+                                <h2><a href="<?php echo base_url(); ?>admin/gallery/album"><?php echo $this->countermodel->total_album(); ?></a></h2>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-camera-retro"></i>
@@ -117,13 +117,13 @@
                 </div>
             </div>
 
-             <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="widget">
                     <div class="widget-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="state">
                                 <h6>Total Photo</h6>
-                                <h2><?php echo $this->countermodel->total_photo(); ?></h2>
+                                <h2><a href="<?php echo base_url(); ?>admin/gallery/photo"> <?php echo $this->countermodel->total_photo(); ?></a></h2>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-camera"></i>
@@ -214,12 +214,7 @@
                 <table id="data_table" class="table">
                     <thead>
                         <tr>
-                            <th class="nosort" width="10">
-                                <label class="custom-control custom-checkbox m-0">
-                                    <input type="checkbox" class="custom-control-input" id="selectall" name="" value="option2">
-                                    <span class="custom-control-label">&nbsp;</span>
-                                </label>
-                            </th>
+
                             <th>#</th>
                             <th class="nosort">Photo</th>
                             <th>Titlte</th>
@@ -232,30 +227,25 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; foreach ($posts as $post) { ?>
-                        <tr>
-                            <td>
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input select_all_child" id="" name="" value="option2">
-                                    <span class="custom-control-label">&nbsp;</span>
-                                </label>
-                            </td>
-                            <td><?php echo $i;?></td>
-                            <td><img src="<?php echo base_url();?>uploads/post/<?php echo $post->post_attachment;?>" class="table-user-thumb" alt=""></td>
-                            
-                            <td><?php echo $post->post_title;?></td>
-                            <td><?php echo $post->category_title;?></td>
-                            <td><?php echo substr($post->post_description, 0,60);?>....</td>
-                            <td>2011/04/25</td>
-                            <td><?php echo$post->post_status;?> </td>
-                            <td><?php echo$post->post_status;?> </td>
-                        </tr>
-                        <?php  $i++;} ?>
-                        
-                    </tbody>
-                </table>
+                            <tr>
+
+                                <td><?php echo $i;?></td>
+                                <td><img src="<?php echo base_url();?>uploads/post/<?php echo $post->post_attachment;?>" class="table-user-thumb" alt=""></td>
+
+                                <td><?php echo $post->post_title;?></td>
+                                <td><strong><a href="<?php echo base_url(); ?>admin/post/post_by_category/<?php echo $post->catid.'/'.$post->category_title; ?>"><?php echo $post->category_title;?></a></strong></td>
+                                <td><?php echo substr($post->post_description, 0,60);?>....</td>
+                                <td>2011/04/25</td>
+                                <td><?php echo$post->post_status;?> </td>
+                                <td><?php echo$post->post_status;?> </td>
+                            </tr>
+                            <?php  $i++;} ?>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
+
+
         </div>
-        
-        
     </div>
-</div>

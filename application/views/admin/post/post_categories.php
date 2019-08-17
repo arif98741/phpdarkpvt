@@ -1,6 +1,6 @@
 
 <div class="main-content">
-   <?php if($this->session->success): ?>
+ <?php if($this->session->success): ?>
     <div class="alert bg-primary alert-primary text-white" id="message" role="alert">
       <?php echo $this->session->success ;?>
   </div>
@@ -52,8 +52,9 @@
                         class="table table-striped table-bordered nowrap">
                         <thead>
                             <tr>
-                                <th width="10%">Serial</th>
-                                <th width="20%">Category Title</th>
+                                <th width="5%">Serial</th>
+                                <th width="15%">Category Title</th>
+                                <th width="10%">Total Post</th>
                                 <th width="10%">Order</th>
                                 <th width="20%">Created At</th>
                                 <th width="20%">Updated At</th>
@@ -66,14 +67,15 @@
 
                                 <tr>
                                     <td style="text-align: center;"><?php echo $i;?></td>
-                                    <td><?php echo $category->category_title;?></td>
-                                    <td><?php echo $category->category_order;?></td>
-                                    <td><?php echo date('d-m-y h:iA',strtotime($category->created_at));?></td>
-                                    <td><?php echo date('d-m-y h:iA',strtotime($category->updated_at));?></td>
+                                    <td><strong><a href="<?php echo base_url(); ?>admin/post/post_by_category/<?php echo $category->catid.'/'.$category->category_title; ?>"><?php echo $category->category_title;?></a></strong></td>
+                                    <td style="text-align: center;"><?php echo $category->total_post;?></td>
+                                    <td style="text-align: center;"><?php echo $category->category_order;?></td>
+                                    <td style="text-align: center;"><?php echo date('d-m-y h:iA',strtotime($category->created_at));?></td>
+                                    <td style="text-align: center;"><?php echo date('d-m-y h:iA',strtotime($category->updated_at));?></td>
                                     <td>
-                                       <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
+                                     <a href="#" class="btn btn-icon btn-primary" data-toggle="modal" data-target="#exampleModalCenter<?php echo $i+2; ?>"><i class="ik ik-edit"></i></a>
 
-                                       <div class="modal fade" id="exampleModalCenter<?php echo $i+2; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
+                                     <div class="modal fade" id="exampleModalCenter<?php echo $i+2; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterLabel" aria-hidden="true">
                                         <?php echo form_open('admin/post_categories/update/'.$category->catid,array('class'=>''));?>
                                         <div class="modal-dialog modal-dialog-centered" role="document">
 
@@ -110,9 +112,6 @@
 
                                 <a href="<?php echo base_url();?>admin/post_categories/delete/<?php echo $category->catid;?>" class="btn btn-icon btn-warning" onclick="return(confirm('are you sure to delete?'))"><i class="ik ik-trash"></i></a>
 
-                                <a href="#" class="btn btn-icon btn-info" ><i class="ik ik-alert-circle"></i></a>
-
-
 
                             </td>
                         </tr>
@@ -123,6 +122,7 @@
                         <tr>
                             <th>Serial</th>
                             <th>Category Title</th>
+                            <th>Total Post</th>
                             <th>Created At</th>
                             <th>Updated At</th>
                             <th>Action</th>
