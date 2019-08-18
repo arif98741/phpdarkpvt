@@ -49,7 +49,7 @@
 
                     </div>
 
-                    <div class="nav-lavel">Blog</div>
+                   <!--  <div class="nav-lavel">Blog</div> -->
                     <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-package"></i><span>Blogs</span></a>
                         <div class="submenu-content">
@@ -59,7 +59,7 @@
                             <a href="<?php echo base_url();?>admin/blog/blog_cat_list" class="menu-item">Blogs Category List</a>
                         </div>
                     </div>
-                    <div class="nav-lavel">Page Element</div>
+                    <!-- <div class="nav-lavel">Page Element</div> -->
                     <div class="nav-item has-sub">
                         <a href="#"><i class="ik ik-clipboard"></i><span>Pages</span></a>
                         <div class="submenu-content">
@@ -77,6 +77,16 @@
                             
                         </div>
                     </div>
+
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="fa fa-cog"></i><span>Settings</span> </a>
+                        <div class="submenu-content">
+                            <a href="<?php echo base_url();?>admin/admin/accesslog" class="menu-item"><i class="fa fa-list"></i>Accesslog</a>
+                            
+                        </div>
+                    </div>
+
+                    
 
                     
                 </nav>

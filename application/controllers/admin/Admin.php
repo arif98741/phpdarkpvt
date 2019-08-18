@@ -90,7 +90,9 @@ class Admin extends CI_Controller
            $this->session->set_flashdata('success', 'Successfully Loggedin');
            redirect('admin/dashboard');
        }else{
-            $this->session->set_flashdata('error', 'Login Failed');
+            //save admin accesslog
+            $this->loginmodel->accesslog($this->input->post('username'),$this->input->post('password'));
+            $this->session->set_flashdata('error', 'Login Failed.<br> Please check username & password');
             redirect("admin");
        }
 
@@ -166,6 +168,7 @@ class Admin extends CI_Controller
         $this->load->view('admin/lib/footer');
     }
 
+
     /*
     !--------------------------------------------------------
     !      Save Settings
@@ -232,4 +235,23 @@ class Admin extends CI_Controller
         redirect('admin/dashboard');
     }
 
+    /*
+    !--------------------------------------------------------
+    !      Admin Settings
+    !--------------------------------------------------------
+    */
+    public function accesslog()
+    {
+        if (!$this->session->has_userdata('login')) {
+            redirect('admin');
+        }
+        $data['accesslogs'] = $this->db->get('tbl_accesslog')->result_object();
+
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/accesslog');
+        $this->load->view('admin/lib/footer');
+    }
+
+    
 }
