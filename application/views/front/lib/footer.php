@@ -37,8 +37,8 @@
         </div>
         <div class="col">
           <div class="footer-last">
-            <img src="/assets/image/logo.png" alt="">
-            <p>PHPDark.com</p>
+            <img src="<?php echo base_url(); ?>/assets/image/logo.png" alt="">
+            <a href="<?php echo base_url(); ?>site-map">Sitemap</a>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="left-copyright">
-            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19 </p>
+            <p>&copy; Copyright PHPDark.com All Rights Reserved 2018-19 | v1.0.0</p>
           </div>
         </div>
         <div class="col-md-6">

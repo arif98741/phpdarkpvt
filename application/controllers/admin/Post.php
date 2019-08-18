@@ -30,7 +30,12 @@ class Post extends CI_Controller
 
         $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
         $this->db->order_by('tbl_post.post_id','desc');
-        $data['posts'] = $this->db->get('tbl_post')->result_object();
+        $statement            = $this->db->get('tbl_post');
+        $data['posts']        = $statement->result_object();
+        $data['total_post']   = $statement->result_id->num_rows;
+        // echo "<pre>";
+        // print_r($data['total_post']); 
+        //  exit;
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/post/post_list');
@@ -71,7 +76,7 @@ class Post extends CI_Controller
         $data = array(
             'post_title'       => $this->input->post('post_title'),
             'catid'            => $this->input->post('catid'),
-            'post_slug'        => $post_slug,
+            'post_slug'        => strtolower($post_slug),
             'post_status'      => $this->input->post('post_status'),
             'post_description' => $this->input->post('post_description'),
             'created'          => date("Y-m-d H:i:s"),
@@ -228,5 +233,28 @@ class Post extends CI_Controller
         $this->session->set_flashdata('success', 'Post Deleted Successfully');
         redirect('admin/post/post_list');
     }
+
+    /*
+    !===============================================================
+    ! Post By Category
+    ! @param $category_id
+    !===============================================================
+    */
+    public function post_by_category($category_id,$category_title)
+    {
+        $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
+        $this->db->where('tbl_post.catid',$category_id);
+        $this->db->order_by('tbl_post.post_id','desc');
+        $statement            = $this->db->get('tbl_post');
+        $data['posts']        = $statement->result_object();
+        $data['total_post']   = $statement->result_id->num_rows;
+        $data['category_title'] = $category_title;
+        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/sidebar');
+        $this->load->view('admin/post/post_by_category');
+        $this->load->view('admin/lib/footer');
+    }
+
+    
 
 }

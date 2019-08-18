@@ -17,7 +17,7 @@
                 <div class="page-header-title">
                     <i class="ik ik-list bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Posts</h5>
+                        <h5>Posts for (<?php echo str_replace('%20', ' ', $category_title); ?>)</h5>
                         <span>Posts are defination and values of several topics under several cateogories</span>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
             <div class="card">
                 <div class="card-header d-block">
-                    <h3>Post List  (<?php echo $total_post; ?>)</h3>
+                    <h3>Post List   (<?php echo $total_post; ?>)</h3>
                 </div>
                 <div class="card-body">
                     <div class="dt-responsive">
@@ -55,7 +55,6 @@
                                 <th>Serial</th>
                                 <th>Post Title</th>
                                 <th>Post Description</th>
-                                <th>Category</th>
                                 <th>Created</th>
                                 <th>Updated</th>
                                 <th>Action</th>
@@ -69,7 +68,6 @@
                                     <td style="text-align: center;"><?php echo $i;?></td>
                                     <td><?php echo $post->post_title;?></td>
                                     <td><?php echo substr($post->post_description, 0,20);?>....</td>
-                                    <td><strong><a href="<?php echo base_url(); ?>admin/post/post_by_category/<?php echo $post->catid.'/'.$post->category_title; ?>"><?php echo $post->category_title;?></a></strong></td>
                                     <td><?php echo date('d-m-y h:iA',strtotime($post->created));?></td>
                                     <td><?php echo date('d-m-y h:iA',strtotime($post->updated));?></td>
                                     <td>
@@ -104,7 +102,6 @@
                                     <th>Serial</th>
                                     <th>Post Title</th>
                                     <th>Post Description</th>
-                                    <th>Category</th>
                                     <th>Created</th>
                                     <th>Updated</th>
                                     <th>Action</th>

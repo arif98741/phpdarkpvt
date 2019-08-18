@@ -126,10 +126,6 @@ class Countermodel extends CI_Model
         return $result_set = $this->db->get('photo')->num_rows();
 
     }
-
-
-
-
 }
 
 ?>

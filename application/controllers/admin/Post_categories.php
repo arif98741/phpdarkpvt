@@ -1,4 +1,5 @@
 <?php
+use config\helpers\Help;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -27,9 +28,12 @@ class Post_categories extends CI_Controller
     */
     public function index()
     {
-
+        $this->db->select("tbl_post_category.*,count(tbl_post.post_id) as total_post");
+        $this->db->join('tbl_post','tbl_post_category.catid = tbl_post.catid');
+        $this->db->group_by('tbl_post.catid');
         $this->db->order_by('tbl_post_category.category_title','asc');
         $data['categories'] = $this->db->get('tbl_post_category')->result_object();
+    
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/post/post_categories');

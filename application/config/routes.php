@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-//$route['404_override'] 		 = 'error404'; //override by controller
+$route['404_override'] 		 = 'error404'; //override by controller
 $route['default_controller'] = 'front';
 
 
@@ -20,7 +20,7 @@ $route['admin/logout'] 		  	= 'admin/logout'; //for hightlight class list
 
 /*
 !---------------------------------------------------
-! 	Front 
+! 	Front
 !---------------------------------------------------
 */
 $route['blog/view/(:any)/(:num)'] 		= 'front/view_blog/$1/$2';
@@ -34,9 +34,7 @@ $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
 ! 	Main Pages for Front view
 !---------------------------------------------------
 */
-$route['(:any)'] 			    = 'web/frontpage/view_blog/$1';
+$route['(:any)'] 			    = 'web/frontpage/view_page/$1';
 
 
 $route['translate_uri_dashes'] 	= FALSE;
-
-

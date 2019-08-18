@@ -112,6 +112,9 @@ date_default_timezone_set('Asia/Dhaka');
 
 //define
 define('PER_PAGE', 8);
+define('PER_PAGE_PHOTO_ADMIN', 12);
 
 $path =  pathinfo(__DIR__);
 require $path['dirname'].'../../vendor/autoload.php';
+require $path['dirname'].'../../application/helpers/Help.php';
+

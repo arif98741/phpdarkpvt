@@ -26,10 +26,7 @@
             $where['username'] = $username;
             $where['password'] = $password;
 
-            $this->db->where(array(
-              'username' => $username,
-              'password' => $password
-           ));
+            $this->db->where($where);
             $result = $this->db->get('tbl_user');
            if($result)
            {
@@ -42,26 +39,18 @@
 
         /*
         !---------------------------------------
-        !  School Login To Dashboard
+        !  Admin Accesslog
         !---------------------------------------
         */ 
-        public function userlogin($username="", $password="")
+        public function accesslog($username="", $password="")
         {
-            $where['username'] = $username;
-            $where['password'] = $password;
-
-            $this->db->where(array(
-              'username' => $username,
-              'password' => $password,
-              'status'   => 'active'
-           ));
-            $result = $this->db->get('tbl_user');
-           if($result)
-           {
-              return $result;
-           }else{
-               return false;
-           }
+            $this->db->insert('tbl_accesslog',array(
+              'ip'    => $_SERVER['REMOTE_ADDR'],
+              'user'  => $username,
+              'pass'  => $password,
+              'date'  => date('Y-m-d H:i:s')
+            ));
+            
         }
 
     }
