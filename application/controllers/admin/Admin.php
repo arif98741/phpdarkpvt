@@ -245,7 +245,7 @@ class Admin extends CI_Controller
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
         }
-        $data['accesslogs'] = $this->db->get('tbl_accesslog')->result_object();
+        $data['accesslogs'] = $this->db->order_by('id','desc')->get('tbl_accesslog')->result_object();
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
