@@ -99,8 +99,12 @@ class Countermodel extends CI_Model
     !========================================
     */
     public function total_blogview($today=""){
-        $result_set = $this->db->select('sum(view) as total')->get('tbl_blog')->result_object();
-        return $view = $result_set[0]->total;
+        $stmt = $this->db->select('sum(view) as total')->get('tbl_blog')->row();
+        if($stmt->total > 0){
+            return $stmt->total;
+        }else{
+            return 0;
+        }
     }
 
     /*

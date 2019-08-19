@@ -18,6 +18,19 @@
       <title>PHPDark.com - Your Ultimate PHP Guide</title>
     <?php endif; ?>
 
+    <!-- google tag manager for analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106256366-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-106256366-1');
+    </script>
+
+    <!-- google tag manager for analytics -->
+
 
 
   </head>
