@@ -64,9 +64,9 @@
     <!-- copyright section end-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="<?php echo base_url(); ?>assets/front/node_modules/jquery/dist/jquery.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" ></script>
     <script src="<?php echo base_url(); ?>assets/front/node_modules/popper.js/dist/popper.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/front/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/front/js/main.js"></script>
     
   </body>

@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/front/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/front/node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/css/style.css">
   <!--  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"> -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/ocean.css">
