@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="container" style="font-family: 'Open Sans', sans-serif;">
   <div class="row">
     <div class="col-md-9">
       <?php if($blog[0]->blog_attachment != '' || $blog[0]->blog_attachment != null): ?>

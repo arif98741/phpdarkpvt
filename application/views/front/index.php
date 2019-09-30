@@ -8,11 +8,13 @@
       <i class="fa fa-code"></i>
       <p>Code</p>
     </div>
-    <div class="block">
+    <div class="block"  style="display: block">
       <i class="fa fa-free-code-camp"></i>
       <p>Implement</p>
     </div>
-    <p>PHP stands for Hypertext  Pre Processor which is used in web technology for making a web application. After first release in 1995 by Rasmus Lerdorf  PHP becomes popular among web developers around the globe.  This is more simple and easy web programming language in web technology. Nowadays, a lot of websites in all over the world are using PHP for making web apps. More updates, communities, and participation have made this language more efficient and user-friendly.
+    
+    <h2 class="text-muted">PHP Language Introduction</h2><hr>
+    <p style="margin-top: 10px;">PHP stands for Hypertext  Pre Processor which is used in web technology for making a web application. After first release in 1995 by Rasmus Lerdorf  PHP becomes popular among web developers around the globe.  This is more simple and easy web programming language in web technology. Nowadays, a lot of websites in all over the world are using PHP for making web apps. More updates, communities, and participation have made this language more efficient and user-friendly.
 
       PHP is a light language. And for this reason, it runs from server efficiently. Another reason is, server cost for hosting PHP application is cheaper than others such as ASP.NET or Java. Now stable PHP version is 7.3.8. Before this 5.6 was used by developers for a long time...<a href="<?php echo base_url(); ?>post/view/basic-php/41" class="btn btn-sm btn-link">Read more...</a></p>
       <hr>
