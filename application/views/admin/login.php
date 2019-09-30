@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <style>
     @import url(https://fonts.googleapis.com/css?family=Audiowide);
 
@@ -281,133 +281,9 @@
       border-right: 2px solid #ffcc00;
     }
 
-    @keyframes neon {
-      from {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
+    
 
-      to {
-        text-shadow: 
-        0 0 3px #fff,
-        0 0 7px  #fff,
-        0 0 13px  #fff,
-        0 0 17px  #B6FF00,
-        0 0 33px  #B6FF00,
-        0 0 38px  #B6FF00,
-        0 0 48px #B6FF00,
-        0 0 63px #B6FF00;
-      }
-    }
-
-    @keyframes flicker {
-      0% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-
-      2% {
-        text-shadow: none;
-      }
-
-      8% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-
-      10% {
-        text-shadow: none;
-      }
-
-      20% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-
-      22% {
-        text-shadow: none;
-      }
-
-      24% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-
-      28% {
-        text-shadow: none;
-      }
-
-      32% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-
-      34% {
-        text-shadow: none;
-      }
-
-      36% {
-        text-shadow: none;
-      }
-
-      42% {
-        text-shadow: none;
-      }
-
-      100% {
-        text-shadow: 
-        0 0 2.5px #fff,
-        0 0 5px #fff,
-        0 0 7.5px #fff,
-        0 0 10px #B6FF00,
-        0 0 17.5px #B6FF00,
-        0 0 20px #B6FF00,
-        0 0 25px #B6FF00,
-        0 0 37.5px #B6FF00;
-      }
-    }
+   
   </style>
 
 </head>
@@ -446,26 +322,6 @@
     $(document).ready(function() {
 
       var state = false;
-
-    //$("input:text:visible:first").focus();
-
-    $('#accesspanel').on('submit', function(e) {
-
-      e.preventDefault();
-
-      state = !state;
-
-      if (state) {
-        document.getElementById("litheader").className = "poweron";
-        document.getElementById("go").className = "";
-        document.getElementById("go").value = "Initializing...";
-      }else{
-        document.getElementById("litheader").className = "";
-        document.getElementById("go").className = "denied";
-        document.getElementById("go").value = "Access Denied";
-      }
-
-    });
 
   });
 </script>

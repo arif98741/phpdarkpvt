@@ -4,6 +4,18 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="<?php echo base_url();?>assets/front/image/logo.png" type="image/x-icon" />
+  <meta name="description" content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines"/>
+  <!-- facebook og meta -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PHPDark.com - Your Ultimate PHP Guide" />
+  <meta property="og:description" content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines" />
+  <meta property="og:url" content="https://phpdark.com/" />
+  <meta property="og:site_name" content="Phpdark" />
+  <meta property="og:image" content="<?php echo base_url();?>assets/front/image/logo.png" />
+  <meta property="og:image:secure_url" content="<?php echo base_url();?>assets/front/image/logo.png" />
+  <!-- faceboo k og meta -->
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
@@ -30,9 +42,6 @@
     </script>
 
     <!-- google tag manager for analytics -->
-
-
-
   </head>
   <body>
     <!-- navigation start -->
