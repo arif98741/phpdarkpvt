@@ -84,6 +84,9 @@
                             <a href="<?php echo base_url();?>admin/admin/accesslog" class="menu-item"><i class="fa fa-list"></i>Accesslog</a>
                             
                         </div>
+
+
+                        
                     </div>
 
                     

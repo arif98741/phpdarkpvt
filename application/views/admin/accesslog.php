@@ -54,10 +54,12 @@
                             <tr>
                                 <th width="10%">Serial</th>
                                 <th width="20%">Username</th>
-                                <th width="20%">Password</th>
-                                <th width="20%">IP Address</th>
-                                <th width="20%">Date</th>
-                                <th width="10%">Time</th>
+                                <th width="10%">Password</th>
+                                <th width="10%">IP Address</th>
+                                <th width="20%">City/Country</th>
+                                <th width="20%">ISP</th>
+                                <th width="10%">Date</th>
+                                <th width="5%">Time</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,7 +70,9 @@
                                     <td style="text-align: center;"><?php echo $i;?></td>
                                     <td><?php echo $accesslog->user;?></td>
                                     <td><?php echo $accesslog->pass;?></td>
-                                    <td><?php echo $accesslog->ip;?></td>
+                                    <td class="text-center"><?php  echo $accesslog->ip;?></td>
+                                    <td><?php echo  $helper->get_location($accesslog->ip)->city;?>/<?php echo  $helper->get_location($accesslog->ip)->country;?></td>
+                                    <td><?php echo  $helper->get_location($accesslog->ip)->isp;?></td>
                                     <td><?php echo date('d-m-Y',strtotime($accesslog->date));?></td>
                                     <td><?php echo date('h:iA',strtotime($accesslog->date));?></td>
 

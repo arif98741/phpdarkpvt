@@ -42,9 +42,6 @@
     </script>
 
     <!-- google tag manager for analytics -->
-
-
-
   </head>
   <body>
     <!-- navigation start -->

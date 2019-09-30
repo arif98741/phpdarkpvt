@@ -1,6 +1,6 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Admin extends CI_Controller
 {
@@ -245,6 +245,10 @@ class Admin extends CI_Controller
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
         }
+
+    
+        $this->load->library('back/helperlibrary');
+        $data['helper'] = $this->helperlibrary;
         $data['accesslogs'] = $this->db->order_by('id','desc')->get('tbl_accesslog')->result_object();
 
         $this->load->view('admin/lib/header',$data);
