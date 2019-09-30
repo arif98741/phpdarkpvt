@@ -8,7 +8,7 @@ class Helperlibrary extends CI_Model
     {
 
     	$curl_handle=curl_init();
-        curl_setopt($curl_handle,CURLOPT_URL,'http://ip-api.com/json/24.48.0.1');
+        curl_setopt($curl_handle,CURLOPT_URL,'http://ip-api.com/json/'.$ip);
         curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
         curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
         $buffer = curl_exec($curl_handle);
