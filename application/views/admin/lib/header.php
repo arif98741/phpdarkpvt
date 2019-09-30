@@ -21,7 +21,7 @@
 
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/dist/css/theme.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-    <script src="<?php echo base_url();?>assets/admin/src/js/vendor/modernizr-2.8.3.min.js"></script>
+    
 </head>
 
 <body>
