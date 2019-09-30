@@ -16,7 +16,7 @@
                     
                     <div class="nav-item active">
                         <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
-                        <a href="<?php echo base_url();?>" target="_1"><i class="ik ik-eye"></i><span>Visit</span></a>
+                        <a href="<?php echo base_url();?>" target="1"><i class="ik ik-eye"></i><span>Visit</span></a>
                     </div>
                     <div class="nav-item has-sub">
                         <a href="javascript:void(0)"><i class="ik ik-align-left"></i><span>Post</span> <span class="badge badge-danger"><?php echo $this->countermodel->total_post(); ?></span></a>
