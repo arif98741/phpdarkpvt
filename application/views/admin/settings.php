@@ -12,7 +12,7 @@
 <?php endif; ?>   
 
 <div class="container-fluid">
-   <div class="page-header">
+ <div class="page-header">
     <div class="row align-items-end">
         <div class="col-lg-8">
             <div class="page-header-title">
@@ -43,7 +43,7 @@
         <div class="card">
             <div class="card-header"><h3>Settings</h3></div>
             <div class="card-body">
-               <!--  <form class="forms-sample"> -->
+             <!--  <form class="forms-sample"> -->
                 <?php echo form_open_multipart('admin/admin/save_settings', array('class'=>'forms-sample')); ?>
 
                 
@@ -51,13 +51,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputName1">Site Name</label>
-                            <input type="text" name="site_name" class="form-control" id="site_name" value="<?php echo $website[0]->site_name; ?>" placeholder="Enter site name ">
+                            <input type="text" name="site_name" class="form-control" id="site_name" value="<?php echo $website->site_name; ?>" placeholder="Enter site name ">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="exampleInputName1">Site Title</label>
-                            <input type="text" name="title" class="form-control" id="exampleInputName1"  value="<?php echo $website[0]->title; ?>" placeholder="Enter Site Tile ">
+                            <input type="text" name="title" class="form-control" id="exampleInputName1"  value="<?php echo $website->title; ?>" placeholder="Enter Site Tile ">
                         </div>
                     </div>
 
@@ -68,7 +68,7 @@
                             <select name="highlighter" class="form-control" required="" id="post-category-dropdown">
                                 <option selected="" disabled="">Select</option>
                                 <?php foreach ($highlights as $highlight) { ?>
-                                    <option value="<?php echo $highlight; ?>" <?php if($highlight == $website[0]->highlighter.".css"): ?>  selected="" <?php endif; ?>><?php echo  $highlight; ?></option>
+                                    <option value="<?php echo $highlight; ?>" <?php if($highlight == $website->highlighter): ?>  selected="" <?php endif; ?>><?php echo  $highlight; ?></option>
                                 <?php       } ?>
 
                             </select>
@@ -82,47 +82,47 @@
                     </div>
 
                     <div class="col-md-6">
-                     <div class="form-group">
+                       <div class="form-group">
                         <label for="exampleInputName1">Email</label>
-                        <input type="email" name="email" value="<?php echo $website[0]->email; ?>" placeholder="Enter email of site" class="form-control" required="">
+                        <input type="email" name="email" value="<?php echo $website->email; ?>" placeholder="Enter email of site" class="form-control" required="">
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                 <div class="form-group">
+                   <div class="form-group">
                     <label for="exampleInputName1">Mobile</label>
-                    <input type="text" name="mobile"  value="<?php echo $website[0]->email; ?>"  class="form-control">
+                    <input type="text" name="mobile"  value="<?php echo $website->email; ?>"  class="form-control">
                 </div>
             </div>
 
             <div class="col-md-6">
-             <div class="form-group">
+               <div class="form-group">
                 <label for="exampleInputName1">Address</label>
-                <input type="text" name="address"  value="<?php echo $website[0]->address; ?>"  class="form-control">
+                <input type="text" name="address"  value="<?php echo $website->address; ?>"  class="form-control">
             </div>
         </div>
 
 
         <div class="col-md-6">
-         <div class="form-group">
+           <div class="form-group">
             <label for="exampleInputName1">Facebook</label>
-            <input type="text" name="facebook"  value="<?php echo $website[0]->facebook; ?>"  class="form-control">
+            <input type="text" name="facebook"  value="<?php echo $website->facebook; ?>"  class="form-control">
 
         </div>
     </div>
 
     <div class="col-md-6">
-     <div class="form-group">
+       <div class="form-group">
         <label for="exampleInputName1">Youtube</label>
-        <input type="text" name="youtube"  value="<?php echo $website[0]->youtube; ?>"  class="form-control">
+        <input type="text" name="youtube"  value="<?php echo $website->youtube; ?>"  class="form-control">
 
     </div>
 </div>
 
 <div class="col-md-6">
- <div class="form-group">
+   <div class="form-group">
     <label for="exampleInputName1">Github</label>
-    <input type="text" name="github"  value="<?php echo $website[0]->github; ?>"  class="form-control">
+    <input type="text" name="github"  value="<?php echo $website->github; ?>"  class="form-control">
 
 </div>
 </div>
@@ -133,7 +133,7 @@
 <div class="form-group">
     <label for="exampleTextarea1">Short Introduction</label>
     <textarea class="form-control" name="short_introduction" id="editor1" rows="4">
-        <?php  echo $website[0]->short_introduction;  ?>
+        <?php  echo $website->short_introduction;  ?>
     </textarea>
 </div>
 <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -155,15 +155,15 @@
 <script src="<?php echo base_url();?>assets/admin/node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
 
 <script>
-   CKEDITOR.replace( 'editor1' );
-   $('#post_tag').tagsinput();
+ CKEDITOR.replace( 'editor1' );
+ $('#post_tag').tagsinput();
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script>
                    // $(document).ready(function() {
-                     $('#post-category-dropdown').select2();
-                    
+                       $('#post-category-dropdown').select2();
+
 
                    // });
                    

@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/front/css/style.css">
   <!--  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css"> -->
-  <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/ocean.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/front/plugins/hightlight/styles/<?php echo $this->session->h_css; ?>">
 
   <?php if($title !=''): ?>
     <title><?php  echo $title;?> - PHPDark.com</title>
@@ -87,33 +87,34 @@
                   </li>
                   
                 </ul>
-                <!--        <form class="form-inline search-form my-10 my-lg-0">-->
-                  <!--          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
-                  <!--          <button class="btn btn-outline-success search-btn my-2 my-sm-0" type="submit">Search</button>-->
-                  <!--        </form>-->
-                  
-                </div>
-              </nav> 
-              <!-- navigation end -->
-              <!-- below nav start -->
-              <section id="below-nav" style="" style="">
-                <div class="navigation-item">
-                  <a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>&nbsp;Home</a>
-                  <a href="<?php echo base_url();  ?>post/view/html-first-post/39">HTML</a>
-                  <a href="<?php echo base_url();  ?>post/view/css-introduction-/48">CSS</a>
-                  <a href="<?php echo base_url();  ?>post/view/javascript-introduction/49">Javascript</a>
-                  <a href="<?php echo base_url();  ?>post/view/basic-php/41">PHP</a>
-                  <a href="<?php echo base_url(); ?>post/view/codeigniter/40">Codeigniter</a>
-                  <a href="<?php echo base_url(); ?>post/view/laravel/38">Laravel</a>
-                  <!--        <a href="#">Yii</a>-->
-                  <!--        <a href="#">Template</a>-->
-                  <!--        <a href="#">Learning</a>-->
-                  <!--        <a href="#">C</a>-->
-                  <!--        <a href="#">C++</a>-->
-                  <a href="<?php echo base_url(); ?>about-us">About Us</a>
-                  <a href="<?php echo base_url(); ?>contact-us">Contact Us</a>
-                  <a href="<?php echo base_url(); ?>blog">Blog</a>
-                </div>
-              </section>
-              
+                <?php echo form_open('search_hit', array('class'=>'form-inline search-form my-10 my-lg-0')); ?>
+
+                <input class="form-control mr-sm-2" name="key" type="text" placeholder="Search here..." aria-label="Search">
+                <button class="btn btn-outline-success search-btn my-2 my-sm-0" type="submit">Search</button>
+              </form>
+
+            </div>
+          </nav> 
+          <!-- navigation end -->
+          <!-- below nav start -->
+          <section id="below-nav" style="" style="">
+            <div class="navigation-item">
+              <a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>&nbsp;Home</a>
+              <a href="<?php echo base_url();  ?>post/view/html-first-post/39">HTML</a>
+              <a href="<?php echo base_url();  ?>post/view/css-introduction-/48">CSS</a>
+              <a href="<?php echo base_url();  ?>post/view/javascript-introduction/49">Javascript</a>
+              <a href="<?php echo base_url();  ?>post/view/basic-php/41">PHP</a>
+              <a href="<?php echo base_url(); ?>post/view/codeigniter/40">Codeigniter</a>
+              <a href="<?php echo base_url(); ?>post/view/laravel/38">Laravel</a>
+              <!--        <a href="#">Yii</a>-->
+              <!--        <a href="#">Template</a>-->
+              <!--        <a href="#">Learning</a>-->
+              <!--        <a href="#">C</a>-->
+              <!--        <a href="#">C++</a>-->
+              <a href="<?php echo base_url(); ?>about-us">About Us</a>
+              <a href="<?php echo base_url(); ?>contact-us">Contact Us</a>
+              <a href="<?php echo base_url(); ?>blog">Blog</a>
+            </div>
+          </section>
+
     <!-- below nav end -->

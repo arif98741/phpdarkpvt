@@ -34,7 +34,8 @@ $route['post/view/(:any)/(:num)'] 		= 'front/post_details/$1/$2';
 ! 	Main Pages for Front view
 !---------------------------------------------------
 */
-$route['(:any)'] 			    = 'web/frontpage/view_page/$1';
-
+$route['(:any)'] 		= 'web/frontpage/view_page/$1';
+$route['search_hit'] 	= 'web/frontpage/search_hit';
+$route['search/(:any)'] = 'web/frontpage/search_result/$1';
 
 $route['translate_uri_dashes'] 	= FALSE;

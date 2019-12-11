@@ -8,6 +8,24 @@ class Blogmodel extends CI_Model
     {
         parent::__construct();
         $this->db = $this->load->database("default", TRUE);
+        if (!$this->session->h_css) {
+            
+            $website = $this->db->select('highlighter')->get('website')->row();
+            $this->session->set_userdata(['h_css'=>$website->highlighter]);
+        }
+    }
+
+    /*
+    !========================================
+    ! Home Blogs
+    !========================================
+    */
+    public function home_blogs($limit = 3)
+    {
+         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
+        $this->db->where('blog_status','published');
+        $this->db->order_by('tbl_blog.blog_id','desc')->limit($limit);
+        return $this->db->get('tbl_blog')->result_object();
     }
 
     /*
@@ -18,8 +36,8 @@ class Blogmodel extends CI_Model
     public function single_blog($id)
     {
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
+        $this->db->where(['blog_id' => $id,'blog_status' => 'published']);
         $this->db->order_by('tbl_blog.blog_id','desc');
-        $this->db->where('blog_id',$id);
         return $this->db->get('tbl_blog')->result_object();
     }
 
@@ -32,7 +50,7 @@ class Blogmodel extends CI_Model
     public function related_blog($category,$id,$limit=3)
     {
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid')->order_by('rand()');
-        $this->db->where(['tbl_blog.tbcid'=>$category]);
+        $this->db->where(['tbl_blog.tbcid'=>$category,'tbl_blog.blog_status' => 'published']);
         $this->db->limit($limit);
         $this->db->where(['tbl_blog.blog_id !='=>$id]);
         return$this->db->get('tbl_blog')->result_object();
@@ -48,7 +66,7 @@ class Blogmodel extends CI_Model
     public function popular_blog($limit=12)
     {
         $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid')->order_by('tbl_blog.view','desc');
-        $this->db->limit($limit);
+         $this->db->where(['tbl_blog.blog_status' => 'published'])->limit($limit);
         return $this->db->get('tbl_blog')->result_object();
     }
 
