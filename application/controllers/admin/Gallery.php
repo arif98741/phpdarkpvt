@@ -33,10 +33,10 @@ class Gallery extends CI_Controller
     public function album()
     {
         $this->db->select('album.*, count(photo.id) as total_photo');
-        $this->db->join('photo','photo.album_id = album.id','left');
+        $this->db->join('album','photo.album_id = album.id','left');
         $this->db->group_by('photo.album_id');
         $this->db->order_by('album_name', 'asc');
-        $data['albums'] = $this->db->get('album')->result_object();
+        $data['albums'] = $this->db->get('photo')->result_object();
         $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/gallery/album/index');

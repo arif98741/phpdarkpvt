@@ -17,8 +17,8 @@
                 <div class="page-header-title">
                     <i class="ik ik-list bg-blue"></i>
                     <div class="d-inline">
-                        <h5>Tags</h5>
-                        <span>Tags will help to indentify sevelral posts</span>
+                        <h5>Accesslog</h5>
+                        <span>Accesslog will help to indentify unauthorized login attempt to server</span>
                     </div>
                 </div>
             </div>
@@ -28,10 +28,8 @@
                         <li class="breadcrumb-item">
                             <a href="<?php echo base_url();?>admin/dashboard"><i class="ik ik-home"></i>&nbsp; Home</a>
                         </li>
-                        <li class="breadcrumb-item">
-                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter">Add New</a>
-                        </li>
-                        <li class="breadcrumb-item active" aria-current="page">Post Tags</li>
+                       
+                        <li class="breadcrumb-item active" aria-current="page">Access Logs</li>
                     </ol>
                 </nav>
             </div>
@@ -44,7 +42,7 @@
 
             <div class="card">
                 <div class="card-header d-block">
-                    <h3>Post Tags</h3>
+                    <h3>Accesslogs</h3>
                 </div>
                 <div class="card-body">
                     <div class="dt-responsive">
@@ -63,7 +61,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $i = 1; foreach ($accesslogs as $accesslog) { ?>
+                            <?php 
+
+
+                            $i = 1; foreach ($accesslogs as $accesslog) { ?>
 
 
                                 <tr>

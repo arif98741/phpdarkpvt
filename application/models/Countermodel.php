@@ -115,7 +115,7 @@ class Countermodel extends CI_Model
     */
     public function total_album(){
 
-        return $result_set = $this->db->get('album')->num_rows();
+        return  $this->db->get('album')->num_rows();
 
     }
 

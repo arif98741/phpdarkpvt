@@ -27,11 +27,7 @@ class Front extends CI_Controller
     {
         $data['title'] = '';
 
-        $this->db->join('tbl_blog_category','tbl_blog_category.tbcid = tbl_blog.tbcid');
-        $this->db->where('blog_status','published');
-        $this->db->order_by('tbl_blog.blog_id','desc');
-        $this->db->limit(3);
-        $data['blogs'] = $this->db->get('tbl_blog')->result_object();
+        $data['blogs'] = $this->blogmodel->home_blogs();
         $data['post_categories'] = $this->postmodel->post_categories(8,'asc');
        
         $this->load->view('front/lib/header',$data);
@@ -51,6 +47,7 @@ class Front extends CI_Controller
 
         $data['title'] = $category = '';
         $data['blog'] = $this->blogmodel->single_blog($id);
+
         if (count($data['blog']) > 0) {
             $category = $data['blog'][0]->tbcid;
             $data['title'] = ucfirst($data['blog'][0]->blog_title);

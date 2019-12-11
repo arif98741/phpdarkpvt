@@ -160,7 +160,7 @@ class Admin extends CI_Controller
 
         $this->load->helper('directory');
         $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
-        $data['website'] = $this->db->get('website')->result_object();
+        $data['website'] = $this->db->get('website')->row();
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
@@ -245,11 +245,11 @@ class Admin extends CI_Controller
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
         }
-
-    
         $this->load->library('back/helperlibrary');
         $data['helper'] = $this->helperlibrary;
         $data['accesslogs'] = $this->db->order_by('id','desc')->get('tbl_accesslog')->result_object();
+        //echo '<pre>';
+        //print_r($data['accesslogs']);
 
         $this->load->view('admin/lib/header',$data);
         $this->load->view('admin/lib/sidebar');
