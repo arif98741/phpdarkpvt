@@ -17,6 +17,16 @@
       </p>
       <article><?php echo $blog[0]->blog_description; ?></article>
       <br>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ed+5p-2-bb+pw"
+     data-ad-client="ca-pub-5046219789266403"
+     data-ad-slot="1521665115"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
       <!-- <div class="row">
         <div class="col-md-4">
           <a href="#" class="previous-btn" style="display: block;"> Previous</a>
@@ -36,43 +46,96 @@
         <small><i class="fa fa-clock-o"></i> <?php echo date('d-m-Y, H:ia',strtotime($popular_blog->create)) ?> || <i class="fa fa-eye"></i> <strong><?php echo $popular_blog->view; ?></strong></small>
         <br><hr>
       <?php } ?>
-    </div>
-  </div>
+
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Horizontal ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5046219789266403"
+     data-ad-slot="5341991633"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Horizontal ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5046219789266403"
+     data-ad-slot="5341991633"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+   
+     
+   </div>
+
+ </div>
+ <hr>
+ <div id="disqus_thread"></div>
+ <div class="container">
+  <h2>Related Blogs</h2>
   <hr>
-  <div class="container">
-    <h2>Related Blogs</h2>
-    <hr>
-    <div class="row">
+  <div class="row">
 
-      <?php foreach ($related_blogs as $value) { ?>
+    <?php foreach ($related_blogs as $value) { ?>
 
-        <div class="col-md-3">
+      <div class="col-md-3">
 
-          <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
-            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/235X180/<?php echo $value->thumb; ?>" alt="<?php echo $blog[0]->blog_title; ?>- PHPDark.com" class="" ></a>
+        <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
+          <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/235X180/<?php echo $value->thumb; ?>" alt="<?php echo $blog[0]->blog_title; ?>- PHPDark.com" class="" ></a>
 
-            <?php else: ?>
+          <?php else: ?>
 
-              <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="<?php echo $blog[0]->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a> 
+            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="<?php echo $blog[0]->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a> 
 
-            <?php endif; ?>
+          <?php endif; ?>
 
-            <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php echo $value->blog_title; ?></a></h4>
-            <small>
+          <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php echo $value->blog_title; ?></a></h4>
+          <small>
 
-              <i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, H:ia',strtotime($value->create)); ?> || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?> </strong>
-              
-            </small>
-            <p style="margin: 0px;"><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
-          </div>
-        <?php  } ?>
+            <i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, H:ia',strtotime($value->create)); ?> || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?> </strong>
 
-        <!-- facebook -->
+          </small>
+          <p style="margin: 0px;"><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
+        </div>
+      <?php  } ?>
+
+      <!-- facebook -->
 
 
-      </div>
     </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Horizontal ad -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5046219789266403"
+     data-ad-slot="5341991633"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
   </div>
+</div>
 </div>
 <!-- wrapper end -->
 <!-- social link -->
+<script>
+
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://phpdark-1.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>

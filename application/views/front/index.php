@@ -1,4 +1,5 @@
 <div class="col-md-7">
+
   <div class="right">
     <div class="block">
       <i class="fa fa-book"></i>
@@ -23,6 +24,7 @@
       <hr><h2 class="text-muted">HTML Introduction and Usage</h2><hr>
       <p>Html is a markup language that is mainly used for making layout of a webpage or website It is a base language which deals at user interface. A simple static webpage or dynamic web page both require html for showing results generated from server. It is lightweight and also easy to learn for a beginners who want to start career in web world.<a href="<?php echo base_url(); ?>post/view/html-first-post/39" class="btn btn-sm btn-link">Read more...</a></p>
       <hr>
+      <br>
 
       <div class="latest-blog">
         <h2 class="last_article_headline"><a href="<?php echo base_url(); ?>blog" style="color:#fff; text-decoration: none;">Latest Blogs >></a></h2>

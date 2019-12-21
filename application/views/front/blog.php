@@ -43,7 +43,18 @@
 
       <span class="text-muted">Showing <?php echo $page; ?> of <?php echo $pages; ?> pages </span> 
     </p>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ed+5p-2-bb+pw"
+     data-ad-client="ca-pub-5046219789266403"
+     data-ad-slot="1521665115"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
   </div>
+  
 </div>
 </div>
 <!-- wrapper end -->
