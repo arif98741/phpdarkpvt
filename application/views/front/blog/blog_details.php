@@ -17,8 +17,8 @@
             <?php foreach ($tags as $tag) { ?>
 
             <?php if (!empty($tag->tag_name)) : ?>
-            <a href="#" class="btn btn-success btn-sm" title="<?php echo $tag->tag_name; ?>"><i
-                    class="fa fa-tag"></i>&nbsp;
+            <a href="<?php echo base_url(); ?>blog/tag/<?php echo $tag->tag_name; ?>/1" class="btn btn-success btn-sm"
+                title="<?php echo $tag->tag_name; ?>"><i class="fa fa-tag"></i>&nbsp;
                 <?php echo $tag->tag_name; ?></a>
             <?php endif;
             } ?>

@@ -87,6 +87,23 @@ class Blogmodel extends CI_Model
     }
 
 
+
+    /*
+    !========================================
+    ! Recent Blog 
+    ! @limit 12
+    !========================================
+    */
+    public function recent_blog($limit = 12)
+    {
+        $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid = tbl_blog.tbcid')->order_by('tbl_blog.blog_id', 'desc');
+        $this->db->where(['tbl_blog.blog_status' => 'published'])->limit($limit);
+        return $this->db->get('tbl_blog')->result_object();
+    }
+
+
+
+
     /*
     !========================================
     ! Blog By Category

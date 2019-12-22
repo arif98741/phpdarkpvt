@@ -112,8 +112,10 @@ class Front extends CI_Controller
         $data['category_name'] = $category_name;
         $data['category_id'] = $category_id;
 
+        $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid=tbl_blog.tbcid');
+        $this->db->where('tbl_blog.tbcid', $category_id);
         $row  = $this->db->get('tbl_blog')->num_rows();
-        $perpage = PER_PAGE;
+        $perpage = 10;
         $offset = ($page_id - 1) * $perpage;
         $previous_page      = $page_id - 1;
         $next_page          = $page_id + 1;
@@ -133,6 +135,7 @@ class Front extends CI_Controller
             $data['previous_page']  = $previous_page;
             $data['next_page']      = $next_page;
 
+
             $this->load->view('front/lib/header', $data);
             $this->load->view('front/blog/blog_category');
             $this->load->view('front/lib/footer');
@@ -146,36 +149,43 @@ class Front extends CI_Controller
     !       Blog Tag @param
     !--------------------------------------------------------
     */
-    public function blog_tag($tag)
+    public function blog_tag($tag, $page_id = 1)
     {
+
         $data['title'] = $tag . ' - Blog by Tag ';
 
+        $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid=tbl_blog.tbcid');
+        $this->db->join('tbl_blog_tag', 'tbl_blog_tag.blog_id = tbl_blog.blog_id');
+        $this->db->join('tbl_tag_blog', 'tbl_tag_blog.tagid = tbl_blog_tag.tagid');
+        $this->db->where('tbl_tag_blog.tag_name', $tag);
         $row  = $this->db->get('tbl_blog')->num_rows();
-        $perpage = PER_PAGE;
+        $perpage = 12;
         $offset = ($page_id - 1) * $perpage;
         $previous_page      = $page_id - 1;
         $next_page          = $page_id + 1;
         $total_no_of_pages  = ceil($row / $perpage);
         $this->db->select("*");
         $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid=tbl_blog.tbcid');
-        $this->db->order_by('tbl_blog.blog_id', 'desc');
+        $this->db->join('tbl_blog_tag', 'tbl_blog_tag.blog_id = tbl_blog.blog_id');
+        $this->db->join('tbl_tag_blog', 'tbl_tag_blog.tagid = tbl_blog_tag.tagid');
+        $this->db->where('tbl_tag_blog.tag_name', $tag);
+        $this->db->order_by('tbl_blog.blog_id', 'asc');
         $this->db->limit($perpage, $offset);
         $query          = $this->db->get('tbl_blog');
-        if ($query->num_rows() > 0) {
 
-            $data['blogs']  = $query->result();
-            $data['row']    = $row;
-            $data['page']   = $page_id;
-            $data['pages']  = (int) $total_no_of_pages;
-            $data['previous_page']  = $previous_page;
-            $data['next_page']      = $next_page;
 
-            $this->load->view('front/lib/header', $data);
-            $this->load->view('front/blog');
-            $this->load->view('front/lib/footer');
-        } else {
-            redirect('/', 'refresh');
-        }
+        $data['blogs']  = $query->result();
+        $data['row']    = $row;
+        $data['page']   = $page_id;
+        $data['pages']  = (int) $total_no_of_pages;
+        $data['previous_page']  = $previous_page;
+        $data['next_page']      = $next_page;
+        $data['popular_blogs'] = $this->blogmodel->recent_blog(12);
+        $data['tag'] = $tag;
+
+        $this->load->view('front/lib/header', $data);
+        $this->load->view('front/blog/tag/blog_list');
+        $this->load->view('front/lib/footer');
     }
 
     /*

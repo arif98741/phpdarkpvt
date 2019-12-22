@@ -28,7 +28,7 @@ $route['blog/categories']                 = 'front/view_blog/$1/$2';
 $route['blog/category/(:any)/(:num)/page/(:num)']    = 'front/blog_category/$1/$2/$3';
 $route['blog']                            = 'front/blog';
 $route['blog/(:num)']                     = 'front/blog/$1';
-$route['blog/tag/(:any)']                 = 'front/blog_tag/$1';
+$route['blog/tag/(:any)/(:num)']          = 'front/blog_tag/$1/$2';
 $route['post/view/(:any)/(:num)']         = 'front/post_details/$1/$2';
 
 
