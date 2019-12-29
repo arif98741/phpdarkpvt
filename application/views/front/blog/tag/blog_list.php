@@ -1,3 +1,8 @@
+<style>
+.read-more {
+    color: #000;
+}
+</style>
 <div class="container" style="font-family: 'Open Sans', sans-serif;">
     <div class="row">
         <div class="col-md-9 mt-4">
@@ -34,10 +39,12 @@
                             <small>Posted on <a
                                     href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $value->category_title); ?>/<?php echo $value->tbcid; ?>/page/1"><i><?php echo $value->category_title; ?></i></a>,
                                 12-02-2019</small>
-                            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
-                                labore, iste molestias
-                                totam officiis, illum voluptates fugit corrupti consectetur recusandae repellendus quae
-                                <strong>read more...</strong></p>
+                            <p class="text-justify"><?php echo substr($value->blog_description, 0, 330); ?>
+                                <strong><a
+                                        href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"
+                                        class="read-more">read
+                                        more...</a></strong></p>
+
                         </div>
                     </div>
                     <hr>
@@ -47,9 +54,6 @@
                     <?php else : ?>
                     <p>No Results found for tag <strong><?php echo $tag; ?></strong></p>
                     <?php endif; ?>
-
-
-
 
                     <?php if ($pages > 1) : ?>
                     <p>

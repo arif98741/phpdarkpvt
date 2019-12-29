@@ -41,6 +41,29 @@
                         </div>
                     </div>
 
+
+                    <div class="nav-item has-sub">
+                        <a href="javascript:void(0)"><i class="ik ik-folder-plus"></i><span>Project</span> <span
+                                class="badge badge-danger"><?php echo $this->countermodel->total_category(); ?></span></a>
+                        <div class="submenu-content">
+                            <a href="<?php echo base_url(); ?>admin/project_categories" class="menu-item">Project
+                                Category
+                                List</a>
+
+                        </div>
+
+
+                        <div class="submenu-content">
+                            <a href="<?php echo base_url(); ?>admin/projects" class="menu-item">Project
+                                List</a>
+
+                        </div>
+
+
+                    </div>
+
+
+
                     <div class="nav-item has-sub">
                         <a href="javascript:void(0)"><i class="ik ik-camera"></i><span>Gallery</span> <span
                                 class="badge badge-danger"><?php //echo $this->countermodel->total_tag(); 
@@ -49,7 +72,6 @@
                             <a href="<?php echo base_url(); ?>admin/gallery/album" class="menu-item"><i
                                     class="fa fa-list-alt"></i>Album <span
                                     class="badge badge-danger"><?php echo $this->countermodel->total_album(); ?></span></a>
-
                         </div>
 
                         <div class="submenu-content">
@@ -109,13 +131,7 @@
 
                         </div>
 
-
-
                     </div>
-
-
-
-
                 </nav>
             </div>
         </div>
