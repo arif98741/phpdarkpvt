@@ -54,7 +54,7 @@
 
 
                         <div class="submenu-content">
-                            <a href="<?php echo base_url(); ?>admin/projects" class="menu-item">Project
+                            <a href="<?php echo base_url(); ?>admin/project" class="menu-item">Project
                                 List</a>
 
                         </div>
