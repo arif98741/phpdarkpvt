@@ -1,7 +1,8 @@
 <?php
+
 use config\helpers\Help;
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Frontpage extends CI_Controller
 {
@@ -16,7 +17,6 @@ class Frontpage extends CI_Controller
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('security');
-
     }
 
     /*
@@ -27,31 +27,36 @@ class Frontpage extends CI_Controller
      */
     public function view_page($slug)
     {
+
         $data['title'] = ucfirst(str_replace('-', ' ', $slug));
-        $this->db->where('page_slug',$slug);
+
+        $this->db->where('page_slug', $slug);
         $statement = $this->db->get('tbl_page');
         if ($statement->result_id->num_rows > 0) {
-            $data['page'] = $statement->result_object();
-            $this->load->view('front/lib/header',$data);
+            $data['page'] = $statement->row();
+            $data['meta_description'] = $this->replace_htmlchars($data['page']->page_description);
+
+            $this->load->view('front/lib/header', $data);
             $this->load->view('front/frontpage/frontpage');
             $this->load->view('front/lib/footer');
-        }else{
-            $data['post_categories'] = $this->db->order_by('category_order','asc')->limit(8)->get('tbl_post_category')->result_object();
+        } else {
+            $data['meta_description'] = '';
+            $data['post_categories'] = $this->db->order_by('category_order', 'asc')->limit(8)->get('tbl_post_category')->result_object();
             $data['title'] = 'Error404! Page Not Found - PHPDark.com';
             $data['requested_url'] = Help::current_url();
-            $this->load->view('front/lib/header.php',$data);
-            $this->load->view('front/lib/sidebar.php',$data);
+            $this->load->view('front/lib/header.php', $data);
+            $this->load->view('front/lib/sidebar.php', $data);
             $this->load->view('errors/cli/publicerror_404');
             $this->load->view('front/lib/footer.php');
         }
     }
 
     /*
-     !--------------------------------------------------------
-     !       Page View
-     !       @param slug
-     !--------------------------------------------------------
-     */
+    !--------------------------------------------------------
+    !       Page View
+    !       @param slug
+    !--------------------------------------------------------
+    */
     public function search_hit($key)
     {
         // $data['title'] = ucfirst(str_replace('-', ' ', $slug));
@@ -75,9 +80,28 @@ class Frontpage extends CI_Controller
 
     public function search_result($keyword)
     {
-        
     }
 
-    
+    /*
+    !============================================
+    ! Replace HTML Character
+    !============================================
+    */
+    public  function replace_htmlchars($string)
+    {
+        $data = [
+            '<p>',
+            '</p>',
+            '<strong>',
+            '</strong>',
+            '<h3>',
+            '</h3>'
 
+        ];
+        foreach ($data as $value) {
+            $string = str_replace($value, '', $string);
+        }
+
+        return $string;
+    }
 }

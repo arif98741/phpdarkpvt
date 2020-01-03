@@ -7,10 +7,10 @@ img {
     <div class="right">
 
         <hr>
-        <h3 class="text-muted text-center"><?php echo $post[0]->post_title; ?></h3>
+
+        <h3 class="text-muted text-center"><?php echo $post->post_title; ?></h3>
         <hr>
         <br>
-
 
         <?php foreach ($post as $post_tag) { ?>
 
@@ -19,9 +19,9 @@ img {
         <?php endif; ?>
 
         <?php  } ?>
-        <?php echo str_replace("<pre>", '<pre style="font-size: 15px;"><code class="php">', str_replace('</pre>', '</code></pre>', $post[0]->post_description)); ?>
+        <?php echo str_replace("<pre>", '<pre style="font-size: 15px;"><code class="php">', str_replace('</pre>', '</code></pre>', $post->post_description)); ?>
 
-        <?php if ($post[0]->post_attachment != '') : ?>
+        <?php if ($post->post_attachment != '') : ?>
         <br>
 
         <?php endif; ?>
@@ -65,7 +65,7 @@ hljs.initHighlightingOnLoad();
 })();
 </script>
 
-=======
+
 <script>
 hljs.initHighlightingOnLoad();
 </script>

@@ -1,7 +1,9 @@
 <?php
+
 namespace config\helpers;
 
-class Help{
+class Help
+{
 
     /*
     !============================================
@@ -11,7 +13,6 @@ class Help{
     */
     public function __construct()
     {
-
     }
 
     /*
@@ -30,14 +31,15 @@ class Help{
         return $randomString;
     }
 
+
     /*
     !============================================
     ! Get Current URL
     !============================================
     */
-    public static function current_url($value='')
+    public static function current_url($value = '')
     {
-      return base_url(uri_string());
+        return base_url(uri_string());
     }
 
     /*
@@ -45,11 +47,10 @@ class Help{
     ! Get Total post for each category
     !============================================
     */
-    public static function postPercategory($catid="")
+    public static function postPercategory($catid = "")
     {
-        $this->db->where('catid',$catid);
+        $this->db->where('catid', $catid);
         $row = $this->db->get()->result_id_num_rows;
         return $row;
     }
-
 }

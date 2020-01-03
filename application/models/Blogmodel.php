@@ -38,7 +38,7 @@ class Blogmodel extends CI_Model
         $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid = tbl_blog.tbcid');
         $this->db->where(['blog_id' => $id, 'blog_status' => 'published']);
         $this->db->order_by('tbl_blog.blog_id', 'desc');
-        return $this->db->get('tbl_blog')->result_object();
+        return $this->db->get('tbl_blog')->row();
     }
 
 
