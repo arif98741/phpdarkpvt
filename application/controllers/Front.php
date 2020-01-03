@@ -217,7 +217,7 @@ class Front extends CI_Controller
 
             $data['post']     = $stmt->row();
             $data['title']    = $data['post']->post_title;
-            $data['meta_description'] = str_replace('<p>', '', $data['post']->post_description);
+            $data['meta_description'] = $this->replace_htmlchars( $data['post']->post_description);
 
             $data['post_slug']  = $id;
             $data['sidebar_posts'] = $this->db->where('catid', $data['post']->catid)->order_by('created', 'asc')->get('tbl_post')->result_object();
@@ -230,5 +230,28 @@ class Front extends CI_Controller
         } else {
             redirect('/');
         }
+    }
+
+    /*
+    !============================================
+    ! Replace HTML Character
+    !============================================
+    */
+    public  function replace_htmlchars($string)
+    {
+        $data = [
+            '<p>',
+            '</p>',
+            '<strong>',
+            '</strong>',
+            '<h3>',
+            '</h3>'
+
+        ];
+        foreach ($data as $value) {
+            $string = str_replace($value, '', $string);
+        }
+
+        return $string;
     }
 }
