@@ -6,14 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<?php echo base_url(); ?>assets/front/image/logo.png" type="image/x-icon" />
-    <meta name="description"
-        content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines" />
+
+    <?php if ($meta_description != '') : ?>
+    <meta name="description" content="<?php echo substr($meta_description, 0, 280); ?>" />
+    <?php else : ?>
+    <meta name="description" content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines" />
+    <?php endif; ?>
+
     <!-- facebook og meta -->
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="PHPDark.com - Your Ultimate PHP Guide" />
-    <meta property="og:description"
-        content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines" />
+    <meta property="og:description" content="PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines.PHPDark is a php related tutorial site where basic, advanced, oop can be learned. PHPDark provides project related support and guidelines" />
     <meta property="og:url" content="https://phpdark.com/" />
     <meta property="og:site_name" content="Phpdark" />
     <meta property="og:image" content="<?php echo base_url(); ?>assets/front/image/logo.png" />
