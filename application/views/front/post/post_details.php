@@ -1,8 +1,4 @@
-<style>
-img {
-    width: 100%;
-}
-</style>
+
 <div class="col-md-7">
     <div class="right">
 

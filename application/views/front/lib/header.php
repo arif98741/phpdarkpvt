@@ -56,23 +56,16 @@
 
 <body>
     <!-- navigation start -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <a class="navbar-brand" href="<?php echo base_url(); ?>">PHPDark</a>
+    <div id="navbar">
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>/assets/front/image/logo.png" alt="logo-phpdark.com"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">-</span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item active">
-            <a class="nav-link" href="index.html"><i class="fa fa-home">&nbsp;</i>Home <span class="sr-only">(current)</span></a>
-          </li> -->
-                <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Tutorial </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Project</a>
-          </li> -->
+                
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -129,6 +122,7 @@
 
         </div>
     </nav>
+</div>
     <!-- navigation end -->
     <!-- below nav start -->
     <section id="below-nav">
