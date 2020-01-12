@@ -1,4 +1,4 @@
-<div class="container" style="font-family: 'Open Sans', sans-serif;">
+<div class="container" style="font-family: 'PT Sans', sans-serif; font-size: 18px;">
     <div class="row">
         <div class="col-md-9">
             <?php if ($blog->blog_attachment != '' || $blog->blog_attachment != null) : ?>
