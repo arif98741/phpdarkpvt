@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="<?php echo base_url(); ?>assets/front/image/logo.png" type="image/x-icon" />
+    <link rel="icon" href="<?php echo base_url(); ?>assets/front/image/icon.png" type="image/x-icon" />
 
     <?php if ($meta_description != '') : ?>
     <meta name="description" content="<?php echo substr($meta_description, 0, 280); ?>" />

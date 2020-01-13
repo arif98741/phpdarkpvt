@@ -156,8 +156,9 @@ class Front extends CI_Controller
     */
     public function blog_tag($tag, $page_id = 1)
     {
+        $tag =  str_replace('%20', ' ', $tag); 
 
-        $data['title'] = $tag . ' - Blog by Tag ';
+        $data['title'] = $tag . ' - PHPDark.com ';
         $data['meta_description'] = '';
 
         $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid=tbl_blog.tbcid');
