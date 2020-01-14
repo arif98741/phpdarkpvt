@@ -102,8 +102,6 @@ class Blogmodel extends CI_Model
     }
 
 
-
-
     /*
     !========================================
     ! Blog By Category
@@ -116,6 +114,17 @@ class Blogmodel extends CI_Model
         $this->db->where('tbl_blog.tbcid', $category_id);
         $this->db->order_by('tbl_blog.blog_id', 'desc');
         return $this->db->get('tbl_blog')->result_object();
+    }
+
+
+    /*
+    !========================================
+    ! Blog Tag
+    ! @limit 12
+    !========================================
+    */
+    public function blog_ta($category_id = "")
+    {
     }
 }
 
