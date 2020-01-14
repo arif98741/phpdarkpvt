@@ -24,11 +24,13 @@ class Front extends CI_Controller
     */
     public function index()
     {
-        $data['meta_description'] = '';
-        $data['title'] = '';
-
-        $data['blogs'] = $this->blogmodel->home_blogs();
-        $data['post_categories'] = $this->postmodel->post_categories(8, 'asc');
+        $data = [
+            'meta_description' => '',
+            'title'            => '',
+            'blogs'            => $this->blogmodel->home_blogs(),
+            //'featured_image'   => base_url().'uploads/blog/235X180/',
+            'post_categories'  => $this->postmodel->post_categories(8, 'asc')
+        ];
 
         $this->load->view('front/lib/header', $data);
         $this->load->view('front/lib/sidebar');
@@ -46,9 +48,13 @@ class Front extends CI_Controller
         $this->load->library('front/bloghelper');
         $data['blog'] = $this->blogmodel->single_blog($id);
         $data['tags'] = $this->blogmodel->blog_tags($id);
-
-        $data['title'] = $category = '';
-        $data['meta_description'] = str_replace('<p>', '', $data['blog']->blog_description);
+        $data = [
+            'blog' => $this->blogmodel->single_blog($id),
+            'tags' => $this->blogmodel->blog_tags($id),
+            'title' => '',
+            'category' => '',
+            'meta_description' => str_replace('<p>', '', $data['blog']->blog_description),
+        ];
 
         if (!empty($data['blog'])) {
 
@@ -56,8 +62,9 @@ class Front extends CI_Controller
             $data['title'] = ucfirst($data['blog']->blog_title);
             $this->bloghelper->increase_view($id);
 
-            $data['related_blogs'] = $this->blogmodel->related_blog($data['blog']->tbcid, $id);
-            $data['popular_blogs'] = $this->blogmodel->popular_blog(12);
+            $data['related_blogs']  = $this->blogmodel->related_blog($data['blog']->tbcid, $id);
+            $data['popular_blogs']  = $this->blogmodel->popular_blog(12);
+            $data['featured_image'] = base_url().'uploads/blog/235X180/'.$data['blog']->thumb;
 
             $this->load->view('front/lib/header', $data);
             $this->load->view('front/blog/blog_details');
@@ -157,7 +164,7 @@ class Front extends CI_Controller
     public function blog_tag($tag, $page_id = 1)
     {
 
-        $data['title'] = $tag . ' - Blog by Tag ';
+        $data['title'] = $tag;
         $data['meta_description'] = '';
 
         $this->db->join('tbl_blog_category', 'tbl_blog_category.tbcid=tbl_blog.tbcid');
@@ -178,7 +185,6 @@ class Front extends CI_Controller
         $this->db->order_by('tbl_blog.blog_id', 'asc');
         $this->db->limit($perpage, $offset);
         $query          = $this->db->get('tbl_blog');
-
 
         $data['blogs']  = $query->result();
         $data['row']    = $row;
@@ -217,7 +223,7 @@ class Front extends CI_Controller
 
             $data['post']     = $stmt->row();
             $data['title']    = $data['post']->post_title;
-            $data['meta_description'] = $this->replace_htmlchars( $data['post']->post_description);
+            $data['meta_description'] = $this->replace_htmlchars($data['post']->post_description);
 
             $data['post_slug']  = $id;
             $data['sidebar_posts'] = $this->db->where('catid', $data['post']->catid)->order_by('created', 'asc')->get('tbl_post')->result_object();
