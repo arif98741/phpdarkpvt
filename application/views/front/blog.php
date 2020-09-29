@@ -6,20 +6,22 @@
     <?php foreach ($blogs as $value) { ?>
 
       <div class="col-md-3">
-        <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
-          <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/235X180/<?php echo $value->thumb; ?>" alt="<?php echo $value->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a>
+        <div class="blog-section">
+            <?php if($value->blog_attachment != '' || $value->blog_attachment != null): ?>
+                <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/235X180/<?php echo $value->thumb; ?>" alt="<?php echo $value->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a>
 
-          <?php else: ?>
-            <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="<?php echo $value->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a>  
-          <?php endif; ?>
+            <?php else: ?>
+                <a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"><img src="<?php echo base_url();?>uploads/blog/default.png" alt="<?php echo $value->blog_title; ?>- PHPDark.com" class="img-fluid blog-thumb"></a>
+            <?php endif; ?>
 
-          <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php  echo $value->blog_title; ?></a></h4>
-          <small><i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?>
+            <h4><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>" class="text-muted"><?php  echo $value->blog_title; ?></a></h4>
+            <small><i class="fa fa-clock-o"></i>&nbsp;<?php echo date('d-m-Y, H:ia',strtotime($value->create)) ?>
 
-           || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?></strong>
+                || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?></strong>
 
-        </small>
-          <p><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
+            </small>
+            <p><?php echo substr($value->blog_description, 0,100); ?><a href="<?php echo base_url();?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>"> read more...</a></p>
+        </div>
         </div>
 
       <?php  } ?>

@@ -25,21 +25,13 @@
 
             <hr>
             <p class="text-center">
-                <a
-                    href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $blog->category_title); ?>/<?php echo $blog->tbcid; ?>/page/1"><strong><?php echo $blog->category_title; ?></strong>
+                <a  href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $blog->category_title); ?>/<?php echo $blog->tbcid; ?>/page/1"><strong><?php echo $blog->category_title; ?></strong>
                 </a>; <span><i class="fa fa-calendar"></i> <?php echo date('h.ia d-d-Y', strtotime($blog->create)) ?>
                     || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $blog->view; ?></strong> times</span>
             </p>
             <article><?php echo $blog->blog_description; ?></article>
             <br>
-            <!-- <div class="row">
-        <div class="col-md-4">
-          <a href="#" class="previous-btn" style="display: block;"> Previous</a>
-        </div>
-        <div class="col-md-4  offset-md-4">
-          <a href="#" class="next-btn text-right" style="display: block;">Next</a>
-        </div>
-      </div> -->
+
         </div>
 
         <div class="col-md-3 mt-5">

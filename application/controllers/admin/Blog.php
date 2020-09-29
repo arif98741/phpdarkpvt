@@ -126,7 +126,7 @@ class Blog extends CI_Controller
             }
         }
 
-        for ($i = 0; $i < count($tagid); $i++) {
+        for ($i = 0, $iMax = count($tagid); $i < $iMax; $i++) {
             $this->db->insert('tbl_blog_tag', array(
                 'blog_id' => $insert_id,
                 'tagid'   => $tagid[$i]
