@@ -13,4 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-      - php -v
+      - name: See Version of php
+        run: php -v
