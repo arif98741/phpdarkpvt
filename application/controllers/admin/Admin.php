@@ -27,6 +27,8 @@ class Admin extends CI_Controller
         if ($this->session->has_userdata('login')) {
             redirect('admin/dashboard');
         }
+//        echo sha1(md5('Admin@phpdark2020#@$'));
+//        exit;
         $this->load->view('admin/login');
 
     }

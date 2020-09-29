@@ -1,0 +1,17 @@
+name: Dev Emvironment Work
+
+on:
+  push:
+    branches: [ dev2 ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: See Version of php
+        run: php -v
