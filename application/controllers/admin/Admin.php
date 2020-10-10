@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 
 class Admin extends CI_Controller
@@ -44,11 +44,11 @@ class Admin extends CI_Controller
             redirect('admin');
         }
 
-        $this->db->join('tbl_post_category','tbl_post_category.catid = tbl_post.catid');
-        $this->db->order_by('tbl_post.post_id','desc');
+        $this->db->join('tbl_post_category', 'tbl_post_category.catid = tbl_post.catid');
+        $this->db->order_by('tbl_post.post_id', 'desc');
         $data['posts'] = $this->db->get('tbl_post')->result_object();
 
-        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/dashboard');
         $this->load->view('admin/lib/footer');
@@ -62,8 +62,7 @@ class Admin extends CI_Controller
     */
     public function login()
     {
-        if ($this->session->has_userdata('login') && $this->session->role == 'admin')
-        {
+        if ($this->session->has_userdata('login') && $this->session->role == 'admin') {
             redirect('admin/dashboard');
         }
         $username = $this->input->post("username");
@@ -73,30 +72,30 @@ class Admin extends CI_Controller
         $this->load->model('loginmodel');
 
 
-        $status   = $this->loginmodel->login($username,$password);
+        $status = $this->loginmodel->login($username, $password);
         if ($status->result_id->num_rows > 0) {
 
-           $data     = $status->result_object();
-           $session  = array(
-                    'login'             => true,
-                    'admin'             => 'admin',
-                    'admin_email'       => $data[0]->email,
-                    'organization_name' => $data[0]->organization_name,
-                    'admin_address'     => $data[0]->address,
-                    'admin_role'        => $data[0]->role,
-                    'admin_logo'        => $data[0]->logo,
-                    'admin_status'      => $data[0]->status,
-                    'admin_id'          => $data[0]->user_id,
+            $data = $status->result_object();
+            $session = array(
+                'login' => true,
+                'admin' => 'admin',
+                'admin_email' => $data[0]->email,
+                'organization_name' => $data[0]->organization_name,
+                'admin_address' => $data[0]->address,
+                'admin_role' => $data[0]->role,
+                'admin_logo' => $data[0]->logo,
+                'admin_status' => $data[0]->status,
+                'admin_id' => $data[0]->user_id,
             );
-           $this->session->set_userdata($session);
-           $this->session->set_flashdata('success', 'Successfully Loggedin');
-           redirect('admin/dashboard');
-       }else{
+            $this->session->set_userdata($session);
+            $this->session->set_flashdata('success', 'Successfully Loggedin');
+            redirect('admin/dashboard');
+        } else {
             //save admin accesslog
-            $this->loginmodel->accesslog($this->input->post('username'),$this->input->post('password'));
+            $this->loginmodel->accesslog($this->input->post('username'), $this->input->post('password'));
             $this->session->set_flashdata('error', 'Login Failed.<br> Please check username & password');
             redirect("admin");
-       }
+        }
 
     }
 
@@ -123,7 +122,7 @@ class Admin extends CI_Controller
         }
 
         $data['users'] = $this->db->get('tbl_user')->result_object();
-        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/user_list');
         $this->load->view('admin/lib/footer');
@@ -134,7 +133,7 @@ class Admin extends CI_Controller
     !      Delete User
     !--------------------------------------------------------
     */
-    public function delete_user($user_id="")
+    public function delete_user($user_id = "")
     {
         if (!$this->session->has_userdata('login')) {
             redirect('admin');
@@ -164,7 +163,7 @@ class Admin extends CI_Controller
         $data['highlights'] = directory_map('./assets/front/plugins/hightlight/styles/', FALSE, TRUE);
         $data['website'] = $this->db->get('website')->row();
 
-        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/settings');
         $this->load->view('admin/lib/footer');
@@ -182,15 +181,15 @@ class Admin extends CI_Controller
             redirect('admin');
         }
 
-        $data['site_name']  = $this->input->post('site_name');
-        $data['title']      = $this->input->post('title');
-        $data['highlighter']= $this->input->post('highlighter');
-        $data['email']      = $this->input->post('email');
-        $data['mobile']     = $this->input->post('mobile');
-        $data['address']    = $this->input->post('address');
-        $data['facebook']   = $this->input->post('facebook');
-        $data['youtube']    = $this->input->post('youtube');
-        $data['github']     = $this->input->post('github');
+        $data['site_name'] = $this->input->post('site_name');
+        $data['title'] = $this->input->post('title');
+        $data['highlighter'] = $this->input->post('highlighter');
+        $data['email'] = $this->input->post('email');
+        $data['mobile'] = $this->input->post('mobile');
+        $data['address'] = $this->input->post('address');
+        $data['facebook'] = $this->input->post('facebook');
+        $data['youtube'] = $this->input->post('youtube');
+        $data['github'] = $this->input->post('github');
         $data['short_introduction'] = $this->input->post('short_introduction');
 
         $this->db->set($data);
@@ -249,15 +248,15 @@ class Admin extends CI_Controller
         }
         $this->load->library('back/helperlibrary');
         $data['helper'] = $this->helperlibrary;
-        $data['accesslogs'] = $this->db->order_by('id','desc')->get('tbl_accesslog')->result_object();
+        $data['accesslogs'] = $this->db->order_by('id', 'desc')->get('tbl_accesslog')->result_object();
         //echo '<pre>';
         //print_r($data['accesslogs']);
 
-        $this->load->view('admin/lib/header',$data);
+        $this->load->view('admin/lib/header', $data);
         $this->load->view('admin/lib/sidebar');
         $this->load->view('admin/accesslog');
         $this->load->view('admin/lib/footer');
     }
 
-    
+
 }
