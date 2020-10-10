@@ -43,7 +43,6 @@
             results generated from server. It is lightweight and also easy to learn for a beginners who want to start
             career in web world.<a href="<?php echo base_url(); ?>post/view/html-first-post/39"
                                    class="btn btn-sm btn-link">Read more...</a></p>
-        <hr>
 
         <div class="latest-blog">
             <h2 class="last_article_headline"><a href="<?php echo base_url(); ?>blog"
