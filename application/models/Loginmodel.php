@@ -42,12 +42,13 @@
         !  Admin Accesslog
         !---------------------------------------
         */ 
-        public function accesslog($username="", $password="")
+        public function accesslog($username="", $password="",$status='')
         {
             $this->db->insert('tbl_accesslog',array(
               'ip'    => $_SERVER['REMOTE_ADDR'],
               'user'  => $username,
               'pass'  => $password,
+              'status'  => $status,
               'date'  => date('Y-m-d H:i:s')
             ));
             

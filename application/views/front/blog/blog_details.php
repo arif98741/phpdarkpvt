@@ -1,37 +1,44 @@
 <div class="container">
     <div class="row">
         <div class="col-md-9">
-            <?php if ($blog->blog_attachment != '' || $blog->blog_attachment != null) : ?>
-                <img src="<?php echo base_url(); ?>uploads/blog/fullwidth/<?php echo $blog->blog_attachment; ?>"
-                     alt="<?php echo $blog->blog_title; ?>- PHPDark.com" class="img-fluid blog-details-image">
 
-            <?php else : ?>
-                <img src="<?php echo base_url(); ?>uploads/blog/default.png"
-                     alt="<?php echo $blog->blog_title; ?>- PHPDark.com" style="display: none;"
-                     class="img-fluid blog-details-image">
-            <?php endif; ?>
-            <hr>
-            <h3 class="text-muted text-center" style="text-transform: uppercase ;"><?php echo $blog->blog_title; ?>
-            </h3>
+            <div id="blog-detail-section">
+                <?php if ($blog->blog_attachment != '' || $blog->blog_attachment != null) : ?>
+                    <img src="<?php echo base_url(); ?>uploads/blog/fullwidth/<?php echo $blog->blog_attachment; ?>"
+                         alt="<?php echo $blog->blog_title; ?>- PHPDark.com" class="img-fluid blog-details-image">
 
-            <?php foreach ($tags as $tag) { ?>
+                <?php else : ?>
+                    <img src="<?php echo base_url(); ?>uploads/blog/default.png"
+                         alt="<?php echo $blog->blog_title; ?>- PHPDark.com" style="display: none;"
+                         class="img-fluid blog-details-image">
+                <?php endif; ?>
+                <hr>
+                <h1 class="blog-title text-muted text-center"><?php echo $blog->blog_title; ?>
+                </h1>
+                <div class="tag-section">
+                    <?php foreach ($tags as $tag) { ?>
 
-                <?php if (!empty($tag->tag_name)) : ?>
-                    <a href="<?php echo base_url(); ?>blog/tag/<?php echo $tag->tag_name; ?>/1"
-                       class="btn btn-success btn-sm"
-                       title="<?php echo $tag->tag_name; ?>"><i class="fa fa-tag"></i>&nbsp;
-                        <?php echo $tag->tag_name; ?></a>
-                <?php endif;
-            } ?>
+                        <?php if (!empty($tag->tag_name)) : ?>
+                            <a href="<?php echo base_url(); ?>blog/tag/<?php echo $tag->tag_name; ?>/1"
+                               class="tag-btn btn-sm"
+                               title="<?php echo $tag->tag_name; ?>"><i class="fa fa-tag"></i>&nbsp;
+                                <?php echo $tag->tag_name; ?></a>
+                        <?php endif;
+                    } ?>
+                </div>
 
-            <hr>
-            <p class="text-center">
-                <a href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $blog->category_title); ?>/<?php echo $blog->tbcid; ?>/page/1"><strong><?php echo $blog->category_title; ?></strong>
-                </a>; <span><i class="fa fa-calendar"></i> <?php echo date('h.ia d-d-Y', strtotime($blog->create)) ?>
+                <hr>
+                <p class="text-center">
+                    <a href="<?php echo base_url(); ?>blog/category/<?php echo str_replace(' ', '-', $blog->category_title); ?>/<?php echo $blog->tbcid; ?>/page/1"><strong><?php echo $blog->category_title; ?></strong>
+                    </a>
+                </p>
+                <p class="text-center">
+                    <span><i class="fa fa-calendar"></i> <?php echo date('h.ia d-d-Y', strtotime($blog->create)) ?>
                     || <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $blog->view; ?></strong> times</span>
-            </p>
-            <article><?php echo $blog->blog_description; ?></article>
-            <br>
+                </p>
+                <article><?php echo $blog->blog_description; ?></article>
+                <br>
+            </div>
 
         </div>
 
@@ -89,7 +96,7 @@
                         <i class="fa fa-eye"></i>&nbsp;<strong><?php echo $value->view; ?> </strong>
 
                     </small>
-                    <p ><a
+                    <p><a
                                 href="<?php echo base_url(); ?>blog/view/<?php echo $value->blog_slug; ?>/<?php echo $value->blog_id; ?>">
                             read more...</a></p>
                 </div>
