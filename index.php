@@ -312,4 +312,5 @@ switch (ENVIRONMENT)
  *
  * And away we go...
  */
+phpinfo(); exit;
 require_once BASEPATH.'core/CodeIgniter.php';
