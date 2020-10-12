@@ -89,6 +89,7 @@ class Admin extends CI_Controller
             );
             $this->session->set_userdata($session);
             $this->session->set_flashdata('success', 'Successfully Loggedin');
+            $this->loginmodel->accesslog($this->input->post('username'), $this->input->post('password'));
             redirect('admin/dashboard');
         } else {
             //save admin accesslog
