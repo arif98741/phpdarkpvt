@@ -69,7 +69,7 @@ form .search-form {
     width: 100%;
     margin-bottom: 33px;
     display: block;
-    z-index: 9999999999;
+    z-index: 1;
 
 }
 
@@ -87,6 +87,7 @@ form .search-form {
 #wrapper {
     font-family: Lato, sans-serif;
     padding: 5px 10px;
+    margin-top: 35px;
 }
 
 #wrapper .left .quick-start-head {
@@ -182,11 +183,6 @@ form .search-form {
     padding: 10px 5px
 }
 
-.blog-details-image {
-    margin-top: 10px;
-    width: 100%;
-    height: 450px
-}
 
 #social-link {
     background: #1ebba3;
@@ -249,9 +245,103 @@ form .search-form {
     display: inline-block
 }
 
+#blog-detail-section {
+    margin-top: 62px;
+    display: block;
+    clear: both;
+    width: 100%;
+}
+
+#blog-detail-section .blog-details-image {
+    width: 100%;
+    height: 300px;
+}
+
+#blog-detail-section .blog-title {
+    text-transform: capitalize;
+    font-size: 28px;
+    margin-bottom: 37px;
+}
+
+.tag-section {
+
+}
+
+.tag-section a {
+    padding: 5px 6px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.tag-btn {
+    border: 1px solid #efeff5;
+    background: #647faf;
+    color: #fff;
+    padding: 3px;
+    text-decoration: none;
+}
+
+.tag-btn:hover {
+    border: 1px solid #efeff5;
+    background: #647faf;
+    color: #fff;
+    padding: 3px;
+}
+
+.tag-btn i {
+
+}
+
 /*mobile device media query*/
 @media only screen and (max-width: 600px) {
-    body {
 
+
+    #wrapper {
+        margin-top: 89px;
     }
+
+    #wrapper .block h2 {
+        font-size: 16px !important;
+    }
+
+    #navbar {
+        background: #4a3d5d;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    #blog-detail-section img {
+        width: 100%;
+    }
+
+    #blog-detail-section .blog-details-image {
+        width: 100%;
+        margin-top: 30px;
+        height: 200px;
+        padding: 13px 6px;
+    }
+
+    #blog-detail-section article {
+        text-align: justify;
+        line-height: 33px;
+    }
+
+    .tag-section a {
+        padding: 6px 5px;
+        font-size: 14px;
+        border-radius: 4px;
+        display: inline-block;
+        float: left;
+        margin: 2px;
+    }
+
+    #blog-detail-section article {
+        text-align: justify;
+        line-height: 33px;
+        display: block;
+        width: 100%;
+        clear: both;
+    }
+
 }
