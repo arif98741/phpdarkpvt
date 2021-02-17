@@ -1,4 +1,3 @@
-
 <div class="col-md-7">
     <div class="right">
 
@@ -10,15 +9,16 @@
 
         <?php foreach ($post as $post_tag) { ?>
 
-        <?php if (!empty($post_tag->tag_name)) : ?>
-        <a href="" class="btn btn-success btn-sm"><i class="fa fa-tag"></i>&nbsp; <?php echo $post_tag->tag_name; ?></a>
-        <?php endif; ?>
+            <?php if (!empty($post_tag->tag_name)) : ?>
+                <a href="" class="btn btn-success btn-sm"><i
+                            class="fa fa-tag"></i>&nbsp; <?php echo $post_tag->tag_name; ?></a>
+            <?php endif; ?>
 
-        <?php  } ?>
+        <?php } ?>
         <?php echo str_replace("<pre>", '<pre style="font-size: 15px;"><code class="php">', str_replace('</pre>', '</code></pre>', $post->post_description)); ?>
 
         <?php if ($post->post_attachment != '') : ?>
-        <br>
+            <br>
 
         <?php endif; ?>
 
@@ -63,7 +63,7 @@ hljs.initHighlightingOnLoad();
 
 
 <script>
-hljs.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
 </script>
 
 

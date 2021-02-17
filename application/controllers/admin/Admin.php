@@ -57,7 +57,7 @@ class Admin extends CI_Controller
 
     /*
     !--------------------------------------------------------
-    !       Login Handeller
+    !       Login Handler
     !--------------------------------------------------------
     */
     public function login()
@@ -88,7 +88,7 @@ class Admin extends CI_Controller
                 'admin_id' => $data[0]->user_id,
             );
             $this->session->set_userdata($session);
-            $this->session->set_flashdata('success', 'Successfully Loggedin');
+            $this->session->set_flashdata('success', 'Successfully Logged in To Dashboard');
             $this->loginmodel->accesslog($this->input->post('username'), $this->input->post('password'),'success');
             redirect('admin/dashboard');
         } else {

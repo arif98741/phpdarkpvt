@@ -288,7 +288,6 @@
 
 </head>
 <body>
-
   <div class="background-wrap">
     <div class="background"></div>
   </div>

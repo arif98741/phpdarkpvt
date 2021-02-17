@@ -41,3 +41,7 @@ $route['search_hit'] = 'web/frontpage/search_hit';
 $route['search/(:any)'] = 'web/frontpage/search_result/$1';
 
 $route['translate_uri_dashes'] = FALSE;
+
+//u: adminphp_2021
+// p: admin@phpDark89654*&^%&%5R
+//exit;
