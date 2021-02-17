@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Helperlibrary extends CI_Model
 {
+
     /*front blog helper*/
     public function get_location($ip)
     {
