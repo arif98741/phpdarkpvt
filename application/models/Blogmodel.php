@@ -17,6 +17,18 @@ class Blogmodel extends CI_Model
 
     /*
     !========================================
+    ! All Blogs For Sitemap
+    !========================================
+    */
+    public function all_blogs()
+    {
+        $this->db->where('blog_status', 'published');
+        $this->db->order_by('tbl_blog.blog_id', 'desc');
+        return $this->db->get('tbl_blog')->result_object();
+    }
+
+    /*
+    !========================================
     ! Home Blogs
     !========================================
     */
@@ -56,7 +68,6 @@ class Blogmodel extends CI_Model
     }
 
 
-
     /*
     !========================================
     ! Related Blog 
@@ -85,7 +96,6 @@ class Blogmodel extends CI_Model
         $this->db->where(['tbl_blog.blog_status' => 'published'])->limit($limit);
         return $this->db->get('tbl_blog')->result_object();
     }
-
 
 
     /*
