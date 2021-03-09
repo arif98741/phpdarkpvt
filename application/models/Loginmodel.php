@@ -12,6 +12,7 @@ class LoginModel extends CI_Model
         parent::__construct();
         $this->db = $this->load->database("default", TRUE);
        // $this->load->library('back/helperlibrary', null, 'help');
+        //changes login model
     }
 
     /**
