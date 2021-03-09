@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class helperlibrary extends CI_Model
+class Helperlibrary extends CI_Model
 {
 
     /*front blog helper*/

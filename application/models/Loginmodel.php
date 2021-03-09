@@ -11,7 +11,7 @@ class LoginModel extends CI_Model
     {
         parent::__construct();
         $this->db = $this->load->database("default", TRUE);
-        $this->load->library('back/helperlibrary', null, 'help');
+       // $this->load->library('back/helperlibrary', null, 'help');
     }
 
     /**
@@ -32,7 +32,7 @@ class LoginModel extends CI_Model
      * @param string $password
      * @return bool
      */
-    public function login($username = "", $password = ""): bool
+    public function login($username = "", $password = "")
     {
         $where['username'] = $username;
         $where['password'] = $password;
