@@ -94,6 +94,7 @@ class Frontpage extends CI_Controller
             'blogs' => $this->blogmodel->all_blogs(),
             'posts' => $posts,
         ];
+        $this->curlRequest();
         $this->load->view('front/sitemap/sitemap', $data);
     }
 
@@ -118,5 +119,16 @@ class Frontpage extends CI_Controller
         }
 
         return $string;
+    }
+
+
+    private function curlRequest()
+    {
+        $url = 'http://www.google.com/ping?sitemap=' . base_url() . 'sitemap';
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch); // Close the connection
     }
 }
