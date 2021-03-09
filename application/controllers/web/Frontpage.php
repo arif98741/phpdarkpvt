@@ -82,12 +82,27 @@ class Frontpage extends CI_Controller
     {
     }
 
+    public function sitemap()
+    {
+        $this->db->where('post_status', 'published');
+        $this->db->order_by('tbl_post.post_id', 'desc');
+        $posts = $this->db->get('tbl_post')->result();
+
+
+        $data = [
+            'items' => [1, 2, 4],
+            'blogs' => $this->blogmodel->all_blogs(),
+            'posts' => $posts,
+        ];
+        $this->load->view('front/sitemap/sitemap', $data);
+    }
+
     /*
     !============================================
     ! Replace HTML Character
     !============================================
     */
-    public  function replace_htmlchars($string)
+    public function replace_htmlchars($string)
     {
         $data = [
             '<p>',
